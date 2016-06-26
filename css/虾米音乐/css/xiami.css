@@ -1,0 +1,1687 @@
+*{
+    margin: 0;
+    padding: 0;
+    font: 12px 'Hiragino Sans GB','Microsoft Yahei';
+}
+ul,ol,dl{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+    border:none;
+}
+input{
+    outline: none;
+}
+.clearfix:before,.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.w1104{
+    width: 1104px;
+    margin: 0 auto;
+}
+/*header*/
+.header{
+    height: 60px;
+    background: linear-gradient(to bottom,#fa8723,#f57614);
+    /*线性渐变  linear 线性   gradient 渐变*/
+}
+.headerTop h1{
+    float: left;
+}
+.headerTop h1 a{
+    display: block;
+    background: url("../images/default.png") no-repeat;
+    width: 200px;
+    height: 60px;
+}
+.headerTop h1 a:hover{
+    background-position: 0 -60px;
+}
+.headerTop .nav{
+    float: left;
+    margin-left:7px;
+}
+.headerTop .nav a{
+    line-height: 60px;
+    color:#ffffff;
+    font-size: 16px;
+    text-shadow:0 1px 2px rgba(0,0,0,.5);
+    /*文字阴影*/
+    width: 90px;
+    height: 60px;
+    float: left;
+    text-align: center;
+}
+.headerTop .nav .on{
+    background: linear-gradient(to bottom,#db6600,#f57614);
+}
+.headerTop ul{
+    float: left;
+    margin:15px 0 0 20px;
+    border:1px solid #db6b16;
+    border-radius:1px;
+    width: 243px;
+    height: 28px;
+}
+.headerTop ul li{
+    float: left;
+    width: 60px;
+    text-align: center;
+    border-right:1px solid #db6b16;
+    line-height: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+.headerTop ul li:hover{
+    background: #d75d15;
+}
+.headerTop ul .noBor{
+    border-right:none;
+}
+.headerTop ul li a{
+    color:#ffffff;
+    text-shadow:0 1px 1px rgba(0,0,0,.5);
+    font-size:14px;
+}
+.headerTop .search{
+    float: left;
+    margin:15px 0 0 20px;
+    border:1px solid #db6816;
+    border-radius:1px;
+    position: relative;
+}
+.headerTop input[type=text]{
+    border: 1px solid #db6816;
+    border-radius: 1px;
+    width: 198px;
+    height: 28px;
+    padding-left: 30px;
+}
+.headerTop input[type=button]{
+    width: 28px;
+    height: 28px;
+    background: url("../images/header_icon.png") 0 -45px no-repeat;
+    position: absolute;
+    top:1px;
+    left: 1px;
+    border:none;
+}
+.headerTop .in{
+    float: left;
+    background: #ca671b;
+    border:1px solid #b25415;
+    border-radius:1px;
+    height: 28px;
+    line-height: 28px;
+    text-align:center;
+}
+.headerTop .regist{
+   margin:15px 0 0 15px;
+    width: 56px;
+}
+.headerTop .login{
+    margin:15px 0 0 7px;
+}
+.headerTop .regist:hover,.headerTop .login:hover{
+    background: #c05d11;
+}
+.headerTop .in a{
+    font-size:12px;
+    color:#fff;
+}
+.login a{
+    float: left;
+    width: 60px;
+    line-height: 28px;
+}
+.login .icon {
+    width: 26px;
+    height: 28px;
+    float: left;
+    background: url("../images/header_thirdparty_icon.png") 0 2px no-repeat;
+}
+.login .web{
+    background-position: -24px 2px;
+    border-left:1px solid #b25415;
+    border-right:1px solid #b25415;
+}
+.login a:hover{
+    background-color: #c05d11;
+}
+.subnav{
+    height: 30px;
+    background: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+}
+.subnav a{
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+.navlist ul{
+    float: left;
+    padding-left:102px;
+}
+.navlist ul li{
+    float: left;
+    margin-right: 33px;
+    line-height: 30px;
+    height: 30px;
+
+}
+.navlist ul li a{
+    color:#333333;
+    font-size: 14px;
+}
+.navlist ul li a:hover,.navlist ul .on{
+    color: #f60;
+}
+.navlist ol{
+    float: right;
+    height: 30px;
+}
+.navlist ol li{
+    float: left;
+    margin-left:25px;
+}
+.navlist ol li a{
+    font-size: 12px;
+    font-weight:bold;
+    color:#333;
+    line-height: 30px;
+}
+.navlist ol li i{
+    background: url("../images/header_icon.png") no-repeat;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right:4px;
+}
+.navlist ol li a .vip{
+    background-position:-77px -53px; ;
+}
+.navlist ol li a .play{
+    background-position: -30px -53px;
+}
+.navlist ol li a .down{
+    background-position: -53px -53px;
+}
+.navlist ol li a:hover{
+    color:#f60;
+}
+.navlist ol li a:hover .vip{
+    background-position: -77px -77px;
+}
+.navlist ol li a:hover .play{
+    background-position: -30px -77px;
+}
+.navlist ol li a:hover .down{
+    background-position: -53px -77px;
+}
+/*container*/
+.container{
+    background: #f5f5f5;
+    padding-top: 19px;
+}
+.main .conL{
+    float: left;
+    border: 1px solid #ebebeb;
+    border-radius:3px;
+    background: #fff;
+    width: 740px;
+    padding: 15px;
+}
+.banner{
+    position: relative;
+}
+.banner ul li img{
+    width: 740px;
+    height: 170px;
+}
+.banner ul li{
+    display: none;
+}
+.banner ul li.on{
+    display: block;
+}
+.banner ol{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 70px;
+    height: 18px;
+    border-radius:9px;
+    background:rgba(0,0,0,.3);
+}
+
+.banner ol:hover{
+    background: rgba(0,0,0,.6);
+}
+.banner ol li{
+    float: left;
+    margin: 5px 0 0 5px;
+}
+.banner ol li a{
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: #fff;
+}
+.banner ol .on a,.banner ol li a:hover{
+    background: #ff6600;
+}
+.title{
+    margin:18px 0;
+}
+.title h3{
+    font-size: 18px;
+    color: #333;
+    height: 18px;
+    line-height: 18px;
+}
+.title h3 i{
+    font-style: normal;
+    font-size: 12px;
+    color: #ff9500;
+    vertical-align: 3px;
+}
+.title h3 a{
+    font-size: 12px;
+    color:#f60;
+    vertical-align: 3px;
+}
+.title h3 a:hover{
+    text-decoration: underline;
+}
+.musicList .likeL{
+    float: left;
+    width: 140px;
+}
+.musicList .likeL dl{
+    height: 158px;
+    width: 134px;
+    background: #3a3935;
+    padding: 3px;
+}
+.musicList .likeL dl dt{
+    position: relative;
+    margin-bottom: 6px;
+}
+.musicList .likeL dl dt img{
+    width: 67px;
+    height: 67px;
+    float: left;
+}
+.musicList .likeL dl dt  i{
+    position: absolute;
+    top:47px;
+    left: 47px;
+    width: 46px;
+    height: 46px;
+    background: url("../images/play_icon.png") -2px -2px no-repeat;
+    cursor:pointer;
+}
+.musicList .likeL dl dt  i:hover{
+    background-position: -50px -2px;
+}
+.musicList .likeL dl dd{
+    font-size: 12px;
+    color: #999;
+    line-height: 27px;
+    margin-left: 2px;
+}
+.likeL .today{
+    display: block;
+    font-size: 18px;
+    color: #333;
+    padding-top: 18px;
+    text-align: center;
+}
+.likeR{
+    float: left;
+}
+.box{
+    width: 140px;
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.box dl dt img{
+    width: 140px;
+    height: 140px;
+}
+.box dl{
+    position: relative;
+}
+.box dl dd{
+    height: 24px;
+    background: #f5f5f5;
+    font-size: 12px;
+    line-height: 24px;
+    color: #aaa;
+    padding-left: 5px;
+}
+.box .name{
+    display: block;
+    font-size: 14px;
+    color: #333;
+    padding: 12px 0 7px 0;
+}
+.box .name:hover,.box .singer:hover{
+    text-decoration: underline;
+}
+.box .singer{
+    font-size: 12px;
+    color:#999;
+}
+.box dl dt{
+    position: relative;
+}
+.box dl dt .hideBox{
+    width: 140px;
+    height: 140px;
+    background:rgba(0,0,0,.3);
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+    cursor:pointer;
+}
+.btnHeart{
+    width: 30px;
+    height: 14px;
+    border:1px solid #333;
+    border-radius:2px;
+    background: #fefefe;
+    margin: 5px 0 0 5px;
+    position: relative;
+}
+ .btnHeart .btnX{
+    width: 16px;
+    height: 14px;
+    background: url("../images/icon.png") no-repeat -3px -125px;
+   display: inline-block;
+}
+.btnHeart .btnS{
+    width: 10px;
+    height: 14px;
+    display: inline-block;
+    background: url("../images/icon.png") no-repeat -153px -54px;
+}
+.hideBox .btnP{
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url("../images/play_icon.png") no-repeat 0 -48px;
+    position: absolute;
+    right: 5px;
+    bottom:5px;
+}
+.hideBox .btnP:hover{
+    background-position: -24px -48px;
+}
+.box dl dt:hover .hideBox{
+    display: block;
+}
+ .btnHeart{
+    position: relative;
+}
+ .btnHeart:hover ul{
+    display: block;
+}
+ .btnHeart ul{
+    display: none;
+    width: 85px;
+    height: 75px;
+    background: #fff;
+    border: 1px solid #555555;
+    border-radius:2px;
+    padding: 5px 0;
+    position: absolute;
+    top:-1px;
+    left: -1px;
+}
+.btnHeart ul li{
+    height: 25px;
+    padding-left: 11px;
+    /*background: #ff6700;*/
+}
+/*.hideBox .btnHeart ul li.on{
+    background: #f5914e;
+}*/
+ .btnHeart ul li i{
+    background: url("../images/icon.png") no-repeat -5px -127px;
+    width: 14px;
+    height: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+ .btnHeart ul li .icon2{
+    background-position: -30px -127px;
+    height: 12px;
+}
+ .btnHeart ul li .icon3{
+    background-position: -53px -127px;
+    width: 14px;
+    height: 12px;
+}
+ .btnHeart ul li a{
+    font-size: 12px;
+    color: #333;
+    line-height: 25px;
+}
+.btnHeart ul li:hover{
+    background: #f5914e;
+    cursor: pointer;
+}
+ .btnHeart ul li:hover a{
+    color:#ffffff;
+}
+ .btnHeart ul .list1:hover i{
+    background-position:-5px -151px ;
+}
+ .btnHeart ul .list2:hover i{
+    background-position: -30px -150px;
+}
+ .btnHeart ul .list3:hover i{
+    background-position: -53px -150px;
+}
+/*hideBot*/
+.box dd:hover{
+    background: #aaa;
+    cursor: pointer;
+}
+.box dd:hover .hideBot{
+    display: block;
+}
+.box dd .hideBot{
+    display: none;
+    width: 140px;
+    height: 140px;
+    background: rgba(0,0,0,.7);
+    position: absolute;
+    top:0;
+    left:0;
+}
+.box dd .hideBot p{
+    font-size: 12px;
+    color:#fff;
+    width: 96px;
+    line-height: 18px;
+    padding: 30px 0 0 19px;
+}
+.box dd .hideBot a{
+    display: block;
+    width: 68px;
+    height: 30px;
+    border-radius:3px;
+    background: #999;
+    color:#fff;
+    margin:15px 0 0 36px;
+    font-size:12px;
+    line-height: 30px;
+    text-align: center;
+}
+.box dd .hideBot a:hover{
+    background: #888;
+}
+/*ad*/
+.ad{
+    padding-top: 33px;
+}
+.ad ul li{
+    float: left;
+    margin-right: 13px;
+}
+.ad ul .noMr{
+    margin: 0;
+}
+.ad ul li a img{
+    width: 175px;
+    height: 60px;
+}
+/*newCD*/
+.newCD{
+    margin-top:36px;
+}
+.newCD h3{
+    float: left;
+}
+.newCD ul{
+    float: right;
+    margin-right: 11px;
+}
+.newCD ul li{
+    position: relative;
+    float: left;
+    padding-left: 23px;
+}
+.newCD ul li:after{
+    content: '';
+    display: block;
+    width: 1px;
+    height: 11px;
+    background: #eeebee;
+    position: absolute;
+    top:3px;
+    left:11px;
+}
+.newCD ul .noLine:after{
+    display: none;
+}
+.newCD ul li a{
+    font-size: 12px;
+    color:#333;
+}
+.newCD ul li a:hover,.newCD ul .noLine a{
+    border-bottom: 3px solid #3a3935;
+}
+.first{
+    position: relative;
+}
+.first .noMr{
+    margin: 0;
+}
+.first .btnL,.first .btnR{
+    background: url("../images/page_icon.png") no-repeat;
+    width: 25px;
+    height: 50px;
+    position: absolute;
+}
+.first .btnL{
+    background-position: -25px 0;
+    top:47px;
+    left: -15px;
+}
+.first .btnR{
+    background-position: 0 0;
+    top:47px;
+    right: -15px;
+}
+.first .btnL:hover{
+    background-position: -25px -50px;
+}
+.first .btnR:hover{
+    background-position: 0 -50px;
+}
+.coll{
+    margin-top:39px;
+}
+/*recom*/
+.recom{
+    border-bottom: 1px solid #ebebeb;
+}
+.recom .row{
+    border-top: 1px solid #ebebeb;
+}
+.recom .row .rowOn{
+    height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+}
+.row .rowOn .onL{
+    float: left;
+    width: 390px;
+    margin-left: 10px;
+    line-height: 28px;
+}
+.row .rowOn .onL i{
+    color:#333;
+}
+.row .rowOn .onL span{
+    color:#999;
+}
+.rowOn .onL b{
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: url("../images/glory_icon.png") no-repeat -54px -187px;
+    vertical-align: middle;
+}
+.rowOn .onL em{
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background: url("../images/mv.png") no-repeat;
+    vertical-align: -9px;
+}
+.rowOn p{
+    float: left;
+    color: #aaa;
+    line-height: 28px;
+}
+.row .rowHide .hideL{
+    background: #f5f5f5;
+}
+.rowOn .time{
+    float: right;
+    color: #aaa;
+    line-height: 28px;
+}
+.row .rowHide{
+    background: #f5f5f5;
+    display: none;
+}
+.rowHide .hideL{
+    width: 270px;
+    margin-left: 10px;
+    float: left;
+}
+.rowHide .hideL img{
+    width: 55px;
+    height: 55px;
+    float: left;
+    margin-top:10px;
+}
+.rowHide .hideL .detail{
+    margin-left: 10px;
+    float: left;
+    padding-bottom: 15px;
+}
+.hideL .detail a{
+    display: block;
+    font-size: 12px;
+}
+.hideL .detail .title1{
+    color: #333;
+    font-size: 12px;
+    margin-top: 13px;
+}
+.hideL .detail .name1{
+    color: #999;
+    font-size: 12px;
+    margin-top: 9px;
+}
+.hideL .detail i{
+    width: 18px;
+    height: 12px;
+    display: block;
+    background: url("../images/mv.png") no-repeat;
+    margin-top: 10px;
+}
+.rowHide .hideC{
+    float: left;
+    padding-top: 15px;
+}
+.hideC .box  dl dt .hideBox{
+    display: block;
+}
+.hideC .box{
+    width: 32px;
+}
+.hideM{
+    float: left;
+    margin-left: 38px;
+    padding-top: 12px;
+}
+.hideM img{
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    float: left;
+}
+.hideM p{
+    font-size: 12px;
+    color: #333;
+    float: left;
+    padding-left: 10px;
+    width: 270px;
+}
+.hideR{
+    float: right;
+    color: #aaa;
+    padding:11px 11px 0 0 ;
+}
+.row:hover .rowHide{
+    display: block;
+}
+.row:hover .rowOn{
+    display: none;
+}
+.first .box .user strong{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background: url("../images/user1.jpg") no-repeat;
+    background-size: 100% 100%;
+    vertical-align: -2px;
+}
+.first .box .user .userName{
+    font-size: 12px;
+    color: #999;
+    padding-left: 5px;
+}
+.first .box .user .xmVip{
+    width: 12px;
+    height: 10px;
+    display: inline-block;
+    background: url("../images/icons.png") no-repeat -1px -53px;
+}
+.first .box .user .userHover{
+    display: inline-block;
+    position: relative;
+    height: 20px;
+}
+.first .box .user .userHover:hover .vanish{
+    display: block;
+}
+
+
+
+    /*vanish*/
+.vanish{
+    display: none;
+    width: 345px;
+    height: 231px;
+    background: rgba(0,0,0,.15);
+    border-radius: 2px;;
+    padding: 3px;
+    position: absolute;
+    top:20px;
+    left: -20px;
+}
+.bor{
+    position: absolute;
+    top:-3px;
+    left:46px;
+    width:12px;
+    height: 13px;
+    background: url("../images/box_bg.png") no-repeat -51px -250px;
+}
+.vanish .content{
+    width: 331px;
+    height: 218px;
+    background: #fff;
+    margin: 6px;
+    border:1px solid #c6cacc;
+}
+.conIntro{
+    background: #f5f9fa;
+    height: 80px;
+}
+.conIntro img{
+    float: left;
+    width: 50px;
+    height: 50px;
+    border:1px solid #aaaaaa;
+    margin: 15px 0 0 20px;
+}
+.conIntro .person{
+    float: left;
+    padding:21px 0 0 15px;
+}
+.conIntro .person a{
+    font-size: 12px;
+    color: #333;
+}
+.conIntro .person p{
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+
+}
+.conIntro .person p b{
+    background: url("../images/icon2.png") no-repeat -83px -21px;
+    width: 10px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: -2px;
+}
+.conTotal{
+    height: 46px;
+    line-height: 46px;
+    padding-left: 21px;
+}
+.conTotal span{
+    font-size: 12px;
+    color: #666;
+    padding-right: 11px;
+}
+.conTotal i{
+    font-style: normal;
+    color:#fff;
+    font-size: 14px;
+    display: inline-block;
+    width: 20px;
+    height: 22px;
+    background: #5c7284;
+    border-radius: 2px;
+    line-height: 22px;
+    text-align: center;
+    margin-right: 1px;
+}
+.conNum{
+    height: 40px;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.conNum:hover{
+    cursor: pointer;
+}
+.conNum span{
+    width: 110px;
+    float: left;
+    border-left: 1px solid #f0f0f0;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #999;
+}
+.conNum .noBor{
+    width: 109px;
+    border-left: 0;
+}
+.conNum span i{
+    color: #ff6617;
+    font-style: normal;
+}
+.vanish ul{
+    margin-top: 12px;
+}
+
+.vanish ul li{
+    float: left;
+    width: 81px;
+    height: 24px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    line-height: 24px;
+    text-align: center;
+    margin-left: 20px;
+}
+.vanish ul li:hover{
+    cursor: pointer;
+}
+.vanish ul li:hover span{
+    color: #fa7a19;
+}
+.vanish ul li span{
+    color: #666;
+}
+.vanish ul .font span{
+    color: #ccc;
+}
+.vanish ul li i{
+    background: url("../images/icon2.png") no-repeat -293px -111px;
+    width: 10px;
+    height: 12px;
+    display: inline-block;
+    vertical-align: 0;
+}
+.vanish ul .font i{
+    background: url("../images/btn_follow_play.png") no-repeat 0 -60px;
+    width: 18px;
+    height: 18px;
+    vertical-align: -6px;
+    display: inline-block;
+}
+/*akey*/
+.akey{
+    padding: 15px 0 0 10px;
+}
+.akey p{
+    width: 87px;
+    height: 30px;
+    background: #ff6600;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 30px;
+
+}
+.akey p:hover{
+    background: #e55800;
+    cursor: pointer;
+}
+.akey p i{
+    width: 10px;
+    height: 12px;
+    display: inline-block;
+    background: url("../images/play_icon.png") no-repeat -55px -78px;
+    vertical-align: -1px;
+}
+.akey p span{
+    font-size: 12px;
+    color: #fff;
+    padding-left: 7px;
+}
+/*conR*/
+.conR{
+    float:right;
+    width: 302px;
+}
+.conR .base{
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    background: #fff;
+    font-size: 12px;
+}
+.conR .xmDown{
+    background: url("../images/unlogin_mobile.jpg") no-repeat;
+    width: 285px;
+    height: 125px;
+    padding: 60px 0 0 15px;
+}
+.xmDown img{
+    float: left;
+    width: 114px;
+    height: 114px;
+
+}
+.xmDown div{
+    float: left;
+}
+.xmDown div p{
+    width: 110px;
+    height: 36px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    margin:0 0 18px 25px;
+}
+.xmDown div .iphone{
+    background: #4398de;
+    margin-top: 10px;
+}
+.xmDown div .android{
+    background: #7ca627;
+}
+.xmDown div p i{
+    background:  url("../images/unlogin_icon.png") no-repeat;
+    width: 17px;
+    height: 21px;
+    display: inline-block;
+    margin-left: 13px;
+    margin-right: 11px;
+    cursor: pointer;
+}
+.xmDown div .iphone i{
+    background-position: -8px -39px;
+}
+.xmDown div .android i{
+    background-position: -40px -39px;
+}
+}
+.xmDown div p span{
+    width: 60px;
+    display: inline-block;
+    margin-top: 2px;
+    font: 12px 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+.xmDown div .iphone:hover{
+    background: #378bc4;
+    cursor: pointer;
+}
+.xmDown div .android:hover{
+    background: #688c20;
+    cursor: pointer;
+}
+.quick{
+    width: 300px;
+    height: 127px;
+}
+.quick p{
+    padding: 20px 0 0 15px;
+    height: 60px;
+    border-bottom: 1px solid #ebebeb;
+}
+.quick p span{
+    color: #333;
+    vertical-align: 12px;
+}
+.quick p  i,.quick p  b{
+    background: #e74a3e url("../images/unlogin_icon.png") no-repeat;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.quick p  i{
+    background-position: 4px 4px;
+    margin: 0 15px 0 119px;
+}
+.quick p  i:hover{
+    background-color: #cc293f;
+    cursor: pointer;
+}
+.quick p  b{
+    background-color: #3595cc;
+    background-position:  -30px 4px;
+}
+.quick p  b:hover{
+    background-color: #247eb3;
+    cursor: pointer;
+}
+.quick div .login{
+    color: #ffffff;
+    width: 44px;
+    height: 30px;
+    background: #ff6600;
+    display: inline-block;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 2px;
+    margin: 8px 154px 0 15px;
+}
+.quick div .login:hover{
+    background: #e55800;
+}
+.quick div span{
+    color: #666;
+}
+.quick div .free{
+    color: #ff6600;
+}
+.quick div .free:hover{
+    text-decoration: underline;
+}
+.could a{
+    width: 300px;
+    height: 52px;
+    display: block;
+    background: url("../images/baokong.png") no-repeat;
+}
+.could a:hover{
+    background-position: 0 -52px;
+}
+.muscian .muToday{
+    position: relative;
+    height: 40px;
+    width: 270px;
+    margin: 0 15px;
+    border-bottom: 1px solid #ebebeb;
+}
+.muToday h5{
+    float: left;
+    font-weight: normal;
+    color:#333333;
+    line-height: 40px;
+}
+.muToday a{
+    float: right;
+    width: 18px;
+    height: 11px;
+    background: url("../images/icon1.png") 0 0 no-repeat;
+    margin-top: 15px;
+}
+.muToday a:hover{
+    background-position: 0 -22px;
+}
+.muscian .muDay{
+    margin: 20px 15px 0 15px;
+    position: relative;
+}
+.muscian .muDay img{
+    width: 270px;
+    height: 270px;
+}
+.muscian .muDay .data{
+    position: absolute;
+    top: -7px;
+    left: 7px;
+    width: 67px;
+    height: 77px;
+    background: url("../images/icon1.png") no-repeat -41px 0;
+    color:#fff;
+}
+.muscian .muDay .data span{
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    padding-left: 26px;
+    padding-top:3px;
+
+}
+.muscian .muDay .data b{
+   font-size: 18px;
+    display: block;
+    font-weight: 700;
+    padding-left: 28px;
+}
+.muscian .muDay .data i{
+    font-style: normal;
+    font-size: 12px;
+    display: block;
+    font-weight: 700;
+    padding-left: 21px;
+}
+.muDay em{
+    display: none;
+    position: absolute;
+    top: 114px;
+    left:112px;
+    width: 44px;
+    height: 44px;
+    background: url("../images/play_icon.png") -3px -3px no-repeat;
+}
+.muDay em:hover{
+    background-position: -51px -3px;
+    cursor: pointer;
+}
+.muscian .muDay:hover em{
+    cursor: pointer;
+}
+.muscian .muDay:hover em{
+    display: block;
+}
+.muDay .muHeart{
+    height: 40px;
+    background: #f5f5f5;
+    width: 270px;
+}
+.muDay .muHeart .heart1{
+    float: left;
+    border-right: 1px solid #ebebeb;
+    height: 40px;
+    width: 135px;
+}
+.muDay .muHeart .heart2{
+    width: 134px;
+    height: 40px;
+    float: left;
+}
+.muHeart span{
+    width: 24px;
+    height: 20px;
+    background: url("../images/icon1.png") 0 -171px no-repeat;
+    display: inline-block;
+}
+.muHeart i{
+    width: 24px;
+    height: 18px;
+    background: url("../images/icon1.png") 0 -45px no-repeat;
+    display: inline-block;
+}
+.muDay .muHeart i, .muDay .muHeart span{
+    margin: 10px 0 0 55px;
+}
+.muDay .muHeart  span:hover{
+    background-position: 0 -202px;
+}
+.muDay .muHeart i:hover{
+    background-position: 0 -71px;
+    cursor: pointer;
+}
+.muDay .comment{
+    color: #333;
+    padding:13px 0 13px 2px ;
+}
+.muDay .comment span{
+    color: #999999;
+}
+.muDay .art{
+    color: #999999;
+    padding: 0 0 9px 2px;
+    border-bottom: 1px solid #ebebeb;
+}
+.muDay .zhi{
+    width: 270px;
+    height: 30px;
+    border-radius: 2px;
+    background: #f60;
+    margin-top: 11px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+.muDay .zhi:hover{
+    background: #e55c00;
+    cursor: pointer;
+}
+.tuesday p{
+    width: 270px;
+    height: 40px;
+    border-bottom: 1px solid #ebebeb;
+    line-height: 40px;
+    text-align: center;
+    margin-left: 15px;
+}
+.tuesday ul {
+    padding-top: 10px;
+}
+.tuesday ul li{
+    width: 55px;
+    float: left;
+    margin: 0 0 14px 16px;
+}
+.tuesday ul li div{
+    position: relative;
+}
+.tuesday ul li div,.tuesday ul li div img{
+    width: 55px;
+    height: 55px;
+}
+.tuesday ul li div:hover i{
+    display: block;
+}
+.tuesday ul li div i{
+    display: none;
+    position: absolute;
+    top:15px;
+    left:15px;
+    width: 24px;
+    height: 24px;
+    background: url("../images/play_icon.png") 0 -48px no-repeat ;
+}
+.tuesday ul li div i:hover{
+    background-position: -24px -48px;
+    cursor: pointer;
+}
+.tuesday ul li span{
+    color:#aaa;
+    display: block;
+    text-align: center;
+    padding-top: 6px;
+}
+.studio h5{
+    background: url("../images/tit_hot_room.png") no-repeat 0 0;
+    height: 41px;
+    color:#fff;
+    padding-left: 15px;
+    line-height: 41px;
+}
+.studio ul {
+    padding:10px 0 10px 0;
+}
+.studio ul li{
+    padding:10px 20px 10px 15px;
+}
+.studio ul li img{
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding-left: 15px;
+}
+.studio ul li .mess{
+    float: left;
+    padding:6px 0 0 9px
+}
+.mess p .name{
+    color: #333;
+}
+.mess p  .ico{
+    background: url("../images/icons.png") -1px -53px no-repeat;
+    width: 12px;
+    height: 10px;
+    display: inline-block;
+}
+.mess i{
+    display: inline-block;
+    width: 12px;
+    height: 10px;
+    background: url("../images/sprites.png") -250px -50px no-repeat;
+}
+.mess .lis{
+    color: #999;
+}
+.studio ul li span{
+    float: right;
+    width: 56px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    background: #ff6600;
+    border-radius: 2px;
+    color: #fff;
+    margin-top: 13px;
+}
+.studio ul li span:hover {
+    background: #ec5600;
+    cursor: pointer;
+}
+.studio ul li:hover{
+    background: #e0e0e0;
+}
+/*team*/
+.team .swiBtn{
+    border: 1px solid #ebebeb;
+}
+.team .swiBtn li{
+    width: 74px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    float: left;
+}
+.team .swiBtn li a{
+    color: #333;
+}
+.team .swiBtn .more{
+    position: relative;
+    width: 148px;
+    border-left: 1px solid #ebebeb;
+}
+.team .swiBtn .more i{
+    position: absolute;
+    left: 0;
+    top:40px;
+    width: 148px;
+    height: 1px;
+    background: #fff;
+}
+.team .swiBtn .more .text{
+    color: #f60;
+}
+.team ol{
+    padding: 24px 15px 0;
+}
+.team ol li{
+    margin-bottom: 14px;
+    cursor: pointer;
+}
+.team ol li p{
+    float: left;
+    color: #333;
+}
+.team ol li p:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.team ol li div{
+    float: right;
+    position: relative;
+}
+.team ol li:hover div b{
+    display: block;
+    cursor: pointer;
+}
+.team ol li div span{
+    color: #999;
+    position: absolute;
+    top:0;
+    right: 0;
+}
+.team ol li div b{
+    width: 70px;
+    height: 22px;
+    background: #f60;
+    position: absolute;
+    top: -5px;
+    right: 0;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 1px;
+    display: none;
+    color: #fff;
+}
+/*teamEnd*/
+.rBar{
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    width: 40px;
+    height: 118px;
+}
+.rBar ul{
+    height: 116px;
+    border: 1px solid #d5d5d5;
+    background: #fefefe;
+}
+.rBar ul li{
+    height: 38px;
+    border-bottom: 1px solid #d5d5d5;
+    float: left;
+}
+.rBar ul li .noBorb{
+    border:0;
+}
+.rBar ul .list1{
+    position: relative;
+    padding-right: 8px;
+    height: 38px;
+}
+.rBar ul .list1 i{
+    display: block;
+    width: 20px;
+    height:20px;
+    background: url("../images/footer_icon.png") no-repeat -2px -2px ;
+    margin:10px 0 0 9px;
+
+}
+.rBar ul .list1 span{
+    display: none;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 40px;
+    height: 33px;
+    background: #f60;
+    color: #fff;
+    text-align: center;
+    padding:6px 0 4px 0;
+}
+.rBar ul .list1 .hidden{
+    display: none;
+    position: absolute;
+    top: -41px;
+    left: -154px;
+    width: 142px;
+    height: 164px;
+    background: #f60;
+}
+.rBar ul .list1 .hidden p{
+    color: #fff;
+    height: 31px;
+    text-align: center;
+    line-height:31px;
+}
+.rBar ul .list1 .hidden img{
+    width: 127px;
+    height: 127px;
+    padding-left: 8px;
+}
+.rBar ul .list1 .hidden b{
+    position: absolute;
+    left: 134px;
+top: 44px;
+font-size: 30px;
+color: #f60;
+}
+.rBar ul .list1:hover .hidden{
+    display: block;
+    cursor: pointer;
+}
+.rBar ul .list1:hover span{
+    display: block;
+    cursor: pointer;
+}
+.rBar ul .list2{
+    position: relative;
+    padding: 11px 0 0 10px;
+    height: 27px;
+    width: 28px;
+}
+.rBar ul .list2:hover span{
+    display: block;
+    cursor: pointer;
+}
+.rBar ul .list2 i{
+    background: url("../images/footer_icon.png") no-repeat -3px -27px;
+    width:18px;
+    height:18px;
+    display: block;
+}
+.rBar ul .list2 span,.rBar ul .noBorb span{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 36px;
+    background: #f60;
+    color: #fff;
+    padding: 3px 0 0 8px;
+}
+.rBar ul .noBorb{
+    position: relative;
+    padding: 10px 0 0 8px;
+    height: 28px;
+    width: 25px;
+}
+.rBar ul .noBorb:hover span{
+    display: block;
+    cursor: pointer;
+}
+.rBar ul .noBorb i{
+    display: block;
+    background: url("../images/footer_icon.png") no-repeat -1px -53px;
+    width: 22px;
+    height: 13px;
+}
+/*rBar*/
+/*footer*/
+.footer{
+    border-top:1px solid #e6e6e6;
+    padding-top: 20px;
+}
+.footer .footerTop .topL{
+    float: left;
+    padding-top: 5px;
+}
+.footerTop .topL dl{
+    float: left;
+    margin: 5px 40px 0 0;
+}
+.footerTop .topL dl dt{
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 10px;
+}
+.footerTop .topL dl  dd{
+    color: #999;
+    line-height: 22px;
+}
+.footerTop .topL dl  dd:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.footerTop .topL i{
+    display: inline-block;
+    width: 15px;
+    height: 7px;
+    background: url("../images/sup_hot.gif") no-repeat -2px -2px;
+    vertical-align:7px;
+}
+.footer .topR{
+    float: right;
+}
+.topR span{
+    color: #999999;
+    float: left;
+    padding: 17px 14px 0 0;
+}
+.topR ul{
+    display: inline-block;
+    width: 360px;
+}
+.topR ul li{
+    float: left;
+    margin:0 0 5px 3px;
+}
+.topR ul li img{
+    width: 40px;
+    height: 40px;
+    border: 1px  solid #e5e7e6;
+}
+.footerMid{
+    border-top: 1px dashed #cccccc;
+    border-bottom:1px dashed #cccccc;
+    padding: 0 17px 0 10px;
+}
+.footerMid ul li{
+    position: relative;
+    padding-right: 21px;
+    float: left;
+}
+.footerMid ul li:after{
+    content: '';
+    display: block;
+    width: 1px;
+    height: 15px;
+    background:#eeeeee;
+    position: absolute;
+    top: 9px;
+    right:10px;
+}
+.footerMid ul .noBorF:after{
+    display: none;
+}
+.footerMid ul li a{
+    color: #999;
+    line-height: 35px;
+}
+.footerMid ul li a:hover{
+    text-decoration: underline;
+}
+.footerBot .bottomL{
+    float: left;
+    margin-top: 16px;
+}
+.footerBot .bottomL span{
+    color: #999999;
+}
+.footerBot .bottomL i{
+    background: url("../images/sync-ico_v15.gif") no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+.footerBot .bottomL .i1{
+    background-position: 0 -16px;
+}
+.footerBot .bottomL .i2{
+    background-position: 0 -80px;
+}
+.footerBot .bottomR{
+    float: right;
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+}
+.bottomM{
+    float: right;
+    margin-top: 18px;
+}
+.bottomM .text{
+    color: #aaa;
+}
+.bottomM .text p{
+    float: right;
+}
+.bottomM .text img{
+   display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+}
+.bottomM .text a{
+    line-height: 20px;
+    color: #aaaaaa;
+}
+.bottomM .text a:hover{
+    text-decoration: underline;
+}
+/*.bottomM .textBot{
+    float: right;
+}*/
+.bottomM .textBot p{
+    float: right;
+}
+.bottomM .textBot{
+    line-height: 20px;
+    color: #aaaaaa;
+}
+.bottomM .textBot a{
+    color: #aaa;
+}
+/*footerEnd*/

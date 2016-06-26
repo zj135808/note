@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>虾米音乐</title>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <!-- rel  是引入的类型  引入的图标的类型是shortcut icon或直接icon-->
+    <link rel="stylesheet" href="css/xiami.css"/>
+</head>
+<body style="height: 3000px">
+
+<!--html css img文件命名 都要用英文，数字，‘-’，‘_’
+    class命名：数字  字母  ‘-’  不要以数字开头
+    网站头部命名一般是header  主题内容是content或container
+    网站底部命名一般是footer
+    导航是nav   子导航可以使用subNav   导航条是navBar  (驼峰命名法)
+    网站轮播图 banner
+-->
+
+<div class="header">
+    <div class="headerTop w1104 clearfix">
+        <h1><a href="javascript:;"></a></h1>
+
+        <p class="nav clearfix">
+            <a class="on" href="javascript:;">发现音乐</a>
+            <a href="javascript:;">我的音乐</a>
+        </p>
+        <ul>
+            <li><a href="javascript:;">精选集</a></li>
+            <li><a href="javascript:;">电台</a></li>
+            <li><a href="javascript:;">音乐人</a></li>
+            <li class="noBor"><a href="javascript:;">演出</a></li>
+        </ul>
+        <div class="search">
+            <input type="text" placeholder="音乐搜索，找人..."/>
+            <input type="button"/>
+        </div>
+        <div class="regist in">
+            <a href="javascript:;">免费注册</a>
+        </div>
+        <div class="login in clearfix">
+            <a href="javascript:;">立即登陆</a>
+            <a class="web icon" href="javascript:;"></a>
+            <a class="qq icon" href="javascript:;"></a>
+        </div>
+    </div>
+</div>
+<div class="subnav clearfix">
+    <div class="navlist w1104">
+        <ul>
+            <li><a class="on" href="javascript:;">热门</a></li>
+            <li><a href="javascript:;">排行榜</a></li>
+            <li><a href="javascript:;">热门</a></li>
+            <li><a href="javascript:;">热门</a></li>
+            <li><a href="javascript:;">热门</a></li>
+            <li><a href="javascript:;">直播间</a></li>
+        </ul>
+        <ol>
+            <li><a href="javascript:;"><i class="vip"></i>VIP会员</a></li>
+            <li><a href="javascript:;"><i class="play"></i>最近播放</a></li>
+            <li><a href="javascript:;"><i class="down"></i>下载客户端</a></li>
+        </ol>
+    </div>
+</div>
+
+<div class="container">
+    <div class="main w1104 clearfix">
+        <div class="conL">
+            <div class="banner">
+                <ul>
+                    <li class="on"><a href="javascript:;"><img src="images/banner1.jpg" alt=""/></a></li>
+                    <li><a href="javascript:;"><img src="images/banner2.jpg" alt=""/></a></li>
+                    <li><a href="javascript:;"><img src="images/banner1.jpg" alt=""/></a></li>
+                    <li><a href="javascript:;"><img src="images/banner2.jpg" alt=""/></a></li>
+                    <li><a href="javascript:;"><img src="images/banner1.jpg" alt=""/></a></li>
+                </ul>
+                <ol>
+                    <li class="on"><a href="javascript:;"></a></li>
+                    <li><a href="javascript:;"></a></li>
+                    <li><a href="javascript:;"></a></li>
+                    <li><a href="javascript:;"></a></li>
+                    <li><a href="javascript:;"></a></li>
+                </ol>
+            </div>
+            <div class="title">
+                <h3>猜你喜欢 <i>/</i><a href="javascript:;"> 更多</a></h3>
+            </div>
+            <div class="musicList clearfix">
+                <div class="likeL">
+                    <dl>
+                        <dt>
+                            <img src="images/four1.jpg" alt=""/>
+                            <img src="images/four2.jpg" alt=""/>
+                            <img src="images/four3.jpeg" alt=""/>
+                            <img src="images/four4.jpg" alt=""/>
+                            <i></i>
+                        </dt>
+                        <dd>基于你最近听的音乐</dd>
+                    </dl>
+                    <a href="javascript:;" class="today">今日推荐歌单</a>
+                </div>
+                <div class="likeR">
+                    <div class="box">
+                        <dl>
+                            <dt>
+                                <img src="images/pic1.jpg" alt=""/>
+                            <!-- 遮罩层-->
+                                <div class="hideBox">
+                                    <div class="btnHeart">
+                                        <i class="btnX"></i>
+                                        <b class="btnS"></b>
+                                        <div class="hover">
+                                            <ul>
+                                                <li class="on list1">
+                                                    <i class="icon1"></i>
+                                                    <a href="javascript:;">收藏</a>
+                                                </li>
+                                                <li class="list2">
+                                                    <i class="icon2"></i>
+                                                    <a href="javascript:;">添加到</a>
+                                                </li>
+                                                <li class="list3">
+                                                    <i class="icon3"></i>
+                                                    <a href="javascript:;">分享到</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                     <a class="btnP" href="javascript:;"></a>
+                                </div>
+                            <!-- 遮罩层end-->
+                            </dt>
+                            <dd>基于最近流行为你推荐
+                                <!-- 下面的遮罩层-->
+                                <div class="hideBot">
+                                    <p>基于最近流行为你推荐</p>
+                                    <a href="javascrpt:;">不感兴趣</a>
+                                </div>
+                                <!-- 下面的遮罩层end-->
+                            </dd>
+                        </dl>
+                        <a class="name" href="javascript:;">我是歌手第四季</a>
+                        <a class="singer" href="javascript:;">我是歌手</a>
+                    </div>
+                    <div class="box">
+                        <dl>
+                            <dt>
+                                <img src="images/pic1.jpg" alt=""/>
+                                <!-- 遮罩层-->
+                            <div class="hideBox">
+                                <div class="btnHeart">
+                                    <i class="btnX"></i>
+                                    <b class="btnS"></b>
+                                    <div class="hover">
+                                        <ul>
+                                            <li class="on list1">
+                                                <i class="icon1"></i>
+                                                <a href="javascript:;">收藏</a>
+                                            </li>
+                                            <li class="list2">
+                                                <i class="icon2"></i>
+                                                <a href="javascript:;">添加到</a>
+                                            </li>
+                                            <li class="list3">
+                                                <i class="icon3"></i>
+                                                <a href="javascript:;">分享到</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a class="btnP" href="javascript:;"></a>
+                            </div>
+                            <!-- 遮罩层end-->
+                            </dt>
+                            <dd>基于最近流行为你推荐
+                                <!-- 下面的遮罩层-->
+                                <div class="hideBot">
+                                    <p>基于最近流行为你推荐</p>
+                                    <a href="javascrpt:;">不感兴趣</a>
+                                </div>
+                                <!-- 下面的遮罩层end-->
+                            </dd>
+                        </dl>
+                        <a class="name" href="javascript:;">我是歌手第四季</a>
+                        <a class="singer" href="javascript:;">我是歌手</a>
+                    </div>
+                    <div class="box">
+                        <dl>
+                            <dt>
+                                <img src="images/pic1.jpg" alt=""/>
+                                <!-- 遮罩层-->
+                            <div class="hideBox">
+                                <div class="btnHeart">
+                                    <i class="btnX"></i>
+                                    <b class="btnS"></b>
+                                    <div class="hover">
+                                        <ul>
+                                            <li class="on list1">
+                                                <i class="icon1"></i>
+                                                <a href="javascript:;">收藏</a>
+                                            </li>
+                                            <li class="list2">
+                                                <i class="icon2"></i>
+                                                <a href="javascript:;">添加到</a>
+                                            </li>
+                                            <li class="list3">
+                                                <i class="icon3"></i>
+                                                <a href="javascript:;">分享到</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a class="btnP" href="javascript:;"></a>
+                            </div>
+                            <!-- 遮罩层end-->
+                            </dt>
+                            <dd>基于最近流行为你推荐
+                                <!-- 下面的遮罩层-->
+                                <div class="hideBot">
+                                    <p>基于最近流行为你推荐</p>
+                                    <a href="javascrpt:;">不感兴趣</a>
+                                </div>
+                                <!-- 下面的遮罩层end-->
+                            </dd>
+                        </dl>
+                        <a class="name" href="javascript:;">我是歌手第四季</a>
+                        <a class="singer" href="javascript:;">我是歌手</a>
+                    </div>
+                    <div class="box">
+                        <dl>
+                            <dt>
+                                <img src="images/pic1.jpg" alt=""/>
+                                <!-- 遮罩层-->
+                            <div class="hideBox">
+                                <div class="btnHeart">
+                                    <i class="btnX"></i>
+                                    <b class="btnS"></b>
+                                    <div class="hover">
+                                        <ul>
+                                            <li class="on list1">
+                                                <i class="icon1"></i>
+                                                <a href="javascript:;">收藏</a>
+                                            </li>
+                                            <li class="list2">
+                                                <i class="icon2"></i>
+                                                <a href="javascript:;">添加到</a>
+                                            </li>
+                                            <li class="list3">
+                                                <i class="icon3"></i>
+                                                <a href="javascript:;">分享到</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a class="btnP" href="javascript:;"></a>
+                            </div>
+                            <!-- 遮罩层end-->
+                            </dt>
+                            <dd>基于最近流行为你推荐
+                                <!-- 下面的遮罩层-->
+                                <div class="hideBot">
+                                    <p>基于最近流行为你推荐</p>
+                                    <a href="javascrpt:;">不感兴趣</a>
+                                </div>
+                                <!-- 下面的遮罩层end-->
+                            </dd>
+                        </dl>
+                        <a class="name" href="javascript:;">我是歌手第四季</a>
+                        <a class="singer" href="javascript:;">我是歌手</a>
+                    </div>
+                </div>
+            </div>
+            <div class="ad clearfix">
+                <ul class="clearfix">
+                    <li><a href="javascript:;"><img src="images/ad1.jpg" alt=""/></a></li>
+                    <li><a href="javascript:;"><img src="images/ad2.jpg" alt=""/></a></li>
+                    <li><a href="javascript:;"><img src="images/ad3.jpg" alt=""/></a></li>
+                    <li class="noMr"><a href="javascript:;"><img src="images/ad4.png" alt=""/></a></li>
+                </ul>
+            </div>
+            <div class="title newCD clearfix">
+                <h3>新碟首发 <i>/</i><a href="javascript:;"> 更多</a></h3>
+                <ul>
+                    <li class="noLine"><a href="javascript:;">全部</a></li>
+                    <li><a href="javascript:;">华语</a></li>
+                    <li><a href="javascript:;">欧美</a></li>
+                    <li><a href="javascript:;">日本</a></li>
+                    <li><a href="javascript:;">韩国</a></li>
+                </ul>
+            </div>
+            <div class="first clearfix">
+            <div class="box noMr">
+                <dl>
+                    <dt>
+                        <img src="images/pic1.jpg" alt=""/>
+                        <!-- 遮罩层-->
+                    <div class="hideBox">
+                        <div class="btnHeart">
+                            <i class="btnX"></i>
+                            <b class="btnS"></b>
+                            <div class="hover">
+                                <ul>
+                                    <li class="on list1">
+                                        <i class="icon1"></i>
+                                        <a href="javascript:;">收藏</a>
+                                    </li>
+                                    <li class="list2">
+                                        <i class="icon2"></i>
+                                        <a href="javascript:;">添加到</a>
+                                    </li>
+                                    <li class="list3">
+                                        <i class="icon3"></i>
+                                        <a href="javascript:;">分享到</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="btnP" href="javascript:;"></a>
+                    </div>
+                    <!-- 遮罩层end-->
+                    </dt>
+                </dl>
+                <a class="name" href="javascript:;">我是歌手第四季</a>
+                <a class="singer" href="javascript:;">我是歌手</a>
+            </div>
+            <div class="box">
+                <dl>
+                    <dt>
+                        <img src="images/pic1.jpg" alt=""/>
+                        <!-- 遮罩层-->
+                    <div class="hideBox">
+                        <div class="btnHeart">
+                            <i class="btnX"></i>
+                            <b class="btnS"></b>
+                            <div class="hover">
+                                <ul>
+                                    <li class="on list1">
+                                        <i class="icon1"></i>
+                                        <a href="javascript:;">收藏</a>
+                                    </li>
+                                    <li class="list2">
+                                        <i class="icon2"></i>
+                                        <a href="javascript:;">添加到</a>
+                                    </li>
+                                    <li class="list3">
+                                        <i class="icon3"></i>
+                                        <a href="javascript:;">分享到</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="btnP" href="javascript:;"></a>
+                    </div>
+                    <!-- 遮罩层end-->
+                    </dt>
+                </dl>
+                <a class="name" href="javascript:;">我是歌手第四季</a>
+                <a class="singer" href="javascript:;">我是歌手</a>
+            </div>
+            <div class="box">
+                <dl>
+                    <dt>
+                        <img src="images/pic1.jpg" alt=""/>
+                        <!-- 遮罩层-->
+                    <div class="hideBox">
+                        <div class="btnHeart">
+                            <i class="btnX"></i>
+                            <b class="btnS"></b>
+                            <div class="hover">
+                                <ul>
+                                    <li class="on list1">
+                                        <i class="icon1"></i>
+                                        <a href="javascript:;">收藏</a>
+                                    </li>
+                                    <li class="list2">
+                                        <i class="icon2"></i>
+                                        <a href="javascript:;">添加到</a>
+                                    </li>
+                                    <li class="list3">
+                                        <i class="icon3"></i>
+                                        <a href="javascript:;">分享到</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="btnP" href="javascript:;"></a>
+                    </div>
+                    <!-- 遮罩层end-->
+                    </dt>
+                </dl>
+                <a class="name" href="javascript:;">我是歌手第四季</a>
+                <a class="singer" href="javascript:;">我是歌手</a>
+            </div>
+            <div class="box">
+                <dl>
+                    <dt>
+                        <img src="images/pic1.jpg" alt=""/>
+                        <!-- 遮罩层-->
+                    <div class="hideBox">
+                        <div class="btnHeart">
+                            <i class="btnX"></i>
+                            <b class="btnS"></b>
+                            <div class="hover">
+                                <ul>
+                                    <li class="on list1">
+                                        <i class="icon1"></i>
+                                        <a href="javascript:;">收藏</a>
+                                    </li>
+                                    <li class="list2">
+                                        <i class="icon2"></i>
+                                        <a href="javascript:;">添加到</a>
+                                    </li>
+                                    <li class="list3">
+                                        <i class="icon3"></i>
+                                        <a href="javascript:;">分享到</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="btnP" href="javascript:;"></a>
+                    </div>
+                    <!-- 遮罩层end-->
+                    </dt>
+                </dl>
+                <a class="name" href="javascript:;">我是歌手第四季</a>
+                <a class="singer" href="javascript:;">我是歌手</a>
+            </div>
+            <div class="box">
+                <dl>
+                    <dt>
+                        <img src="images/pic1.jpg" alt=""/>
+                        <!-- 遮罩层-->
+                    <div class="hideBox">
+                        <div class="btnHeart">
+                            <i class="btnX"></i>
+                            <b class="btnS"></b>
+                            <div class="hover">
+                                <ul>
+                                    <li class="on list1">
+                                        <i class="icon1"></i>
+                                        <a href="javascript:;">收藏</a>
+                                    </li>
+                                    <li class="list2">
+                                        <i class="icon2"></i>
+                                        <a href="javascript:;">添加到</a>
+                                    </li>
+                                    <li class="list3">
+                                        <i class="icon3"></i>
+                                        <a href="javascript:;">分享到</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="btnP" href="javascript:;"></a>
+                    </div>
+                    <!-- 遮罩层end-->
+                    </dt>
+                </dl>
+                <a class="name" href="javascript:;">我是歌手第四季</a>
+                <a class="singer" href="javascript:;">我是歌手</a>
+            </div>
+            <a href="javascript:;" class="btnL"></a>
+            <a href="javascript:;" class="btnR"></a>
+        </div>
+            <div class="title coll">
+                <h3>虾米精选集 <i>/</i><a href="javascript:;"> 更多</a></h3>
+            </div>
+            <div class="first clearfix">
+                <div class="box noMr">
+                    <dl>
+                        <dt>
+                            <img src="images/pic1.jpg" alt=""/>
+                            <!-- 遮罩层-->
+                        <div class="hideBox">
+                            <div class="btnHeart">
+                                <i class="btnX"></i>
+                                <b class="btnS"></b>
+                                <div class="hover">
+                                    <ul>
+                                        <li class="on list1">
+                                            <i class="icon1"></i>
+                                            <a href="javascript:;">收藏</a>
+                                        </li>
+                                        <li class="list2">
+                                            <i class="icon2"></i>
+                                            <a href="javascript:;">添加到</a>
+                                        </li>
+                                        <li class="list3">
+                                            <i class="icon3"></i>
+                                            <a href="javascript:;">分享到</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a class="btnP" href="javascript:;"></a>
+                        </div>
+                        <!-- 遮罩层end-->
+                        </dt>
+                    </dl>
+                    <a class="name" href="javascript:;">我是歌手第四季</a>
+                    <div class="user">
+                        <div class="userHover">
+                            <a href="javascript:;" class="userH">
+                                <strong></strong>
+                                <span class="userName">冷眸</span>
+                            </a>
+                            <div class="vanish">
+                                <i class="bor"></i>
+                                <div class="content">
+                                    <div class="conIntro clearfix">
+                                        <img src="images/hover1.jpg" alt=""/>
+                                        <div class="person">
+                                            <a href="javascript:;">李嘉Jane</a>
+                                            <p><b></b> 天津市</p>
+                                        </div>
+                                    </div>
+                                    <div class="conTotal clearfix">
+                                        <span>累计播放歌曲</span><i>0</i><i>0</i><i>0</i><i>8</i><i>0</i><i>7</i><i>0</i>
+                                    </div>
+                                    <div class="conNum clearfix">
+                                        <span class="noBor">关注 <i>0</i></span>
+                                        <span>粉丝 <i>0</i></span>
+                                        <span>收藏 <i>0</i></span>
+                                    </div>
+                                    <ul>
+                                        <li class="font"><i></i><span> 跟TA听</span></li>
+                                        <li><span>站内信</span></li>
+                                        <li><i></i><span> 加关注</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="javascript:;" title="虾米VIP" class="xmVip"></a>
+                    </div>
+                </div>
+                <div class="box ">
+                    <dl>
+                        <dt>
+                            <img src="images/pic1.jpg" alt=""/>
+                            <!-- 遮罩层-->
+                        <div class="hideBox">
+                            <div class="btnHeart">
+                                <i class="btnX"></i>
+                                <b class="btnS"></b>
+                                <div class="hover">
+                                    <ul>
+                                        <li class="on list1">
+                                            <i class="icon1"></i>
+                                            <a href="javascript:;">收藏</a>
+                                        </li>
+                                        <li class="list2">
+                                            <i class="icon2"></i>
+                                            <a href="javascript:;">添加到</a>
+                                        </li>
+                                        <li class="list3">
+                                            <i class="icon3"></i>
+                                            <a href="javascript:;">分享到</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a class="btnP" href="javascript:;"></a>
+                        </div>
+                        <!-- 遮罩层end-->
+                        </dt>
+                    </dl>
+                    <a class="name" href="javascript:;">我是歌手第四季</a>
+                    <div class="user">
+                        <div class="userHover">
+                            <a href="javascript:;" class="userH">
+                                <strong></strong>
+                                <span class="userName">冷眸</span>
+                            </a>
+                            <div class="vanish">
+                                <i class="bor"></i>
+                                <div class="content">
+                                    <div class="conIntro clearfix">
+                                        <img src="images/hover1.jpg" alt=""/>
+                                        <div class="person">
+                                            <a href="javascript:;">李嘉Jane</a>
+                                            <p><b></b> 天津市</p>
+                                        </div>
+                                    </div>
+                                    <div class="conTotal clearfix">
+                                        <span>累计播放歌曲</span><i>0</i><i>0</i><i>0</i><i>8</i><i>0</i><i>7</i><i>0</i>
+                                    </div>
+                                    <div class="conNum clearfix">
+                                        <span class="noBor">关注 <i>0</i></span>
+                                        <span>粉丝 <i>0</i></span>
+                                        <span>收藏 <i>0</i></span>
+                                    </div>
+                                    <ul>
+                                        <li class="font"><i></i><span> 跟TA听</span></li>
+                                        <li><span>站内信</span></li>
+                                        <li><i></i><span> 加关注</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="javascript:;" title="虾米VIP" class="xmVip"></a>
+                    </div>
+                </div>
+                <div class="box ">
+                    <dl>
+                        <dt>
+                            <img src="images/pic1.jpg" alt=""/>
+                            <!-- 遮罩层-->
+                        <div class="hideBox">
+                            <div class="btnHeart">
+                                <i class="btnX"></i>
+                                <b class="btnS"></b>
+                                <div class="hover">
+                                    <ul>
+                                        <li class="on list1">
+                                            <i class="icon1"></i>
+                                            <a href="javascript:;">收藏</a>
+                                        </li>
+                                        <li class="list2">
+                                            <i class="icon2"></i>
+                                            <a href="javascript:;">添加到</a>
+                                        </li>
+                                        <li class="list3">
+                                            <i class="icon3"></i>
+                                            <a href="javascript:;">分享到</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a class="btnP" href="javascript:;"></a>
+                        </div>
+                        <!-- 遮罩层end-->
+                        </dt>
+                    </dl>
+                    <a class="name" href="javascript:;">我是歌手第四季</a>
+                    <div class="user">
+                        <div class="userHover">
+                            <a href="javascript:;" class="userH">
+                                <strong></strong>
+                                <span class="userName">冷眸</span>
+                            </a>
+                            <div class="vanish">
+                                <i class="bor"></i>
+                                <div class="content">
+                                    <div class="conIntro clearfix">
+                                        <img src="images/hover1.jpg" alt=""/>
+                                        <div class="person">
+                                            <a href="javascript:;">李嘉Jane</a>
+                                            <p><b></b> 天津市</p>
+                                        </div>
+                                    </div>
+                                    <div class="conTotal clearfix">
+                                        <span>累计播放歌曲</span><i>0</i><i>0</i><i>0</i><i>8</i><i>0</i><i>7</i><i>0</i>
+                                    </div>
+                                    <div class="conNum clearfix">
+                                        <span class="noBor">关注 <i>0</i></span>
+                                        <span>粉丝 <i>0</i></span>
+                                        <span>收藏 <i>0</i></span>
+                                    </div>
+                                    <ul>
+                                        <li class="font"><i></i><span> 跟TA听</span></li>
+                                        <li><span>站内信</span></li>
+                                        <li><i></i><span> 加关注</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="javascript:;" title="虾米VIP" class="xmVip"></a>
+                    </div>
+                </div>
+                <div class="box ">
+                    <dl>
+                        <dt>
+                            <img src="images/pic1.jpg" alt=""/>
+                            <!-- 遮罩层-->
+                        <div class="hideBox">
+                            <div class="btnHeart">
+                                <i class="btnX"></i>
+                                <b class="btnS"></b>
+                                <div class="hover">
+                                    <ul>
+                                        <li class="on list1">
+                                            <i class="icon1"></i>
+                                            <a href="javascript:;">收藏</a>
+                                        </li>
+                                        <li class="list2">
+                                            <i class="icon2"></i>
+                                            <a href="javascript:;">添加到</a>
+                                        </li>
+                                        <li class="list3">
+                                            <i class="icon3"></i>
+                                            <a href="javascript:;">分享到</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a class="btnP" href="javascript:;"></a>
+                        </div>
+                        <!-- 遮罩层end-->
+                        </dt>
+                    </dl>
+                    <a class="name" href="javascript:;">我是歌手第四季</a>
+                    <div class="user">
+                        <div class="userHover">
+                            <a href="javascript:;" class="userH">
+                                <strong></strong>
+                                <span class="userName">冷眸</span>
+                            </a>
+                            <div class="vanish">
+                                <i class="bor"></i>
+                                <div class="content">
+                                    <div class="conIntro clearfix">
+                                        <img src="images/hover1.jpg" alt=""/>
+                                        <div class="person">
+                                            <a href="javascript:;">李嘉Jane</a>
+                                            <p><b></b> 天津市</p>
+                                        </div>
+                                    </div>
+                                    <div class="conTotal clearfix">
+                                        <span>累计播放歌曲</span><i>0</i><i>0</i><i>0</i><i>8</i><i>0</i><i>7</i><i>0</i>
+                                    </div>
+                                    <div class="conNum clearfix">
+                                        <span class="noBor">关注 <i>0</i></span>
+                                        <span>粉丝 <i>0</i></span>
+                                        <span>收藏 <i>0</i></span>
+                                    </div>
+                                    <ul>
+                                        <li class="font"><i></i><span> 跟TA听</span></li>
+                                        <li><span>站内信</span></li>
+                                        <li><i></i><span> 加关注</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="javascript:;" title="虾米VIP" class="xmVip"></a>
+                    </div>
+                </div>
+                <div class="box ">
+                    <dl>
+                        <dt>
+                            <img src="images/pic1.jpg" alt=""/>
+                            <!-- 遮罩层-->
+                        <div class="hideBox">
+                            <div class="btnHeart">
+                                <i class="btnX"></i>
+                                <b class="btnS"></b>
+                                <div class="hover">
+                                    <ul>
+                                        <li class="on list1">
+                                            <i class="icon1"></i>
+                                            <a href="javascript:;">收藏</a>
+                                        </li>
+                                        <li class="list2">
+                                            <i class="icon2"></i>
+                                            <a href="javascript:;">添加到</a>
+                                        </li>
+                                        <li class="list3">
+                                            <i class="icon3"></i>
+                                            <a href="javascript:;">分享到</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a class="btnP" href="javascript:;"></a>
+                        </div>
+                        <!-- 遮罩层end-->
+                        </dt>
+                    </dl>
+                    <a class="name" href="javascript:;">我是歌手第四季</a>
+                    <div class="user">
+                        <div class="userHover">
+                            <a href="javascript:;" class="userH">
+                                <strong></strong>
+                                <span class="userName">冷眸</span>
+                            </a>
+                            <div class="vanish">
+                                <i class="bor"></i>
+                                <div class="content">
+                                    <div class="conIntro clearfix">
+                                        <img src="images/hover1.jpg" alt=""/>
+                                        <div class="person">
+                                            <a href="javascript:;">李嘉Jane</a>
+                                            <p><b></b> 天津市</p>
+                                        </div>
+                                    </div>
+                                    <div class="conTotal clearfix">
+                                        <span>累计播放歌曲</span><i>0</i><i>0</i><i>0</i><i>8</i><i>0</i><i>7</i><i>0</i>
+                                    </div>
+                                    <div class="conNum clearfix">
+                                        <span class="noBor">关注 <i>0</i></span>
+                                        <span>粉丝 <i>0</i></span>
+                                        <span>收藏 <i>0</i></span>
+                                    </div>
+                                    <ul>
+                                        <li class="font"><i></i><span> 跟TA听</span></li>
+                                        <li><span>站内信</span></li>
+                                        <li><i></i><span> 加关注</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="javascript:;" title="虾米VIP" class="xmVip"></a>
+                    </div>
+                </div>
+
+
+
+
+                <a href="javascript:;" class="btnL"></a>
+                <a href="javascript:;" class="btnR"></a>
+            </div>
+            <div class="title roll">
+                <h3>大虾推荐 <i>/</i><a href="javascript:;"> 更多</a></h3>
+            </div>
+            <div class="recom">
+                <div class="row">
+                    <div class="rowOn">
+                        <div class="onL">
+                            <i>回到中学的暑假</i>
+                            <span>陈奕迅</span>
+                            <b></b>
+                            <em></em>
+                        </div>
+                        <p>gnash的声音好像张震岳的声音啊！！ps封面这</p>
+                        <div class="time">
+                            2分钟
+                        </div>
+                    </div>
+                    <div class="rowHide clearfix">
+                        <div class="hideL clearfix">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p class="detail">
+                                <a href="javascript:;" class="title1">走进你的梦</a>
+                                <a href="javascript:;" class="name1">李宇春</a>
+                                <i></i>
+                            </p>
+                        </div>
+                        <div class="hideC">
+                            <div class="box">
+                                <dl>
+                                    <dt>
+                                        <div class="btnHeart">
+                                            <i class="btnX"></i>
+                                            <b class="btnS"></b>
+                                            <div class="hover">
+                                                <ul>
+                                                    <li class="on list1">
+                                                        <i class="icon1"></i>
+                                                        <a href="javascript:;">收藏</a>
+                                                    </li>
+                                                    <li class="list2">
+                                                        <i class="icon2"></i>
+                                                        <a href="javascript:;">添加到</a>
+                                                    </li>
+                                                    <li class="list3">
+                                                        <i class="icon3"></i>
+                                                        <a href="javascript:;">分享到</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </dt>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="hideM">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p>我还是爱着你，你还是冷处理，我还是爱着你，我仍无法前进，你是我的生命， 再煎熬也不能抽离。</p>
+                        </div>
+                        <div class="hideR">
+                            2分钟前
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="rowOn">
+                        <div class="onL">
+                            <i>回到中学的暑假</i>
+                            <span>陈奕迅</span>
+                            <b></b>
+                            <em></em>
+                        </div>
+                        <p>gnash的声音好像张震岳的声音啊！！ps封面这</p>
+                        <div class="time">
+                            2分钟
+                        </div>
+                    </div>
+                    <div class="rowHide clearfix">
+                        <div class="hideL clearfix">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p class="detail">
+                                <a href="javascript:;" class="title1">走进你的梦</a>
+                                <a href="javascript:;" class="name1">李宇春</a>
+                                <i></i>
+                            </p>
+                        </div>
+                        <div class="hideC">
+                            <div class="box">
+                                <dl>
+                                    <dt>
+                                    <div class="btnHeart">
+                                        <i class="btnX"></i>
+                                        <b class="btnS"></b>
+                                        <div class="hover">
+                                            <ul>
+                                                <li class="on list1">
+                                                    <i class="icon1"></i>
+                                                    <a href="javascript:;">收藏</a>
+                                                </li>
+                                                <li class="list2">
+                                                    <i class="icon2"></i>
+                                                    <a href="javascript:;">添加到</a>
+                                                </li>
+                                                <li class="list3">
+                                                    <i class="icon3"></i>
+                                                    <a href="javascript:;">分享到</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    </dt>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="hideM">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p>我还是爱着你，你还是冷处理，我还是爱着你，我仍无法前进，你是我的生命， 再煎熬也不能抽离。</p>
+                        </div>
+                        <div class="hideR">
+                            2分钟前
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="rowOn">
+                        <div class="onL">
+                            <i>回到中学的暑假</i>
+                            <span>陈奕迅</span>
+                            <b></b>
+                            <em></em>
+                        </div>
+                        <p>gnash的声音好像张震岳的声音啊！！ps封面这</p>
+                        <div class="time">
+                            2分钟
+                        </div>
+                    </div>
+                    <div class="rowHide clearfix">
+                        <div class="hideL clearfix">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p class="detail">
+                                <a href="javascript:;" class="title1">走进你的梦</a>
+                                <a href="javascript:;" class="name1">李宇春</a>
+                                <i></i>
+                            </p>
+                        </div>
+                        <div class="hideC">
+                            <div class="box">
+                                <dl>
+                                    <dt>
+                                    <div class="btnHeart">
+                                        <i class="btnX"></i>
+                                        <b class="btnS"></b>
+                                        <div class="hover">
+                                            <ul>
+                                                <li class="on list1">
+                                                    <i class="icon1"></i>
+                                                    <a href="javascript:;">收藏</a>
+                                                </li>
+                                                <li class="list2">
+                                                    <i class="icon2"></i>
+                                                    <a href="javascript:;">添加到</a>
+                                                </li>
+                                                <li class="list3">
+                                                    <i class="icon3"></i>
+                                                    <a href="javascript:;">分享到</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    </dt>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="hideM">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p>我还是爱着你，你还是冷处理，我还是爱着你，我仍无法前进，你是我的生命， 再煎熬也不能抽离。</p>
+                        </div>
+                        <div class="hideR">
+                            2分钟前
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="rowOn">
+                        <div class="onL">
+                            <i>回到中学的暑假</i>
+                            <span>陈奕迅</span>
+                            <b></b>
+                            <em></em>
+                        </div>
+                        <p>gnash的声音好像张震岳的声音啊！！ps封面这</p>
+                        <div class="time">
+                            2分钟
+                        </div>
+                    </div>
+                    <div class="rowHide clearfix">
+                        <div class="hideL clearfix">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p class="detail">
+                                <a href="javascript:;" class="title1">走进你的梦</a>
+                                <a href="javascript:;" class="name1">李宇春</a>
+                                <i></i>
+                            </p>
+                        </div>
+                        <div class="hideC">
+                            <div class="box">
+                                <dl>
+                                    <dt>
+                                    <div class="btnHeart">
+                                        <i class="btnX"></i>
+                                        <b class="btnS"></b>
+                                        <div class="hover">
+                                            <ul>
+                                                <li class="on list1">
+                                                    <i class="icon1"></i>
+                                                    <a href="javascript:;">收藏</a>
+                                                </li>
+                                                <li class="list2">
+                                                    <i class="icon2"></i>
+                                                    <a href="javascript:;">添加到</a>
+                                                </li>
+                                                <li class="list3">
+                                                    <i class="icon3"></i>
+                                                    <a href="javascript:;">分享到</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    </dt>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="hideM">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p>我还是爱着你，你还是冷处理，我还是爱着你，我仍无法前进，你是我的生命， 再煎熬也不能抽离。</p>
+                        </div>
+                        <div class="hideR">
+                            2分钟前
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="rowOn">
+                        <div class="onL">
+                            <i>回到中学的暑假</i>
+                            <span>陈奕迅</span>
+                            <b></b>
+                            <em></em>
+                        </div>
+                        <p>gnash的声音好像张震岳的声音啊！！ps封面这</p>
+                        <div class="time">
+                            2分钟
+                        </div>
+                    </div>
+                    <div class="rowHide clearfix">
+                        <div class="hideL clearfix">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p class="detail">
+                                <a href="javascript:;" class="title1">走进你的梦</a>
+                                <a href="javascript:;" class="name1">李宇春</a>
+                                <i></i>
+                            </p>
+                        </div>
+                        <div class="hideC">
+                            <div class="box">
+                                <dl>
+                                    <dt>
+                                    <div class="btnHeart">
+                                        <i class="btnX"></i>
+                                        <b class="btnS"></b>
+                                        <div class="hover">
+                                            <ul>
+                                                <li class="on list1">
+                                                    <i class="icon1"></i>
+                                                    <a href="javascript:;">收藏</a>
+                                                </li>
+                                                <li class="list2">
+                                                    <i class="icon2"></i>
+                                                    <a href="javascript:;">添加到</a>
+                                                </li>
+                                                <li class="list3">
+                                                    <i class="icon3"></i>
+                                                    <a href="javascript:;">分享到</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    </dt>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="hideM">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p>我还是爱着你，你还是冷处理，我还是爱着你，我仍无法前进，你是我的生命， 再煎熬也不能抽离。</p>
+                        </div>
+                        <div class="hideR">
+                            2分钟前
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="rowOn">
+                        <div class="onL">
+                            <i>回到中学的暑假</i>
+                            <span>陈奕迅</span>
+                            <b></b>
+                            <em></em>
+                        </div>
+                        <p>gnash的声音好像张震岳的声音啊！！ps封面这</p>
+                        <div class="time">
+                            2分钟
+                        </div>
+                    </div>
+                    <div class="rowHide clearfix">
+                        <div class="hideL clearfix">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p class="detail">
+                                <a href="javascript:;" class="title1">走进你的梦</a>
+                                <a href="javascript:;" class="name1">李宇春</a>
+                                <i></i>
+                            </p>
+                        </div>
+                        <div class="hideC">
+                            <div class="box">
+                                <dl>
+                                    <dt>
+                                    <div class="btnHeart">
+                                        <i class="btnX"></i>
+                                        <b class="btnS"></b>
+                                        <div class="hover">
+                                            <ul>
+                                                <li class="on list1">
+                                                    <i class="icon1"></i>
+                                                    <a href="javascript:;">收藏</a>
+                                                </li>
+                                                <li class="list2">
+                                                    <i class="icon2"></i>
+                                                    <a href="javascript:;">添加到</a>
+                                                </li>
+                                                <li class="list3">
+                                                    <i class="icon3"></i>
+                                                    <a href="javascript:;">分享到</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    </dt>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="hideM">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p>我还是爱着你，你还是冷处理，我还是爱着你，我仍无法前进，你是我的生命， 再煎熬也不能抽离。</p>
+                        </div>
+                        <div class="hideR">
+                            2分钟前
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="rowOn">
+                        <div class="onL">
+                            <i>回到中学的暑假</i>
+                            <span>陈奕迅</span>
+                            <b></b>
+                            <em></em>
+                        </div>
+                        <p>gnash的声音好像张震岳的声音啊！！ps封面这</p>
+                        <div class="time">
+                            2分钟
+                        </div>
+                    </div>
+                    <div class="rowHide clearfix">
+                        <div class="hideL clearfix">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p class="detail">
+                                <a href="javascript:;" class="title1">走进你的梦</a>
+                                <a href="javascript:;" class="name1">李宇春</a>
+                                <i></i>
+                            </p>
+                        </div>
+                        <div class="hideC">
+                            <div class="box">
+                                <dl>
+                                    <dt>
+                                    <div class="btnHeart">
+                                        <i class="btnX"></i>
+                                        <b class="btnS"></b>
+                                        <div class="hover">
+                                            <ul>
+                                                <li class="on list1">
+                                                    <i class="icon1"></i>
+                                                    <a href="javascript:;">收藏</a>
+                                                </li>
+                                                <li class="list2">
+                                                    <i class="icon2"></i>
+                                                    <a href="javascript:;">添加到</a>
+                                                </li>
+                                                <li class="list3">
+                                                    <i class="icon3"></i>
+                                                    <a href="javascript:;">分享到</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    </dt>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="hideM">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p>我还是爱着你，你还是冷处理，我还是爱着你，我仍无法前进，你是我的生命， 再煎熬也不能抽离。</p>
+                        </div>
+                        <div class="hideR">
+                            2分钟前
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="rowOn">
+                        <div class="onL">
+                            <i>回到中学的暑假</i>
+                            <span>陈奕迅</span>
+                            <b></b>
+                            <em></em>
+                        </div>
+                        <p>gnash的声音好像张震岳的声音啊！！ps封面这</p>
+                        <div class="time">
+                            2分钟
+                        </div>
+                    </div>
+                    <div class="rowHide clearfix">
+                        <div class="hideL clearfix">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p class="detail">
+                                <a href="javascript:;" class="title1">走进你的梦</a>
+                                <a href="javascript:;" class="name1">李宇春</a>
+                                <i></i>
+                            </p>
+                        </div>
+                        <div class="hideC">
+                            <div class="box">
+                                <dl>
+                                    <dt>
+                                    <div class="btnHeart">
+                                        <i class="btnX"></i>
+                                        <b class="btnS"></b>
+                                        <div class="hover">
+                                            <ul>
+                                                <li class="on list1">
+                                                    <i class="icon1"></i>
+                                                    <a href="javascript:;">收藏</a>
+                                                </li>
+                                                <li class="list2">
+                                                    <i class="icon2"></i>
+                                                    <a href="javascript:;">添加到</a>
+                                                </li>
+                                                <li class="list3">
+                                                    <i class="icon3"></i>
+                                                    <a href="javascript:;">分享到</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    </dt>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="hideM">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p>我还是爱着你，你还是冷处理，我还是爱着你，我仍无法前进，你是我的生命， 再煎熬也不能抽离。</p>
+                        </div>
+                        <div class="hideR">
+                            2分钟前
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="rowOn">
+                        <div class="onL">
+                            <i>回到中学的暑假</i>
+                            <span>陈奕迅</span>
+                            <b></b>
+                            <em></em>
+                        </div>
+                        <p>gnash的声音好像张震岳的声音啊！！ps封面这</p>
+                        <div class="time">
+                            2分钟
+                        </div>
+                    </div>
+                    <div class="rowHide clearfix">
+                        <div class="hideL clearfix">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p class="detail">
+                                <a href="javascript:;" class="title1">走进你的梦</a>
+                                <a href="javascript:;" class="name1">李宇春</a>
+                                <i></i>
+                            </p>
+                        </div>
+                        <div class="hideC">
+                            <div class="box">
+                                <dl>
+                                    <dt>
+                                    <div class="btnHeart">
+                                        <i class="btnX"></i>
+                                        <b class="btnS"></b>
+                                        <div class="hover">
+                                            <ul>
+                                                <li class="on list1">
+                                                    <i class="icon1"></i>
+                                                    <a href="javascript:;">收藏</a>
+                                                </li>
+                                                <li class="list2">
+                                                    <i class="icon2"></i>
+                                                    <a href="javascript:;">添加到</a>
+                                                </li>
+                                                <li class="list3">
+                                                    <i class="icon3"></i>
+                                                    <a href="javascript:;">分享到</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    </dt>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="hideM">
+                            <img src="images/hover1.jpg" alt=""/>
+                            <p>我还是爱着你，你还是冷处理，我还是爱着你，我仍无法前进，你是我的生命， 再煎熬也不能抽离。</p>
+                        </div>
+                        <div class="hideR">
+                            2分钟前
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="akey">
+                <p>
+                    <i></i><span>一键播放</span>
+                </p>
+            </div>
+        </div>
+        <div class="conR">
+            <div class="xmDown clearfix base">
+                <img src="images/qrcode_110.png" alt=""/>
+                <div>
+                    <p class="iphone"><i></i><span>虾米音乐for iPhone</span></p>
+
+                    <p class="android"><i></i><span>虾米音乐for Android</span></p>
+                </div>
+            </div>
+            <div class="quick base">
+                <p>
+                    <span>快速登录</span>
+                    <i></i><b></b>
+                </p>
+                <div>
+                    <a href="javascript:;" class="login">登录</a>
+                    <span>立即</span>
+                    <a href="javascript:;" class="free">免费注册</a>
+                </div>
+            </div>
+            <div class="could base">
+                <a href="javascript:;"></a>
+            </div>
+            <div class="muscian base">
+                <div class="muToday">
+                    <h5>今日音乐人</h5>
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="muDay">
+                    <img src="images/img1.jpg" alt=""/>
+                    <div class="data">
+                        <span>May</span><b>24</b><i>星期二</i>
+                        <em></em>
+                    </div>
+
+                    <div class="muHeart">
+                        <div class="heart1"><span></span></div>
+                        <div class="heart2"><i></i></div>
+                    </div>
+                    <p class="comment">Funky Timeby 浆果商店  <span>by 唐宁</span></p>
+                    <p class="art">Funky Timeby 浆果商店</p>
+                    <p class="zhi">听完吱一声</p>
+                </div>
+            </div>
+            <div class="tuesday base clearfix">
+                <p>星期二下午</p>
+                <ul>
+                    <li>
+                        <div>
+                            <a href="javascript:;"><img src="images/img1.jpg" alt=""/></a>
+                            <i></i>
+                        </div>
+                        <span>提神</span>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="javascript:;"><img src="images/img1.jpg" alt=""/></a>
+                            <i></i>
+                        </div>
+                        <span>提神</span>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="javascript:;"><img src="images/img1.jpg" alt=""/></a>
+                            <i></i>
+                        </div>
+                        <span>提神</span>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="javascript:;"><img src="images/img1.jpg" alt=""/></a>
+                            <i></i>
+                        </div>
+                        <span>提神</span>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="javascript:;"><img src="images/img1.jpg" alt=""/></a>
+                            <i></i>
+                        </div>
+                        <span>提神</span>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="javascript:;"><img src="images/img1.jpg" alt=""/></a>
+                            <i></i>
+                        </div>
+                        <span>提神</span>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="javascript:;"><img src="images/img1.jpg" alt=""/></a>
+                            <i></i>
+                        </div>
+                        <span>提神</span>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="javascript:;"><img src="images/img1.jpg" alt=""/></a>
+                            <i></i>
+                        </div>
+                        <span>提神</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="studio base clearfix">
+                <h5>推荐直播间</h5>
+                <ul>
+                    <li class="clearfix">
+                        <img src="images/four1.jpg" alt=""/>
+                        <div class="mess">
+                            <p>
+                                <a href="javascript:;" class="name">高妹</a>
+                                <a href="javascript:;" class="ico" title="虾米VIP"></a>
+                            </p>
+                            <p class="lis">
+                                <i></i>
+                                I Beliveve
+                            </p>
+                        </div>
+                        <span>跟TA听</span>
+                    </li>
+                    <li class="clearfix">
+                        <img src="images/four1.jpg" alt=""/>
+                        <div class="mess">
+                            <p>
+                                <a href="javascript:;" class="name">高妹</a>
+                                <a href="javascript:;" class="ico" title="虾米VIP"></a>
+                            </p>
+                            <p class="lis">
+                                <i></i>
+                                I Beliveve
+                            </p>
+                        </div>
+                        <span>跟TA听</span>
+                    </li>
+                    <li class="clearfix">
+                        <img src="images/four1.jpg" alt=""/>
+                        <div class="mess">
+                            <p>
+                                <a href="javascript:;" class="name">高妹</a>
+                                <a href="javascript:;" class="ico" title="虾米VIP"></a>
+                            </p>
+                            <p class="lis">
+                                <i></i>
+                                I Beliveve
+                            </p>
+                        </div>
+                        <span>跟TA听</span>
+                    </li>
+                    <li class="clearfix">
+                        <img src="images/four1.jpg" alt=""/>
+                        <div class="mess">
+                            <p>
+                                <a href="javascript:;" class="name">高妹</a>
+                                <a href="javascript:;" class="ico" title="虾米VIP"></a>
+                            </p>
+                            <p class="lis">
+                                <i></i>
+                                I Beliveve
+                            </p>
+                        </div>
+                        <span>跟TA听</span>
+                    </li>
+                    <li class="clearfix">
+                        <img src="images/four1.jpg" alt=""/>
+                        <div class="mess">
+                            <p>
+                                <a href="javascript:;" class="name">高妹</a>
+                                <a href="javascript:;" class="ico" title="虾米VIP"></a>
+                            </p>
+                            <p class="lis">
+                                <i></i>
+                                I Beliveve
+                            </p>
+                        </div>
+                        <span>跟TA听</span>
+                    </li>
+                    <li class="clearfix">
+                        <img src="images/four1.jpg" alt=""/>
+                        <div class="mess">
+                            <p>
+                                <a href="javascript:;" class="name">高妹</a>
+                                <a href="javascript:;" class="ico" title="虾米VIP"></a>
+                            </p>
+                            <p class="lis">
+                                <i></i>
+                                I Beliveve
+                            </p>
+                        </div>
+                        <span>跟TA听</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="team base clearfix">
+                <ul class="swiBtn clearfix">
+                    <li>
+                        <a href="javascript:;">小组更新</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">我的小组</a>
+                    </li>
+                    <li class="more">
+                        <i></i>
+                        <a href="javascript:;">热门话题</a>
+                        <a href="javascript:;" class="text">/更多</a>
+                    </li>
+                </ul>
+                <ol>
+                    <li class="clearfix">
+                        <p>求助，十七年了</p>
+                        <div>
+                            <span>44/470</span>
+                            <b>预备组</b>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <p>求助，十七年了</p>
+                        <div>
+                            <span>44/470</span>
+                            <b>预备组</b>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <p>求助，十七年了</p>
+                        <div>
+                            <span>44/470</span>
+                            <b>预备组</b>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <p>求助，十七年了</p>
+                        <div>
+                            <span>44/470</span>
+                            <b>预备组</b>
+                        </div>
+                    </li>
+                </ol>
+                <div class=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footerTop w1104 clearfix">
+        <div class="topL">
+            <dl>
+                <dt>关于</dt>
+                <dd>关于我们</dd>
+                <dd>虾米招聘 <i></i></dd>
+                <dd>独立音乐人合作</dd>
+                <dd>联系我们</dd>
+                <dd>友情链接</dd>
+            </dl>
+            <dl>
+                <dt>特色服务</dt>
+                <dd>虾米 VIP</dd>
+                <dd>音乐达人</dd>
+                <dd>虾米小组</dd>
+                <dd>虾米 LOOP</dd>
+                <dd>虾米播播</dd>
+                <dd>音乐专题</dd>
+            </dl>
+            <dl>
+                <dt>虾米云音乐</dt>
+                <dd>虾米 for iPhone <i></i></dd>
+                <dd>虾米 for Android</dd>
+                <dd>虾米 for Windows</dd>
+                <dd>虾米 LOOP</dd>
+                <dd>虾米 for Mac</dd>
+                <dd>虾米 for iPad</dd>
+            </dl>
+            <dl>
+                <dt>更多</dt>
+                <dd>分类找歌</dd>
+                <dd>帮助中心</dd>
+                <dd>添加虾米还没有的资料</dd>
+                <dd>提交大家想要的专辑</dd>
+                <dd>给虾米提意见</dd>
+                <dd>虾传</dd>
+            </dl>
+        </div>
+        <div class="topR">
+            <span>合作伙伴:</span>
+            <ul>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/user1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/four1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/four2.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/four3.jpeg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/four4.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/user2.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+                <li><a href="javascript:;"><img src="images/img1.jpg" alt=""/></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footerMid w1104">
+        <ul class="clearfix">
+            <li><a href="javascript:;">阿里巴巴集团</a></li>
+            <li><a href="javascript:;">阿里巴巴国际站</a></li>
+            <li><a href="javascript:;">阿里巴巴中国站</a></li>
+            <li><a href="javascript:;">全球速卖通</a></li>
+            <li><a href="javascript:;">淘宝网</a></li>
+            <li><a href="javascript:;">天猫</a></li>
+            <li><a href="javascript:;">聚划算</a></li>
+            <li><a href="javascript:;">一淘</a></li>
+            <li><a href="javascript:;">阿里妈妈</a></li>
+            <li><a href="javascript:;">阿里旅行·去啊</a></li>
+            <li><a href="javascript:;">YunOS</a></li>
+            <li><a href="javascript:;">阿里通信</a></li>
+            <li><a href="javascript:;">来往</a></li>
+            <li><a href="javascript:;">支付宝</a></li>
+            <li><a href="javascript:;">万网</a></li>
+            <li><a href="javascript:;">高德</a></li>
+            <li><a href="javascript:;">优视</a></li>
+            <li><a href="javascript:;">友盟</a></li>
+            <li><a href="javascript:;">酷盘</a></li>
+            <li><a href="javascript:;">虾米</a></li>
+            <li><a href="javascript:;">天天动听</a></li>
+            <li class="noBorF"><a href="javascript:;">钉钉</a></li>
+        </ul>
+    </div>
+    <div class="footerBot w1104">
+        <div class="bottomL">
+            <span>关注虾米:</span>
+            <i class="i1"></i><i class="i2"></i><i class="i3"></i><i class="i4"></i><i class="i5"></i>
+        </div>
+        <img class="bottomR" src="images/wen.png" alt=""/>
+        <div class="bottomM">
+            <div class="text clearfix">
+                <p>© 2007 - 2016 <a href="javascript:;">阿里巴巴(杭州)文化创意有限公司</a>-<a href="javascript:;">网站地图</a>  <img src="images/xiami_motto.png" alt=""/></p>
+            </div>
+            <div class="textBot clearfix">
+                <a href="javascript:">浙网文[2015]0294-064号</a> <a href="javascript:;">浙ICP备08103200号-2</a> <a href="javascript:;">浙ICP备08103200号-2</a>阿里巴巴旗下网站</div>
+        </div>
+    </div>
+</div>
+
+<!--ToTop-->
+<div class="rBar">
+    <ul>
+        <li class="list1">
+            <i></i>
+            <span>扫二<br/>维码</span>
+            <div class="hidden">
+                <p>虾米音乐APP</p>
+                <img src="images/qrcode_footer.png" alt=""/>
+                <b>◆</b>
+            </div>
+        </li>
+        <li class="list2">
+            <i></i>
+            <span>意见<br/>反馈</span>
+        </li>
+        <li class="noBorb">
+            <i></i>
+            <span>返回顶部</span>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
