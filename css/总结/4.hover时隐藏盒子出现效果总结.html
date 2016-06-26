@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<br>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .box1{
+            width: 300px;
+            height: 100px;
+            border: 2px solid red;
+            position: relative;
+            float: left;
+            margin-left:200px;
+        }
+        .hide1{
+            width: 400px;
+            height: 0;
+            background: yellow;
+            position: absolute;
+            top:104px;
+            left: 0;
+            overflow:hidden;
+
+
+        }
+        .box1:hover .hide1{
+            height: 200px;
+            transition:height .3s;
+        }
+
+        .box2{
+            width: 200px;
+            height: 300px;
+            border:2px solid red;
+            position: relative;
+            float: right;
+            margin-right:200px;
+            overflow: hidden;
+        }
+        .hide2{
+            width: 200px;
+            height: 200px;
+            background: teal;
+            position: absolute;
+            left: 0;
+            bottom:-202px;
+        }
+        .box2:hover .hide2{
+            bottom:0;
+            transition:bottom .3s;
+        }
+    </style>
+
+</head>
+
+box1是显示子元素由上到下进行显示
+box2是显示子元素由下到上进行显示
+
+<div class="box1">
+    <div class="hide1"></div>
+</div>
+
+<br/>
+
+<div class="box2">
+    <div class="hide2"></div>
+</div>
+
+</body>
+</html>

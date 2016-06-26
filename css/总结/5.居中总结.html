@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body style="height: 3000px;">
+
+<!--1）文字、img、input 行内元素居中，使用text-align,
+        text-align是用于块状元素以及行内块级元素中  行内块级元素必须定义width
+-->
+    <style>
+        .text{
+            background: pink;  text-align: center;  display: inline-block;  width: 500px;
+        }
+    </style>
+    <p class="text"><input type="text"/></p>
+
+
+
+<!--2）单行文字等行内元素垂直居中，高度与行高需要相等，需要作用于块级元素或行内块级元素
+       height:100px;
+       line-height:100px;
+-->
+    <style>
+        .art{
+            background: yellow;height: 100px; line-height: 100px;
+        }
+    </style>
+    <p class="art">我是一个段落</p>
+
+
+<!--3）大结构水平居中显示
+        margin：0 auto；
+-->
+    <div style="width: 300px;background: blueviolet;height: 100px;margin:0 auto;"></div>
+
+
+<!--4）绝对居中（上下居中，左右居中）-->
+    <style>
+        .center{width: 300px;height: 200px;background: greenyellow;
+                 position:absolute;top:50%;left: 50%; /*50%是参照物宽度与高度的50%*/
+                 /*设置上面定位后，那么div块的左上角是处于浏览器的中间，需要通过margin来进行调整*/
+                 /*margin-left: -150px;*/
+                 /*margin-top: -100px;*/
+        }
+    </style>
+    <div  class="center"></div>  <!--center没有设置参照物，参照物是浏览器-->
+
+    <style>
+        .parent{
+            width: 300px;
+            height: 200px;
+            background: yellow;
+            position: relative;
+        }
+        .child{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;;
+        }
+    </style>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+
+
+<!--5）行内块级元素设置vertical-align:middle，也可用于行内元素，但很少使用与行内元素，大部分适用于行内块级元素-->
+    <style>
+        div img{
+            vertical-align: middle;
+        }
+    </style>
+    <div class="test">
+        <span>文字</span>
+        <img src="images/no-img_mid_.jpg" alt=""/>
+        <span>文字</span>
+    </div>
+</body>
+</html>

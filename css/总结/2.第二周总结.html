@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    制作表单时，一般input和label标签都会放在一个div中，这是为了方便设置表单的样式，在表单中的文字需要放在label标签中
+
+    制作二级列表时，可以先做hover时的效果，对二级列表可以使用定位的方式进行实现
+
+    background-position属性，后面对图像进行定位，可以使用百分比或者像素
+
+    a标签不同状态下样式的设置：
+    1）a:hover    光标放在a标签时的样式
+    2）a:visited  a标签访问过后的样式,应该写在a其它状态样式的前面
+    3）a:active   a标签激活时的样式，即点击a标签时的样式
+    4）a:link     a标签默认时的样式
+
+    input标签在点击时会有一个默认的边框，可通过outline：none进行消除
+
+    transition: all .2s;  css样式过渡的效果时间，第一个为过渡的元素，一般都为all，第二个值为过渡的时间
+
+    transform：rotate(90deg)  使标签旋转180度,设定高度限制后，旋转之后还是显示原来显示的那部分
+
+    placeholder(占位文字):可描述输入字段预期值的提示信息，该提示在输入字段为空时提示，在字段获得焦点时消失                   可用于以下type类型中：text, search, url, telephone, email 以及 password
+
+    雪碧图制作方法：
+    1）新建ctrl+n  宽度200px，高度200px，背景内容：透明
+    2）在原图中，M选中要操作的图标，ctrl+c
+    3）在新的页面上，ctrl+v  粘贴
+    4）先按v键  再按ctrl 选择要操作的额图标
+    5）M键框选要操作的图标，选择--》色彩范围 出现吸管工具，去选择图标上白的的部分，点击确定--》按delete（删除选中的白色部分）
+
+    ctrl选中要操作的图层，按ctrl键点击图层的小方框，选择要操作的像素
+    alt+delete     填充前景色
+    ctrl+delete    填充背景色
+
+    图像--》裁切--》确定
+
+    ctrl+d         取消选择4
+
+
+
+    <p>
+        小箭头做法
+    </p>
+    <div class="arrow"></div>
+    <style>
+        .arrow{
+            width: 0;
+            height: 0;
+            border:20px solid transparent;
+            border-top: 20px solid red;
+        }
+    </style>
+
+    cursor：pointer   对标签设置该属性，可让鼠标变成小手的样式
+    <div class="text"></div>
+    <style>
+        .text{width: 100px;  height: 100px;border:2px solid green;cursor: pointer;}
+    </style>
+
+    有一个div块，设置了背景色和点状的边框，点状后面会显示出来背景色，即背景色会显示在边框上
+    <div class="test"></div>
+    <style>
+        .test{ width: 100px;height:100px;border: 10px dotted yellow;background: red;}
+    </style>
+
+
+    表单标签：
+    <form action="index.jsp" method="get/post">
+        <label for="name">账号</label>
+        <input type="text" id="name"/>
+
+        <!-- type为pass时是密码框-->
+        <label for="pass">密码</label>
+        <input type="password" id="pass"/>
+
+        <!--type是radio时是单选框-->
+        <input type="radio" name="sex"/><label for="">男</label>
+        <input type="radio" name="sex"/><label for="">女</label>
+
+        <!-- type是checkbox时是复选框-->
+        <label for="">爱好</label>
+        <input type="checkbox"/><label for="">旅游</label>
+        <input type="checkbox"/><label for="">看书</label>
+        <input type="checkbox"/><label for="">羽毛球</label>
+
+        <!-- select下拉列表-->
+        <select name="" id="">
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="杭州">杭州</option>
+            <option value="广州">广州</option>
+        </select>
+
+        <!-- textarea文本域-->
+        <textarea name="" id="" cols="30" rows="10" maxlength="10" style="max-width: 100px;max-height: 100px;"></textarea>
+
+        <!-- 文件上传-->
+        <input type="file"/>
+
+        <!-- 普通按钮-->
+        <input type="button" value="按钮"/>
+
+        <!-- 提交按钮-->
+        <input type="submit"/>
+
+        <!-- 重置按钮-->
+        <input type="reset"/>
+    </form>
+
+
+
+</body>
+</html>

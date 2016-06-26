@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        dl{
+            position: relative;
+            list-style: none;
+            width: 140px;;
+        }
+        dt{
+            position: relative;
+            height: 140px;
+        }
+        dt img{
+            width: 140px;
+            height: 140px;;
+        }
+        dd{
+            font-size: 12px;
+            background: #ccc;
+            height: 24px;
+            line-height: 24px;;
+        }
+        dt .hide{
+            display: none;
+            width: 140px;
+            height: 140px;
+            background: rgba(0,0,0,.5);
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        dt:hover .hide{
+            display: block;
+        }
+        dd .hide1{
+            position: absolute;
+            top:0;
+            left: 0;
+            display: none;
+            width: 140px;
+            height: 164px;
+            background: rgba(0,0,0,.6);
+        }
+        dd:hover .hide1{
+            display: block;
+        }
+        dd:hover {
+            color:transparent;
+        }
+    </style>
+</head>
+<body>
+
+<dl>
+    <dt>
+        <img src="../虾米音乐/images/pic1.jpg" alt=""/>
+        <div class="hide"></div>
+    </dt>
+    <dd>音乐推荐
+        <div class="hide1"></div>
+    </dd>
+</dl>
+</body>
+</html>
