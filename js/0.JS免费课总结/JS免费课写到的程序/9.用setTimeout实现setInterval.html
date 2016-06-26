@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var n=0;
+    var timer=null;
+    function fn(){
+        clearTimeout(timer);
+        alert(n);
+        if(n===5){
+            return;//阻断程序执行；
+        }
+        n++;
+        timer=setTimeout(fn,500)
+    }
+    fn();
+
+</script>
+</body>
+</html>

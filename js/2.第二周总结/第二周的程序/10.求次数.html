@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //需求：求出现次数最多的字母，以及他出现了多少次
+    /*
+     * 思路一：
+     * 1.利用对象不重名的特性 obj={a:6,c:4,d:6....}
+     * 2.利用假设法，遍历对象，求出最多的次数；
+     * 3.比对对象中每个属性值，把等于最多次数的属性名放到数组中； ary
+     *
+     * */
+    var str='sssBbsbbssSAAccACcCCcAA';
+    var reg=/[a-zA-Z]/gi;
+    var obj={};
+    //利用replace的第二个参数，操作我们匹配到的每个值；
+    str.replace(reg,function($0){
+        //1.转大小写
+        $0=$0.toLowerCase();
+        if(obj[$0]){
+            obj[$0]++;
+            return;
+        }
+        obj[$0]=1;
+
+    })
+    //求出最多的次数；
+    var num=0;
+    for(var attr in obj){
+        if(obj[attr]>num){
+            num=obj[attr];
+        }
+    }
+    //求出现次数最多的属性名
+    var ary=[];
+    for(var attr in obj){
+        if(obj[attr]===num){
+            ary.push(attr)
+        }
+    }
+    console.log('出现次数最多的单词是'+ary,'出现'+num+'次')
+
+
+
+
+
+
+
+
+    /*
+    * 方法二：
+    * 1）将每个字母出现的次数当作属性名存放在对象中，出现这个次数的字母当作属性名存放在对象中
+    *
+    * */
+    var str = 'sssBbsbbssSaAccACcCCcAA';
+    str = str.split('').sort(function (a, b) {
+        return a.localeCompare(b);
+    }).join('');
+    var reg = /(\w)\1+/gi;
+    var num = 0;
+    var ary = [];
+    var obj = {};
+    //求出现最多的次数？
+    str.replace(reg, function ($0, $1) {
+        var len = $0.length;
+        if (typeof obj[len] === "undefined") {
+            obj[len] = $1;
+        } else {
+            obj[len] += "," + $1;
+        }
+        if (len >= num) {
+            num = len;
+        }
+    });
+    console.log(obj[num]);
+
+
+
+
+
+
+
+
+    /*
+    *
+    * 思路三：老公的思路~~~~~~~
+    *
+    *
+    * */
+    var str = "sssBBbbbccbSbbbsBssACCAAcccACCACnnnnnnnnnnnnnnnnnnnnnnnnnn";
+    str=str.split("").sort(function(a,b){
+        return a.localeCompare(b);
+    }).join("").toLowerCase();
+    var ary=str.replace(/(.)(?=.*\1)/g,"");
+    var obj = {};
+    obj.key=0;
+    obj.value=null;
+    for(var i=0;i<ary.length;i++){
+        var reg=new RegExp(ary[i],"g");
+        var l=str.match(reg).length;
+        if(obj.key<l){
+            obj.value=ary[i];
+            obj.key=l;
+        }else if(obj.key==l){
+            obj.value=obj.value+","+ary[i];
+        }
+    }
+    console.log(obj);
+
+
+
+</script>
+</body>
+</html>

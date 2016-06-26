@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //forEach 方法为数组中常用方法，用于遍历数组的每一项，并将其输出，首先这里会先学习系统forEach的方法
+    // 注：forEach不支持低级浏览器，不支持IE6--IE8
+
+    /*var ary = [1,2,3,4,5];
+     var obj = {};
+     ary.forEach(function(item,index,input){
+     console.log(item + ":" + index + ":" + input + ":" + this);
+     },obj);*/
+
+    //上面就是系统自带forEach的用法，用于遍历数组每一项
+    //forEach 有两个参数，一个为函数类型的参数，一个为其它数据类型的参数
+    //函数类型的参数，该函数中有三个参数：
+    //item ： 数组中的每一项     index：数组中的索引     input：数组本身    this：回调函数的指向，没有传参，就是window，如果forEach传了第二个参数，this就是传递的参数
+
+
+    //思路：
+    //1）首先观察系统forEach方法，调用的时候会传递两个参数，一个是函数类型（即回调函数），另外一个是其它数据类型，且没有返回值
+    //2）判断forEach是否传递第二个参数，如果有传递，回调函数的this就是当前参数，如果没有传递，this就是window
+    //3）判断当前浏览器是高级浏览器还是低级浏览器，如果是高级浏览器，可直接调用系统内置方法
+    //4）如果是低级浏览器，做兼容处理，首先判断当前传递进来的是否为函数，如果是函数，才会继续执行
+    Array.prototype.myForEach = function myForEach(callback, context) {
+        context = context || window;
+
+        //高级浏览器处理
+        if ("forEach" in Array.prototype) {
+            this.forEach(callback, context);
+            return;
+        }
+
+        //低级浏览器处理
+        if (typeof  callback === "function") {
+            for (var i = 0; i < this.length; i++) {
+                callback.call(context, this[i], i, this);
+            }
+        }
+    };
+
+    //检测
+    var ary = [1, 2, 3, 4, 5];
+    var obj = {};
+    ary.myForEach(function (item, index, input) {
+        console.log(item);
+    }, obj)
+
+</script>
+</body>
+</html>

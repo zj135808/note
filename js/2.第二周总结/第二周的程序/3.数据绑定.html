@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style:none;
+            width: 400px;
+            margin: 30px auto;
+            border: 5px solid lightgreen;
+            box-shadow: 4px 4px 10px darkgreen;
+            padding: 20px;
+        }
+        ul li{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            height: 30px;
+            font-size: 20px;
+            color: darkblue;
+            line-height: 30px;
+            border-bottom: 2px dashed #ccc;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        ul li span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: red;
+            text-align: center;
+            line-height: 20px;
+            color: #fff;
+        }
+        ul li.bg{
+            background: lightpink;
+        }
+    </style>
+</head>
+<body>
+<ul>
+</ul>
+
+<script src="js/json-bind.js"></script>
+<script>
+    // 数据绑定，这里一共有三种方式
+    // 1）字符串拼接
+    // 2）动态创建
+    // 3）文档碎片
+
+    var oUl=document.getElementsByTagName("ul")[0];
+    var aLis=document.getElementsByTagName("li");
+
+    // 1）字符串拼接的方式
+    var str="";
+    for(var i=0;i<ary.length;i++){
+        str+="<li>"+"<span>"+i+"</span>"+ary[i].title+"</li>";
+    }
+    oUl.innerHTML+=str;
+
+    // 2）动态元素创建的方式
+    // 思路：每循环一次，
+    // a）都需要动态创建一个li标签
+    // b）将内容插入到创建好的标签中
+    // c）并将li标签放入到ul中
+    for(var i=0;i<ary.length;i++){
+        var oLi=document.createElement("li");
+        oLi.innerHTML="<span>"+i+"</span>"+ary[i].title;
+        oUl.appendChild(oLi);
+    }
+
+    // 3）文档碎片的方式：
+    // 思路：首先创建一个文档碎片
+    // 没循环一次，
+    // a）动态创建一个li标签
+    // b）将内容插入到创建好的标签中
+    // c）并将li标签放入到创建好的文档碎片中
+    // d）将文档碎片放入ul中，最后将文档碎片的内存释放
+    var frg=document.createDocumentFragment();
+    for(var i=0;i<ary.length;i++){
+        var oLi=document.createElement("li");
+        oLi.innerHTML="<span>"+i+"</span>"+ary[i].title;
+        frg.appendChild(oLi);
+    }
+    oUl.appendChild(frg);
+    frg=null;
+
+
+    // 这里实现的是鼠标移入移出的效果
+    for(var i=0;i<aLis.length;i++){
+        aLis[i].onmouseover=function(){
+            this.className="bg";
+        }
+        aLis[i].onmouseout=function(){
+            this.className="";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //求任意范围内的随机数
+    //通过求任意四个随机数，然后把这些数字当做索引，求到对应的字符串，最后把字符串拼接，显示出来；
+    function rnd(n,m){
+        n=Number(n);
+        m=Number(m);
+        if(isNaN(n) || isNaN(m)){
+            return Math.random();
+        }
+        if(n>m){
+            var tmp=n;
+            n=m;
+            m=tmp;
+        }
+        return Math.round(Math.random()*(m-n)+n);
+    }
+    var strCode='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var str='';
+    for(var i=0; i<4; i++){
+        var numRnd=rnd(0,61);
+        //str+=strCode[numRnd];//[]通过索引找对应字符，他是不兼容的（IE 6-7）
+        str+=strCode.charAt(numRnd);
+    }
+    document.write(str)
+
+</script>
+</body>
+</html>

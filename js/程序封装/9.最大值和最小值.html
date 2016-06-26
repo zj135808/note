@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[12,9,23,8,24];
+
+    // 思路1：sort思想
+    /*ary.sort(function(a,b){
+        return a-b;
+    });
+    var max=ary[ary.length-1];
+    var min=ary[0];
+    console.log(min);*/
+
+
+    // Math.max---1
+    /*var max=Math.max.apply(window,ary);
+    console.log(max);*/
+    // Math.max---2
+    /*var max=eval("Math.max("+ary.join(",")+")");
+    console.log(max);*/
+
+
+    // 假设法
+    var max=0;
+    var min=ary[0];
+    for(var i=0;i<ary.length;i++){
+        if(max<ary[i]) max=ary[i];
+        if(min>ary[i]) min=ary[i];
+    }
+    console.log(max);
+    console.log(min);
+
+
+</script>
+</body>
+</html>

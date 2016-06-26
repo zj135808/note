@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+
+    /*
+    * 模板实现原理的理解：
+    * 1）模板实现原理，即有一个固定的模板（这里的模板是字符串），但是由于模板中有个别内容为非固定内容，所以可以使用{0},{1}...来进行代替
+    * 2）将传递过来的内容统一的放在数组中
+    * 3）根据正则，可以将数组中的内容依次将字符串中未固定的内容填写进去
+    *
+    * */
+
+
+
+
+    /*
+     * 实例1
+     * 1.replace:匹配到一次内容的时候，替换一次
+     * 2.replace的第二个参数执行多少次屈居于我们匹配成功的次数
+     * 3.replace第二个参数-arguments[匹配的大正则的内容，小分组的内容，索引，原始字符串]
+     * 4.可以把小分组的内容取出来作为数组的索引
+     *
+     * */
+    var str = "my name is {0},my age is {1},i come from {2}";
+    var ary = ["珠峰", "8", "北京"];
+    // 1）想办法拿到数字，然后把数字作为索引，
+    // 2）{0}，{1}，{2}
+    // 3）replace(用类被替换的，用来替换它的)
+    str = str.replace(/{(\d+)}/g, function () {
+        console.log(arguments);
+        return ary[arguments[1]];
+    });
+    console.log(str);
+
+
+
+
+    /*
+     * 实例二
+     *
+     * */
+    var str = "20160514";
+    var ary = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"];
+    str = str.replace(/\d/g, function () {
+        console.log(arguments);
+        // 把匹配到的每个数字作为数组的索引，找出对应的内容，替换掉以前的数字
+        //return ary[arguments[0]];
+    });
+    console.log(str);
+
+
+
+
+    /*
+     * 实例三
+     *
+     * */
+    var str = "全日制第七期学费：14800";
+    var ary = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"];
+    str = str.replace(/(?:\d)/g, function () {
+        console.log(arguments);
+        return ary[arguments[0]];
+    });
+    console.log(str);
+
+
+    
+
+    /*
+     * 实例四：时间格式化
+     *
+     * */
+    var strDate = "2016-6-23 15:52:33";
+    /*  思路二
+     var ary=strDate.match(/\d+/g);
+     console.log(ary);*/
+    //思路一：严格匹配
+    var ary = [];
+    var reg = /^(\d{4})[-/](\d{1,2})[-/](\d{1,2}) (\d{1,2}):(\d{1,2}):(\d{1,2})$/;
+    strDate.replace(reg, function () {
+        console.log(arguments);
+        ary = Array.prototype.slice.call(arguments, 1, arguments.length - 2);
+        //console.log(ary);
+    });
+    var str = "{0}年{1}月{2}日 {3}时{4}分{5}秒";
+    //var ary=["2016","6","23","15","52","30"];
+    str = str.replace(/{(\d+)}/g, function () {
+        console.log(arguments);
+        var num = ary[arguments[1]];
+        num = num >= 0 && num < 10 ? '0' + num : num;
+        return num;
+    });
+    console.log(str);
+
+</script>
+</body>
+</html>

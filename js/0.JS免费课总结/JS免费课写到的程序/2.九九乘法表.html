@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin: 30px auto;
+            height: 330px;
+            border: 1px solid red;
+            width:1150px;
+        }
+        ul {
+            list-style: none;
+            height: 270px;
+            padding: 30px;
+        }
+        ul li span{
+            display: inline-block;
+            width: 110px;
+            line-height: 30px;
+            text-align: center;
+        }
+        li.bg0{
+            background: lightpink;
+        }
+        li.bg1{
+            background: lightblue;
+        }
+        li.bg2{
+            background: lawngreen;
+        }
+        li.bg{
+            background: mediumpurple;
+        }
+    </style>
+</head>
+<body>
+
+<div id="tab">
+</div>
+
+<script>
+    var oTab=document.getElementById("tab");
+    var aLis=oTab.getElementsByTagName("li");
+    var str='';
+    str+='<ul>';
+        for(var i=1;i<=9;i++){
+            str+='<li>';
+                for(var j=1;j<=i;j++){
+                str+='<span>'
+                    str+=j+'*'+i+'='+j*i;
+                str+='</span>'
+            }
+            str+='</li>';
+        }
+    str+='</ul>';
+
+    oTab.innerHTML=str;
+
+    for(var i=0;i<aLis.length;i++){
+        aLis[i].className='bg'+i%3;
+
+        aLis[i].oldBg=aLis[i].className;
+        aLis[i].onmouseover=function(){
+            this.className="bg";
+        };
+        aLis[i].onmouseout=function(){
+            this.className=this.oldBg;
+        }
+    }
+</script>
+
+</body>
+</html>

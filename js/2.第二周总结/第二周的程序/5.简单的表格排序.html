@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<ul></ul>
+<script src="js/json-sort.js"></script>
+<script src="js/utils.js"></script>
+<script>
+    // 这里的数据绑定使用的是 字符串拼接 方式
+
+    // 思路：
+    // 1、首先需要将数据绑定到页面中
+    // 2、将绑定好的数据进行排序
+    // 3、将排序好的数据重新写入页面中
+
+    var oUl=document.getElementsByTagName("ul")[0];
+    var aLis=oUl.getElementsByTagName("li");
+
+    // 1、首先需要将数据绑定到页面中
+    var str="";
+    for(var i=0;i<jsonAry.length;i++){
+        str+="<li>"+jsonAry[i].age+"</li>";
+    }
+    oUl.innerHTML=str;
+
+
+    // 2、将绑定好的数据进行排序
+    var ary=utils.listToArray(aLis);
+    ary.sort(function(a,b){
+        a= parseFloat(a.innerHTML);
+        b= parseFloat(b.innerHTML);
+        return a-b;
+    });
+
+
+    // 3、将排序好的数据重新写入页面中
+    var frg=document.createDocumentFragment();
+    for(var i=0;i<ary.length;i++){
+        frg.appendChild(ary[i]);
+    }
+    oUl.appendChild(frg);
+    frg=null;
+
+
+</script>
+</body>
+</html>

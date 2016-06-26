@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    //Object.create  方法作用
+    //Object.create(proto),会创建一个新对象，并且proto为新对象的原型，即在新对象的原型链上
+    //例如：var obj2=Object.create(obj)    那么obj是obj2的原型，即obj在obj2的原型链上，obj2通过__proto__总可以找到 obj
+
+    //create由于不兼容低版本浏览器，所以在这里需要将该方法重写，令其兼容低版本浏览器
+
+    //思路：任何一个类的原型  也是  这个由这个类new出一个实例的原型
+    //1）写该方法时，首先需要传一个对象参数
+    //2）由于一个类的原型，就是所属这个类的实例的原型
+    //3）因此，我们可以在方法中创建一个类，令其原型为传过来的参数
+    //4）并将这个类的实例返回
+    //5）这样 传递的参数obj  就是返回实例 的原型
+
+    Object.prototype.myCreate = function myCreate(obj){
+        function Fn(){}
+        Fn.prototype = obj;
+        return new Fn;
+    }
+
+</script>
+
+</body>
+</html>

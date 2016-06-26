@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1.原型基础：重中之重！！！
+    1）每一个函数数据类型，都天生自带一个属性，叫prototype，它是一个对象
+    2）prototype这个对象上天生自带一个属性constructor,他指向当前所属类；
+    3）每个对象上都带一个属性__proto__,他指向当前实例所属类的原型；
+
+2.几个反应：重中之重；
+    1）一看到函数名首字母大写：构造函数--》构造函数中放的都是私有的属性和方法；
+    2）一看A.prototype：原型--》原型上放的都是公有的属性和方法；
+    3）一看到A.prototype={}-->这是自己创建的原型对象，上面一定没有constructor,这个实例就不能进行类的细分；
+    4）一看到__proto__：这是进行原型链的查找；
+
+3.原型链：比如查找a.showX;
+    1）现在自己的私有属性上查找，找到的话就是私有属性；
+    2）找不到，通过__proto__继续往所属类的原型上找，如果找到，就是公有的属性；
+    3）找不到，继续通过__proto__一直往上找。。。。找到Object.prototype上，如果还没有，undefined;
+
+4.原型公有属性和私有属性的判断
+    1）判断一个属性是否是该对象的属性，那么使用in
+    2）判断一个属性是否为该对象的私有属性，使用hasOwnProperty
+    3）判断一个属性是否为该对象的公有属性，需要自己封装方法：
+        return ((attr in this) && !this.hasOwnProperty(attr))
+
+5.Object.create
+    var obj2 = Object.create(obj);  //obj是obj2的原型
+    1）思想：这是关于原型链的，如果希望一个原型（obj）在令一个对象（obj2）的原型链上
+        a）创建一个类Tmp，令 Tmp.prototype=obj
+        b）将 obj2 作为 Tmp的实例 返回
+
+6.在原型中，可以通过__proto__来改变系统内置类的一些属性，不能统一做修改，但是可以分别修改，在IE低版本不支持
+
+
+<script>
+    function A(){
+        this.x=100; //a.x=100;
+    }
+    A.prototype.showX=function(){
+        this.x = 200;
+        this.y=300;//a.y=300
+        alert(this.x+this.y)
+    };
+    var a=new A;
+    a.showX();
+    a.__proto__.showX();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //以下是介绍了几种基本的继承的方法，同时也可以进行混合使用
+    //call继承 +  原型链继承 可以混合使用，但有一个问题就是 父类的私有即给了子类的私有也给了子类的公有
+    //针对上面的继承方式有两种解决方案
+    //1) call继承 +  拷贝继承
+    //2） call继承 + object.create()   此方式也为寄生式继承
+
+    //关于继承，有以下四点：
+    //1）子类的公有 继承 父类的公有和私有
+    //2）子类的公有 继承 父类的公有
+    //3）子类的私有 继承 父类的公有和私有
+    //4）子类的私有 继承 父类的私有
+
+
+    //1）子类的公有 继承 父类的公有和私有
+    //可以令 子类的原型  为  父类的一个实例  ，代码如下：
+    //此方法也为原型链继承
+    function F(){
+        this.x = 100;
+        this.y = 200;
+    }
+    F.prototype.showX = function(){};
+    function S(){
+        this.z = 300;
+    }
+    S.prototype = new F;
+    S.prototype.constructor = S;
+    var s = new S;
+    console.dir(s);
+
+
+
+    //2）子类的公有 继承 父类的公有
+    //可以新建一个类，令这个类的公有为父类的公有，私有不设置，并让子类的原型为这个新建类的一个实例
+    //此方法采用了object.create()的思想
+    //object.create(obj)  思想： 此函数返回值，且obj在返回值的原型链上
+    //为达到这个目的：我们可以创建一个类，令这个类的原型为obj，并返回这个类的实例，那么obj也会在这个实例的原型链上了
+    function F1(){
+        this.x = 100;
+        this.y = 200;
+    }
+    F1.prototype.showX = function(){};
+    function Tmp(){}
+    Tmp.prototype = F1.prototype;
+    function S1(){
+        this.z = 300;
+    }
+    S1.prototype = new Tmp;
+    S1.prototype.constructor = S1;
+    var s1 = new S1;
+    console.dir(s1);
+    //实现子类的公有 继承 父类的公有  ， 还可以通过for in来遍历父类的公有，并令其放在子类的公有中
+    //此方法也为拷贝继承
+    function extend(newEle,oldEle){
+        for(var attr in oldEle){
+            newEle[attr] = oldEle[attr];
+        }
+    }
+    function Fn(){
+        this.x = 100;
+        this.y = 200;
+    }
+    Fn.prototype.showX = function(){};
+    function So(){}
+    extend(So.prototype,Fn.prototype);
+    var so = new So;
+    console.dir(so);
+
+
+
+
+    //3）子类的私有 继承 父类的公有和私有
+    //可以新建一个父类的实例，通过for in循环得到父类的公有和私有属性，并存放在子类的私有中
+    //此方法也为冒充继承
+    function F2(){
+        this.x = 100;
+        this.y = 200;
+    }
+    F2.prototype.showX = function(){};
+    function S2(){
+        var obj = new F2;
+        for(var attr in obj){
+            this[attr] = obj[attr];
+        }
+    }
+    var s2 = new S2;
+    console.dir(s2);
+
+
+
+    //4）子类的私有 继承 父类的私有
+    //可以使用call
+    //此方法也为call继承
+    function F3(){
+        this.x = 100;
+        this.y = 200;
+    }
+    F3.prototype.showx = function(){};
+    function S3(){
+        F3.call(this);
+    }
+    var s3 = new S3;
+    console.dir(s3);
+</script>
+</body>
+</html>

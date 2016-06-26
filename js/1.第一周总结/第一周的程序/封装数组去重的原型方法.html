@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //需求:封装一个数组去重的方法，并且该方法可以令任意数组进行调用
+    //思路：
+    //1）由于封装的方法需要由任意数组调用，所以需要将方法写在数组类的原型上
+    //2）使用以前的数组去重方法进行封装，可参见免费课的程序课件
+
+    Array.prototype.rmSame = function rmSame(){
+        var obj={};
+        for(var i=0; i < this.length; i++){
+            var cur = this[i];
+            if(obj[cur] === cur){
+                this.splice(i,1);
+                i--;
+                continue;
+            }
+            obj[cur] = cur;
+        }
+        return this;
+    };
+
+    //测试
+    var ary=[12,12,34,32,34,23,25,23];
+    ary.rmSame();
+    console.log(ary);
+
+</script>
+</body>
+</html>

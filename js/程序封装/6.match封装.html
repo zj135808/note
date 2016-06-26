@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+    * match 批量捕获
+    * 返回值为数组
+    * 核心思想：exec
+    *
+    * */
+
+    String.prototype.myMatch=function(reg){
+        var ary=[];
+        var res=reg.exec(this);
+        while(res){
+            ary.push(res[0]);
+            res=reg.exec(this);
+        }
+        return ary;
+    };
+
+    var str="zhufeng2015peixun2016";
+    console.log(str.myMatch(/\d+/g))
+</script>
+</body>
+</html>

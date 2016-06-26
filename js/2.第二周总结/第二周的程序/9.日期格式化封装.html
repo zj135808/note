@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    /*
+    * 需求：实现日期格式化
+    *
+    * 日期格式化函数封装原理：
+    * 1）需要有一个日期的模板
+    * 2）将给的日期中有用的数据依次放在数组中
+    * 3）使用正则与replace实现将模板中未确定的数据进行替换
+    *
+    *
+    * 函数封装分析：
+    * 1）参数：为日期模板，即本例中的str，目的是让日期以当前模板进行格式化
+    * 2）返回值：格式化后的日期，为一个字符串
+    *
+    * 函数封装步骤分析：
+    * 1）将调用当前函数的日期中的有用数据依次放入数组中，这里可以采用正则匹配
+    *
+    * */
+
+    var strDate="2016-6-23 15:52:33";
+    var str="{0}年{1}月{2}日 {3}时{4}分{5}秒";  //  这里的str就是日期模板
+
+
+    String.prototype.myFomatDate=function(str){
+        // 这里是将传递过来的时间，取出时间中的有用数据，将其放入一个数组中
+        var ary=this.match(/\d+/g);
+        /*var ary=[];
+        var reg=/^(\d{4})[/-](\d{1,2})[/-](\d{1,2}) (\d{1,2}):(\d{1,2}):(\d{1,2})$/;
+        ary=reg.exec(this);*/
+        /*this.replace(reg,function(){
+            console.log(arguments);
+            ary=Array.prototype.slice.call(arguments,1,arguments.length-2);
+            console.log(ary);
+        });*/
+
+        // 这里是为防止没有传递str的值，那么会采用默认的一个时间格式模板
+        str =str ||"{0}年{1}月{2}日 {3}时{4}分{5}秒";
+
+        str=str.replace(/{(\d+)}/g,function(){
+            console.dir(arguments);
+            var num=ary[arguments[1]];
+            num=num>=0&&num<10?"0"+num:num;
+            return num;
+        });
+        console.log(str);
+
+    };
+
+
+    strDate.myFomatDate(str);  // 日期调用myFormatDate实现日期格式化，格式化的日期模板为str
+
+</script>
+</body>
+</html>

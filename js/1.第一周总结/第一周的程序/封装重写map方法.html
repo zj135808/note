@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //封装map函数之前必须先明白map函数的用法！
+    //map函数和forEach函数的用法类似，不同之处在于map函数有返回值，forEach没有返回值
+    //map函数中回调函数有返回值，并将修改之后的返回值返回到一个变量，并将返回的所有值放到一个新的数组，作为map函数的返回值进行返回
+
+    var ary = [12, 23, 34, 45, 56];
+    var obj = {};
+
+
+    Array.prototype.myMap = function myMap(callback, context) {
+        context = context || window;
+
+        if ("map" in Array.prototype) {
+            return this.map(callback, context);
+        }
+
+        var newAry = [];
+        if (typeof  callback === "function") {
+            for (var i = 0; i < this.length; i++) {
+                var val = callback.call(context, this[i], i, this);
+                newAry.push(val);
+            }
+        }
+
+        return newAry;
+    };
+
+    var res = ary.myMap(function (item, index, input) {
+        return item * 10;
+    });
+    console.log(ary);
+    console.log(res);
+</script>
+</body>
+</html>

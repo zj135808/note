@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        .tab{
+            width: 458px;
+            height: 300px;
+            margin: 30px auto;
+        }
+        .tab ul{
+            clear: both;
+        }
+        .tab ul li{
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            border:1px solid #000;
+            float: left;
+            text-align: center;
+            background: #e1e1e1;
+            cursor: pointer;
+        }
+        .tab ul li.bg{
+            background: red;
+        }
+        .tab div{
+            width: 100%;
+            height: 100%;
+            background: lightblue;
+            font-size: 50px;
+            display: none;
+        }
+        .tab div.show{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="tab" class="tab">
+    <ul>
+        <li class="bg">按钮1</li>
+        <li>按钮2</li>
+        <li>按钮3</li>
+    </ul>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+</div>
+<script>
+    //选项卡需求：
+    //1.按钮分析：点击每个按钮的时候，让当前被点击的这个按钮变亮，其他按钮颜色不变；
+    //2.内容分析：点击每个按钮的时候，显示对应内容页，同时，隐藏其他内容页；
+    var oTab=document.getElementById('tab');
+    var aLi=oTab.getElementsByTagName('li');
+    var aDiv=oTab.getElementsByTagName('div');
+    //点击每个按钮时，让当前按钮变亮，其他不变
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].index=i;
+        aLi[i].onclick=function(){
+            //让所有的按钮都变灭；同时，让所有的内容都隐藏；
+            for(var j=0; j<aLi.length; j++){
+                aLi[j].className='';
+                aDiv[j].className='';
+            }
+            //让当前的按钮变亮
+            this.className='bg';
+            //让对应索引的div显示；
+            aDiv[this.index].className='show';
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

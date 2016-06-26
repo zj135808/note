@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div span{
+            font-size: 50px;
+        }
+        .span1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div><span class="span1">距离端午活动还有: </span><span class="span2" id="span">1天00时00分00秒</span></div>
+<script>
+    var oSpan=document.getElementById('span');
+    function toDou(n){
+        /*if(n>=0 && n<10){
+            return '0'+n;
+        }else{
+            return ''+n;
+        }*/
+        return n>=0 && n<10?'0'+n:''+n;
+    }
+    function countdown(){
+        var oDate=new Date();//创建一个日期对象
+        //oDate.getTime();//现在距离1970年1月1日 00时00分00秒的毫秒数
+        var newDate=new Date('2016/6/9 12:00:00');
+        //newDate.getTime();//2016/6/9 12:00:00 距离1970年1月1日 00时00分00秒的毫秒数
+        //newDate.getTime()-oDate.getTime() 活动时间距离现在时间的毫秒数
+        var s=Math.floor((newDate.getTime()-oDate.getTime())/1000);//活动时间距离现在时间的秒数；
+        var d=Math.floor(s/86400); //86400=24*60*60  秒数/86400--整数部分：天 余数：剩下的秒数；
+        s%=86400; //剩下的秒数
+        var h=Math.floor(s/3600); //整数部分：小时 ； 余数：剩下的秒数；
+        s%=3600;//余数：剩下的秒数；
+        var m=Math.floor(s/60); //整数部分：分钟 ； 余数：剩下的秒数
+        s%=60;//余数：剩下的秒数
+        var str=toDou(d)+'天'+toDou(h)+':'+toDou(m)+':'+toDou(s);
+        oSpan.innerHTML=str;
+
+    }
+    countdown()
+    clearInterval(timer);
+    var timer=setInterval(countdown,1000)
+</script>
+</body>
+</html>

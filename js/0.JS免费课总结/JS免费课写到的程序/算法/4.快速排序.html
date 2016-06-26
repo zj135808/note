@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //快速排序
+    var ary=[21,12,34,20,9,89,24]
+    //3;
+    //[20]
+    //left[12,9]; right[21,34,89,24]==>[12,9,20,21,34,89,24]
+    //[9]left: []; right[12] =>[9,12]
+    //[89] left:[21,34,24]; right[]==>
+    //不再拆分 [8] 数组中<=1的时候就不拆分；
+    function quickSort(ary){
+        //什么情况不再拆分
+        if(ary.length<=1){
+            return ary;
+        }
+        var num=Math.floor(ary.length/2);//中间数的索引
+        var numValue=ary.splice(num,1)[0];
+        var left=[];
+        var right=[];
+        for(var i=0; i<ary.length; i++){
+            if(ary[i]<numValue){
+                left.push(ary[i]);
+            }else{
+                right.push(ary[i]);
+            }
+        }
+        return quickSort(left).concat([numValue],quickSort(right))
+
+    }
+    //quickSort(ary)
+    console.log(quickSort(ary))
+</script>
+</body>
+</html>

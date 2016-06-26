@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    //原型链继承：把父类的 私有+公有 的属性和方法都作为子类公有的属性
+    //核心：不是把父类 私有+公有 的属性克隆一份一模一样的给子类的公有，它是通过__proto__建立了和子类之间的原型链，当子类的实例需要使用父类的属性和方法的时候，可以通过__proto__一级级的找上去，去使用
+    /*function F(){
+        this.x = 100;
+        this.y = 200;
+    }
+    F.prototype.showX = function(){};
+    function S(){}
+    S.prototype = new F;
+    S.prototype.constructor = S;*/
+
+
+    //call继承：把父类私有的属性和方法继承给了子类私有的属性和方法
+/*
+    function F(){
+        this.x = 100;
+        this.y = 200;
+    }
+    F.prototype.showX = function(){};
+    function S(){
+        F.call(this);
+    }
+    var s = new S;
+    console.dir(s);
+*/
+
+    //冒充继承：把父类 私有+公有 的属性和方法，克隆了一份一模一样的给子类私有的属性和方法
+/*    function F(){
+        this.x = 100;
+        this.y = 200;
+    }
+    F.prototype.showX = function(){};
+    function S(){
+        var tmp = new F;
+        for(var attr in tmp){
+            this[attr] = tmp[attr];
+        }
+    }
+    var s = new S;
+    console.dir(s);*/
+
+
+    //混合继承：call继承 + 原型链继承
+    /*
+     *call继承：把父类私有的属性和方法，都给了子类私有的属性和方法
+     *原型链继承：把父类 私有+公有 的属性和方法，都给了子类公有的属性和方法
+     * 问题：父类私有的给了子类私有，也给了子类公有的
+     */
+    /*function F(){
+        this.x = 100;
+        this.y = 200;
+    }
+    F.prototype.showX = function(){};
+    function S(){
+        F.call(this);
+    }
+    S.prototype = new F;
+    S.prototype.constructor = S;
+    var s = new S;
+    console.dir(s);*/
+
+
+    //混合继承：call继承 + 拷贝继承
+/*    function extend(newEle,oldEle){
+        for(var attr in oldEle){
+            newEle[attr] = oldEle[attr];
+        }
+    }
+    function F(){
+        this.x = 100;
+        this.y = 200;
+    }
+    F.prototype.showX = function(){};
+    function S(){
+        F.call(this);
+    }
+    extend(S.prototype, F.prototype);
+    var s = new S;
+    console.dir(s);*/
+
+
+    //寄生式组合：call继承 + object.create();
+    //实现：子类的私有继承父类的私有，子类的公有继承父类的公有
+   /* function F(){
+        this.x = 100;
+        this.y = 200;
+    }
+    F.prototype.showX = function(){};
+    function S(){
+        F.call(this);
+    }
+    function Tmp(){}
+    Tmp.prototype = F.prototype;
+    S.prototype = new T;
+    S.prototype.constructor = S;
+    var s = new S;
+    console.dir(s);*/
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+    * 需求:判断某个属性是否是这个对象上的公有属性
+    *
+    * */
+    function hasPubProperty(attr,obj){
+        return "attr" in window && obj.hasOwnProperty(attr);
+    }
+</script>
+</body>
+</html>

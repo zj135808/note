@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[28,29,30,1];
+    /*
+    * left: [8,9,12,21,28,34]
+    *思路：1.先给左手一张牌；
+    * 2.拿右手的每张牌，跟左手最后一张牌进行比较，比他大，放在这张牌后一位的前面，这次比较结束；如果比他小，继续往左比较，如果比较完左边的每张牌；还是比他们小，插入左手所有的牌的最前面；
+    * */
+    function insertSort(ary){
+        var left=ary.splice(0,1);//左手的一张牌；
+        for(var i=0; i<ary.length; i++){//右手中的每张牌
+            var cur=ary[i];
+            for(var j=left.length-1; j>=0;){//右手中的每张牌，跟左手最后的牌进行比较；
+                if(cur<left[j]){//如果比他小的话，继续往左边比较；
+                    j--;
+                    if(j==-1){//如果比较完左手的每张牌，还是比他们小的话
+                        left.unshift(cur);//直接插入左手所有牌的最前面；
+                    }
+                }else{//如果比他大，插入他的后面一张牌的前面；结束此次比较；
+                    left.splice(j+1,0,cur);
+                    break;
+                }
+            }
+        }
+        return left;
+    }
+    console.log(insertSort(ary))
+</script>
+</body>
+</html>

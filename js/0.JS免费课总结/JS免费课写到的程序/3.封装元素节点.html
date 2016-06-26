@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    //需求：找到任何一个元素下所有的元素节点
+    //1.是否传参？ 2.返回值是什么？ 3.如果进行筛选元素节点
+    var oUl=document.getElementsByTagName('ul')[0];
+    function getChild(curEle){//求当前元素下的所有元素节点
+        var ary=[];//保存你拿到的每个元素节点
+        var aChilds=curEle.childNodes;//拿到当前元素下的所有节点
+        for(var i=0; i<aChilds.length; i++){//对每个节点进行判断，如果节点类型===1；说明它是元素节点
+            if(aChilds[i].nodeType===1){//如果这个节点是元素节点，就把它放入数组；
+                ary.push(aChilds[i])
+            }
+        }
+        return ary;//最后返回我们保存好的这组元素节点
+    }
+    var aLi=getChild(oUl);//函数调用
+    console.log(aLi.length) //测试
+</script>
+</body>
+</html>

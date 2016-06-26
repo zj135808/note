@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // 需求：将类数组转为数组，在高版本浏览器上，可以直接使用call方式将类数组转为数组，但是在低版本浏览器下，对于元素或节点的集合，无法将类数组转为数组，因为这里需要将此方式进行重新封装
+
+    // 思路：这里需要将 类数组 转为 数组
+    //  由上面可知，传递的参数是一个 类数组， 返回值是一个 数组
+
+    function listToArray(arg) {
+        var ary = [];
+        try {
+            // 兼容模式下
+            ary = Array.prototype.slice.call(arg);
+        } catch (e) {
+            // 不兼容模式下
+            for (var i = 0; i < arg.length; i++) {
+                ary.push(arg[i]);
+            }
+        }
+        return ary;
+    }
+
+</script>
+</body>
+</html>

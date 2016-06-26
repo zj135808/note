@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj = {
+        showX:function(){},
+        showY:function(){}
+    };
+    function Fn1(){
+        this.x = 100;
+    }
+    Fn1.prototype = obj;
+    Fn1.prototype.constructor = Fn1;
+    function Fn2(){
+        this.a = 200;
+    }
+    //需求：令类Fn2有类Fn1上原型的方法，并且不影响Fn1的原型
+
+    //思路1：可以创建一个空对象obj2，令obj2有Fn1原型上的方法，并令obj2为Fn2的原型
+    /*var obj2 = {};
+     for(attr in obj){
+     obj2[attr] = obj[attr];
+     }
+     Fn2.prototype = obj2;
+     Fn2.prototype.constructor = Fn2;
+     Fn2.prototype.cc=function(){};
+     console.log(Fn1.prototype);
+     console.log(Fn2.prototype);*/
+
+
+    //思路2：可以令 Fn1的原型  为  Fn2原型的原型， 这样Fn2的实例即可以使用Fn1原型的方法，且Fn2的原型也不会对Fn1的原型产生影响
+    //即 obj2的原型为obj，可以通过create的方式创建一个obj2
+    var obj2 = Object.create(obj);  //obj是obj2的原型
+    Fn2.prototype = obj2;
+    Fn2.prototype.constructor = Fn2;
+    Fn2.prototype.cc=function(){};
+    console.log(Fn1.prototype);
+    console.log(Fn2.prototype);
+
+</script>
+</body>
+</html>

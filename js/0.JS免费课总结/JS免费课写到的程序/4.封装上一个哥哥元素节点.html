@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul><li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li><!--珠峰-->222222<!--珠峰-->222222<!--珠峰-->222222<!--珠峰-->222222
+    <li>5</li>
+</ul>
+<script>
+    //需求：获取当前元素的上一个元素节点
+    /*思路 返回值：一个值；
+    * 1.首先判断高级浏览器和低级浏览器的支持情况；高级浏览器兼容，直接取值
+    * 2.低级浏览器不兼容，单独做兼容处理；
+    * 3.判断条件： 1）必须是个节点 2）不是元素节点
+    * */
+    var oUl=document.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+   // console.log(aLi[3].previousElementSibling)
+    //console.log('previousElementSibling' in aLi[3])
+    function prev(curEle){
+        //高级浏览器:因为在高级浏览器下，系统提供了专门获取上一个哥哥元素节点的属性previousElementSibling
+        if('previousElementSibling' in curEle){
+            return curEle.previousElementSibling;
+        }
+        //低级浏览器
+        var prev=curEle.previousSibling;
+        while(prev && prev.nodeType!==1){//判断条件： 1）必须是个节点 2）不是元素节点
+            prev=prev.previousSibling;
+        }
+        return prev;
+    }
+    console.log(prev(aLi[1]))
+    //prev(aLi[4]).innerHTML='珠峰培训';
+//    console.log(aLi[0].previousElementSibling)
+</script>
+</body>
+</html>

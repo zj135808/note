@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var strData="2016-6-24 15:32:00";
+    var str="{0}年{1}月{2}日 {3}时{4}分{5}秒";
+
+    // 功能：sreData 最终替换为str这个模板的形式
+    /*
+    * 思路：
+    * 1）把 strDate 变成数组
+    * 2）把str中匹配到的数字替换了模板
+    *
+    * */
+    String.prototype.myFomatDate=function(str){
+        var ary=this.match(/\d+/g);
+        console.log(ary);
+        str = str.replace(/{(\d+)}/g,function($0,$1){
+            console.log(arguments);
+            var tmp=ary[$1];
+            tmp=tmp>=0&&tmp<10?"0"+Number(tmp):tmp;
+            return tmp;
+        });
+        return str;
+    };
+
+    console.log(strData.myFomatDate(str));
+</script>
+</body>
+</html>

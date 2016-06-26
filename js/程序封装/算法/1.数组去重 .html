@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var ary=[1,2,1,2,1,2,3,4,5,2,3,4,5];
+    //1. 两个for循环
+    /*for(var i=0; i<ary.length; i++){
+        for(var j=i+1;j<ary.length; j++){
+            if(ary[i]===ary[j]){
+                ary.splice(j,1);
+                j--;
+            }
+        }
+    }*/
+    //2.sort
+    /*ary.sort(function(a,b){
+        return a-b;
+    });
+    for(var i=0; i<ary.length; i++){
+        if(ary[i]===ary[i+1]){
+            ary.splice(i,1);
+            i--;
+        }
+    }*/
+    //3.利用对象不重名的特性
+    /*var obj={};
+    for(var i=0; i<ary.length; i++){
+        if(obj[ary[i]]===ary[i]){
+            ary.splice(i,1);
+            i--;
+        }
+        obj[ary[i]]=ary[i];
+    }
+    obj=null;*/
+    //4.新数组
+    var ary2=[];
+    for(var i=0; i<ary.length; i++){
+        if(ary2.indexOf(ary[i])===-1){
+            ary2.push(ary[i])
+        }
+    }
+    console.log(ary2)
+</script>
+</body>
+</html>

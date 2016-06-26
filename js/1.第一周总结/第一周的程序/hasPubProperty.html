@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    Object.prototype.hasPubProperty=function(attr){
+        //判断一个属性是否为一个对象的公有属性，需要满足两点
+        //1、该属性是对象的属性   attr in this
+        //2、该属性不是对象的私有属性   !this.hasOwnProperty(attr)
+        return ((attr in this) && !this.hasOwnProperty(attr))
+    };
+</script>
+
+</body>
+</html>

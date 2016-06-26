@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            font-size: 20px;
+        }
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div>距离周一上课还有：<span>00天00时00分00秒</span></div>
+
+<script>
+
+
+    var oSpan=document.getElementsByTagName("span")[0];
+
+    function tudou(n){
+        return n>=0 && n<10?"0"+n:""+n;
+    }
+
+    function countDown(){
+        var oDate=new Date();
+        var newDate=new Date("2016/6/27 9:30:00");
+        var s=Math.floor((newDate.getTime()-oDate.getTime())/1000);
+        var d=Math.floor(s/86400);
+        s%=86400;
+        var h=Math.floor(s/3600);
+        s%=3600;
+        var m=Math.floor(s/60);
+        s%=60;
+        var str=tudou(d)+"天"+tudou(h)+"时"+tudou(m)+"分"+tudou(s)+"秒";
+        oSpan.innerHTML=str;
+    }
+    countDown();
+    clearInterval();
+    var timer=setInterval(countDown,1000);
+
+
+
+
+</script>
+</body>
+</html>

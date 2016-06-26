@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //需求：封装match：把如何正则的所有内容以数组的形式返回；
+
+    /*
+     * match方法的作用：
+     * 用于检索字符串，以找到一个或多个与regexp匹配的文本，并将匹配到的内容以数组的形式返回
+     * var ary=str.match(reg);
+     * */
+
+    /*
+     *核心原理：用exec每次都捕获到正确的内容放入新数组来实现match；
+     * 1.参数：正则表达式
+     * 2.返回值：数组
+     * 3.封装一个公有的方法放在 String.prototype
+     *
+     * */
+
+    var str = "zhufeng2015zhufeng2016zhufeng2017";
+
+    String.prototype.myMatch = function (reg) {
+        var ary = [];
+
+        var res = reg.exec(this);
+        while (res) {
+            ary[ary.length] = res[0];
+            res = reg.exec(this);
+        }
+
+        return ary;
+    };
+
+    var reg = /\d+/g;
+    var ary = str.myMatch(reg);
+    console.log(ary);
+
+
+</script>
+</body>
+</html>
