@@ -1,0 +1,339 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+input{
+    outline: none;
+}
+img{
+    display: block;
+}
+.clearfix:before,.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.head{
+    height: 40px;
+    background-color: #333333;
+}
+.head .headCon{
+    width: 1226px;
+    margin:0 auto;
+}
+.head .headCon ul{
+    float: left;
+}
+.head .headCon ul li{
+    float: left;
+}
+.head .headCon ul li a{
+    float: left;
+    font-size: 12px;
+    color:#b0b0b0;
+    line-height: 40px;
+    padding-right:7px;
+}
+.head .headCon ul li a:hover{
+    color: #fff;
+}
+.head .headCon ul li span{
+    float: left;
+    color:#424242;
+    line-height: 40px;
+    /*height: 15px;*/
+    overflow: hidden;
+    margin-right:7px;
+}
+.head .headCon .cart{
+    float: right;
+    width: 103px;
+    height: 40px;
+    color:#b0b0b0;
+    font-size: 12px;
+    line-height: 40px;
+    background-color: #424242;
+    padding-left:17px;
+    cursor:pointer;
+    position: relative;
+}
+.head .headCon .cart:hover{
+    color: #ff6700;
+    background: #ffffff;
+}
+.head .headCon .cart:hover span{
+    background-position:2px 0;
+}
+.head .headCon .cart span{
+    display: inline-block;
+    width: 18px;
+    height: 14px;
+    background: url("../images/icon.png") no-repeat -22px 0;
+    vertical-align: -1px;
+    margin-right:4px;
+}
+.headCon .cart p{
+    position: absolute;
+    top:40px;
+    right: 0;
+    width: 316px;
+    height:0;
+    box-shadow:0 10px 10px rgba(0,0,0,.3);
+    text-align: center;
+    font-size: 12px;
+    color:#424242;
+    line-height:98px;
+    overflow: hidden;
+}
+.head .headCon .cart:hover p{
+    height: 98px;
+    transition:height .3s;
+    z-index: 2;
+    background: #fff;
+}
+.headCon .login{
+    float: right;
+}
+.headCon .login a{
+    float: left;
+    color: #b0b0b0;
+    font-size: 12px;
+    line-height: 40px;
+}
+.headCon .login a:hover{
+    color: #fff;
+}
+.headCon .login .reg{
+    margin-right: 20px;
+}
+.headCon .login span{
+    float: left;
+    color: #424242;
+    margin: 0 8px;
+    line-height: 40px;
+}
+.nav{
+    width: 1226px;
+    margin: 0 auto;
+    height: 100px;
+}
+.nav h1{
+    float:left;
+    background:#ff6700 url("../images/mi-logo.png") no-repeat;
+    width: 55px;
+    height: 55px;
+    background-position: center center;
+    margin-top: 22px;
+}
+.nav .ads{
+    float: left;
+    width: 163px;
+    height: 66px;
+    margin: 15px 0 0 15px;
+}
+.nav ul{
+    float: left;
+}
+.nav ul .navlist{
+    float: left;
+    margin-right: 27px;
+    height: 100px;
+}
+.nav ul .navlist a{
+    font-size: 16px;
+    color: #333333;
+    line-height: 100px;
+}
+.nav ul .navlist a:hover{
+    color: #ff6700;
+}
+.search{
+    float: right;
+    margin-top: 25px;
+    position: relative;
+}
+.search input[type=text]{
+    float: left;
+    width: 243px;
+    height: 48px;
+    border: 1px solid #e0e0e0;
+    text-indent: 10px;
+}
+.search input[type=text]:focus{
+    border: 1px solid #ff6700;
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+}
+.search input[type=text]:focus +  input[type=button]{
+    border: 1px solid #ff6700;
+    border-left: 0;
+}
+.search input[type=button]{
+    float: left;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #e0e0e0;
+    border-left:0;
+    background: url("../images/icon2_01.png")  no-repeat;
+    cursor:pointer;
+}
+.search input[type=button]:hover{
+    background-position: -54px 0;
+    background-color: #ff6700;
+}
+.search p .phone,.search p .car{
+    position: absolute;
+    top:15px;
+    padding-left: 5px;
+    height: 18px;
+    background-color: #eeeeee;
+    font-size: 12px;
+    color: #757575;
+    cursor: pointer;
+}
+.search p .phone{
+    left: 111px;
+    width: 66px;
+}
+.search p .car{
+    left: 187px;
+    width: 41px;
+}
+.search p span:hover{
+    background-color: #ff6700;
+    color: #fff;
+}
+.nav ul .navlist .hideCon{
+    position: absolute;
+    top:140px;
+    left: 0;
+    /*height: 229px;*/
+    height: 0;
+    width: 100%;
+    border-top:1px solid transparent;
+    padding-left: 85px;
+    overflow: hidden;
+}
+.navlist .hideCon ul li{
+    float: left;
+    width: 203px;
+    height: 229px;
+    text-align: center;
+    position: relative;
+}
+.navlist .hideCon ul li a img{
+    width: 160px;
+    height: 110px;
+    padding: 35px 22px 0 21px;
+}
+.navlist .hideCon ul li p{
+    padding-top: 20px;
+    font-size: 12px;
+    color: #333333;
+    cursor: pointer;
+}
+.navlist .hideCon ul li i{
+    display: block;
+    padding-top: 9px;
+    color: #ff6700;
+    font-style: normal;
+    font-size: 12px;
+}
+.navlist .hideCon ul li span{
+    position: absolute;
+    top: 35px;
+    right: 0;
+    width: 1px;
+    height: 100px;
+    background:#e0e0e0;
+}
+.nav ul .miPhone:hover .hideCon{
+    height: 229px;
+    transition: height .3s;
+    border-top:1px solid #e0e0e0;
+}
+.banner{
+    width: 1226px;
+    margin: 0 auto;
+}
+.banner .bannerImg{
+    background: url("../images/bannerpic.jpg") no-repeat;
+    width: 1226px;
+    height: 460px;
+    position: relative;
+}
+.banner .bannerImg ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 234px;
+    height: 440px;
+    background: #586465;
+    padding: 20px 0 0 0;
+}
+.banner .bannerImg ul .bannerList{
+    height: 42px;
+    position: relative;
+}
+.banner .bannerImg ul .bannerList:hover{
+    background-color: #ff6700;
+}
+.banner .bannerImg ul .bannerList > a{
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 42px;
+    padding-left: 30px;
+}
+.banner .bannerImg ul .bannerList span{
+    position: absolute;
+    right: 24px;
+    top:14px;
+    color: #fff;
+}
+.banner .bannerImg .pro{
+    position: relative;
+}
+.banner .bannerImg .pro:hover .hide{
+    display: block;
+}
+.bannerList .hide{
+    width: 265px;
+    height: 440px;
+    background: #fff;
+    position: absolute;
+    top:-20px;
+    left: 234px;
+    padding-top: 20px;
+    display: none;
+}
+.bannerList .hide ol li{
+    height: 40px;
+    width: 234px;
+    margin-bottom: 36px;
+}
+.bannerList .hide ol li img{
+    float: left;
+    padding-left: 20px;
+    width: 40px;
+    height: 40px;
+}
+.bannerList .hide ol li a {
+    float: left;
+    font-size: 14px;
+    color: #333333;
+    line-height: 40px;
+    padding-left: 12px;
+}
+.bannerList .hide ol li a:hover{
+    color: #ff6700;
+}
