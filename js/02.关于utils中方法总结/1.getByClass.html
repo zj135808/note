@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="box">
+    <div class="box1 box2 box3 box4"></div>
+    <div class="box1 box2 box3"></div>
+    <div class="box1 box2"></div>
+    <div class="box1"></div>
+</div>
+<script>
+    var oDiv=document.getElementById("box");
+    /*
+    * getByClass:根据class名获取指定范围的元素，和getElemenstByClassName功能一样，但由于getElemenstByClassName这个方法不使用与IE6-8，所以封装兼容版本
+    *
+    *
+    * 参数：
+    * 参1：根据class名获取元素，可以用多个class名  strClass
+    * 参2：指定范围：context
+    *
+    * 返回值：
+    * 获取到的满足条件的元素：ary
+    *
+    *
+    * 思路：
+    * 1）首先进行高级低级浏览器的判断，如果是高级浏览器可以使用内置方法
+    * 2）低级浏览器处理
+    *   a）将strClass这个字符串转为数组，将每一项存放于数组aryClass
+    *   b）获取到指定范围的所有元素nodeList
+    *   c）遍历获取到的所有元素，将符合条件的元素存放于数组
+    *       1.遍历aryClass，检测当前的元素中是否有class名
+    *       2.如果符合条件，放于数组，否则进行下一个元素的检测
+    *
+    * */
+
+    function getByClass(strClass,context){
+        context = context ||document;
+
+        if("getComputedStyle" in window){
+            return Array.prototype.slice.call(context.getElementsByClassName(strClass));
+        }
+
+        var aryClass=strClass.replace(/(^ +)|( +$)/g,"").split(/ +/g);
+        var nodeList=context.getElementsByTagName("*");
+        var ary=[];
+        for(var i=0;i<nodeList.length;i++){
+            var curNode=nodeList[i];
+            var flag=true;
+            for(var j=0;j<aryClass.length;j++){
+                var curClass=aryClass[j];
+                var reg=new RegExp("(^| +)"+curClass+"($| +)");
+                if(!reg.test(curNode.className)){
+                    flag=false;
+                    break;
+                }
+            }
+            if(flag){
+                ary.push(curNode);
+            }
+        }
+        return ary;
+    }
+
+    console.log(getByClass("box1 box2 ",oDiv));
+</script>
+</body>
+</html>

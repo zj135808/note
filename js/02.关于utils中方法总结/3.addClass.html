@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            border: 10px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div class="box1 box2 box3 box4"></div>
+    <div class="box1 box2 box3"></div>
+    <div class="box1 box2"></div>
+    <div class="box1"></div>
+</div>
+
+<script>
+    /*
+    * addClass:给某个元素添加class名，可以添加多个class名
+    *
+    * 参数：
+    * 参1：添加的元素 curEle
+    * 参2：添加的class名 strClass
+    *
+    * 返回值：
+    * 无
+    *
+    * 思路：
+    * 1）将传进来的strClass转为数组
+    * 2）遍历strClass，检测当前元素中的class中是否有strClass中的每一项
+    *   如果有，不添加
+    *   如果没有，进行添加
+    *
+    * */
+
+    function hasClass(curEle,className){
+        className=className.replace(/(^ +)|( +$)/g,"");
+        var reg=new RegExp("( +|^)"+className+"($| +)");
+        return reg.test(curEle.className);
+    }
+
+    function addClass(curEle,strClass){
+        var aryClass=strClass.replace(/(^ +)|( +$)/g,"").split(/ +/g);
+        for(var i=0;i<aryClass.length;i++){
+            var curClass=aryClass[i]; /*"box2   box3"  [box2 box3]*/
+            if(!hasClass(curEle,curClass)){
+                curEle.className+=" "+curClass;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

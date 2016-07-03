@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="box">
+    <div class="box1 box2 box3 box4"></div>
+    <div class="box1 box2 box3"></div>
+    <div class="box1 box2"></div>
+    <div class="box1"></div>
+</div>
+<script>
+    var oDiv=document.getElementById("box");
+    var aDiv=oDiv.getElementsByTagName("div");
+    /*
+    * hasClass:判断一个元素中是否有当前class名，这里只能判断一个class
+    *
+    * 参数：
+    * 参1：当前元素curEle
+    * 参2：判断的class名，className
+    *
+    * 返回值：
+    * bool值
+    *
+    * 思路：
+    * 1）去除首尾空格
+    * 2）使用正则判断当前元素的class中是否有classNmae
+    *
+    * */
+
+    function hasClass(curEle,className){
+        className=className.replace(/(^ +)|( +$)/g,"");
+        var reg=new RegExp("( +|^)"+className+"($| +)");
+        return reg.test(curEle.className);
+    }
+
+    alert(hasClass(aDiv[0],"box5"));
+</script>
+</body>
+</html>

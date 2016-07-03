@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style:none;
+        }
+        #box{
+            width: 800px;
+            height: 200px;
+            border: 2px dashed green;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        ul{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        ul li{
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+        ul li img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li><img src="../img/1.jpg" alt=""/></li>
+        <li><img src="../img/2.jpg" alt=""/></li>
+        <li><img src="../img/3.jpg" alt=""/></li>
+        <li><img src="../img/4.jpg" alt=""/></li>
+    </ul>
+</div>
+<script src="../js/utils.js"></script>
+<script>
+    /*
+    * 跑马灯思想：这里是令ul进行的移动，移动的原理是改变ul的left的值
+    * 1）为了防止空白，给ul内容多克隆了一份
+    * 2）为了让所有的li在一行显示，重新设置ul的宽度 一个li的宽度*li的个数
+    * 3）断减少ul的left，当ul的left<=-800时；让left=0;
+    * 4）鼠标移入停止运动，移出继续运动
+    *   这里可将移动的函数单独写一个函数move，在鼠标移入时，令定时器停止，鼠标移出时，定时器开始执行
+    *
+    * */
+
+    var oDiv=document.getElementById("box");
+    var oUl=oDiv.getElementsByTagName("ul")[0];
+    var aLi=oUl.getElementsByTagName("li");
+
+    oUl.innerHTML+=oUl.innerHTML;
+    oUl.style.width=utils.getCss(aLi[0],"width")*aLi.length+"px";
+    var curLeft=utils.getCss(oUl,"left");
+    clearInterval(timer);
+    var timer=window.setInterval(move,10);
+    function move(){
+            curLeft--;
+            if(curLeft<=-utils.getCss(oUl,"width")/2){
+                curLeft=0;
+            }
+            oUl.style.left=curLeft+"px";
+    }
+    oDiv.onmouseover=function(){
+        clearInterval(timer);
+    };
+    oDiv.onmouseout=function(){
+        timer=window.setInterval(move,10);
+    }
+
+
+</script>
+</body>
+</html>

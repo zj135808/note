@@ -1,0 +1,70 @@
+第一部分：盒子模型
+
+1、JS盒子模型
+    用JS提供的属性和方法去获取元素的各种样式值
+
+2、JS提供的属性和方法
+    client系列：clientWidth、clientHeight、clientLeft、clientTop
+    offset系列：offsetWidth、offsetHeight、offsetLeft、offsetTop、offsetParent
+    scroll系列：scrollWidth、scrollHeight、scrollLeft、scrollTop
+
+3、client系列
+    clientWidth/height:设定的宽（高）+左右padding（上下padding）
+    clientLeft:border-left
+    clientTop:border-top
+    是否受内容溢出的影响：不受溢出影响
+
+4、offset系列
+    offsetWidth：设定的宽（高）+左右padding（上下padding）+border
+    offsetLeft:当前元素的外边框距离有定位父级的内变框的距离；-》同类 offsetTop;
+    offsetParent -》定位父级 最大-body
+    是否受内容溢出的影响：不受溢出内容的影响
+
+5、scroll系列
+    在没有内容溢出的情况下 相当于clientHeight -》scrollWidth===clientWidth
+    如果有内容溢出的情况下 约等于 ：上padding+真实内容的高度 ->左padding+真实内容的宽度；
+    为什么是约等于：
+        a）同一元素，不同浏览器测试的值不同
+        b）同一元素，是否溢出隐藏，在同一浏览器下也不相同
+
+6、浏览器兼容处理思想
+  1）浏览器异常捕获兼容处理  try  catch
+    缺陷：无论浏览器是否支持，都会走一遍try里的js语句，性能相对来说差
+  2）属性判断
+    attr in obj
+    obj.attr
+    typeof obj.attr==="数据类型"
+  3）浏览器版本判断：navigator.userAgent
+    reg.test(navigator.userAgent)
+    navigator.userAgent.search(reg) != -1 找到
+    navigator.userAgent.search(reg) === -1 找到
+
+***********************************************************************************************
+***********************************************************************************************
+
+第二部分：其它
+1、使用伪类清除浮动：
+    clearfix:before,clearfix:after{
+        display:block;
+        content:"";
+        clear:both;
+    }
+
+2、定位父级和结构父级
+    parentNode 按标签算的话，最大值为html标签； 不按标签算--最大值htmlDocument;
+    offsetParent 如果没有定位的话，定位父级默认就指向body；
+
+3、同步和异步
+    同步：当前的任务没有完成，不会开始下个任务
+    在JS中用的最多的是同步；最典型就是（for，while） 循环
+    异步：当前任务没有完成，不会等，继续开始执行下个任务，等下面所有的任务都完成时候，在回过头来执行当前这个任务的结果；如果下面任务永远都完成不了呢？不会回头执行前面的结果；
+
+4、JS中常见的异步处理：
+    1）元素身上的事件
+    2)定时器
+    3）回调函数
+    4）ajax
+
+5、定时器小技巧
+    1）开启定时器前，可以先关闭定时器
+    2）定时器的时间设置越小越不精准，而且，即使设置为0；他也不是0ms，因为各大浏览器对定时器，都有一个最小值的设置；

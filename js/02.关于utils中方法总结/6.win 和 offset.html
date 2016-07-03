@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+     * win：获取或设置浏览器的相关属性
+     *
+     * 参数：
+     * 参1：获取或设置的浏览器属性 attr
+     * 参2：如果是设置，那么设置的该属性的值 value
+     *
+     * 返回值：
+     * 如果是获取有返回值
+     *
+     * 思路：
+     * 1）判断第二个参数是否存在，如果存在，那么是设置
+     * 2）如果第二个参数不存在，那么是获取
+     *
+     * */
+
+    function win(attr, value) {
+        if (typeof value === "undefined") {
+            return document.documentElement[attr] || document.body[attr];
+        }
+        document.documentElement[attr] = document.body[attr] = value;
+    }
+
+
+    /*
+     * offset:该方法是获取当前元素距离body的左距离和上距离
+     *
+     * 参数：
+     * 参1：当前元素 curEle
+     *
+     * 返回值：
+     * {left:l,top:t}
+     *
+     * 思路：
+     * 1）首先求出当前元素距离上一定位父级的上距离和左距离
+     * 2）找到当前元素的上一定位父级，计算上一定位父级的边框和距离
+     * 3）基于当前元素继续向上一定位父级查找，一直到找不到上一定位父级
+     * 注：在IE8下，offsetTop和offsetLeft是包含边框的
+     *
+     * */
+
+    function offset(curEle) {
+        var t, l, par;
+        t = curEle.offsetTop;
+        l = curEle.offsetLeft;
+        par = curEle.offsetParent;
+        while (par) {
+            if (!navigator.userAgent.indexOf("MSIE 8")) {
+                t += par.clientTop;
+                l += par.clientLeft;
+            }
+            t += par.offsetTop;
+            l += par.offsetLeft;
+            par = par.offsetParent;
+        }
+        return {left: l, top: t};
+    }
+</script>
+</body>
+</html>

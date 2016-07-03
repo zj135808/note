@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 750px;
+            margin: 0 auto;
+        }
+        ul{
+            list-style: none;
+            width: 230px;
+            margin-right: 20px;
+            border-top: 3px solid red;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+<script src="../js/utils.js"></script>
+<script>
+    /*
+    * 瀑布流：即一直往下翻，一直有内容呈现
+    *
+    * 思路：
+    * 1）动态创建li，将li插入到高度最小的ul中
+    * 2）当scrollTop+clientHeight >= scrollHeight-100 时在继续进行动态创建
+    *
+    * */
+    var aUl=document.getElementsByTagName("ul");
+    console.log(aUl);
+    function createLi(){
+        var oLi=document.createElement("li");
+        utils.css(oLi,"height",utils.rnd(150,200));
+        oLi.style.backgroundColor="rgb("+utils.rnd(0,255)+","+utils.rnd(0,255)+","+utils.rnd(0,255)+")";
+        return oLi;
+    }
+    function li30(){
+        for(var i=0;i<30;i++){
+            var ary=utils.listToArray(aUl);
+            ary.sort(function(a,b){
+                return utils.css(a,"height")-utils.css(b,"height");
+            });
+            ary[0].appendChild(createLi());
+        }
+    }
+    li30();
+
+    window.onscroll=function(){
+        var scrollBottom=utils.win("clientHeight")+utils.win("scrollTop");
+        var scrollHeight=utils.win("scrollHeight");
+        if(scrollBottom>=scrollHeight-100){
+            li30();
+        }
+    }
+
+</script>
+</body>
+</html>

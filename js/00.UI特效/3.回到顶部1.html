@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 1000%;
+            background: -webkit-linear-gradient(top, lightsalmon, lightsteelblue, lightsteelblue, lightgreen, lightyellow, lightpink);
+        }
+
+        #box {
+            width: 80px;
+            height: 80px;
+            background: white;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 80px;
+            text-align: center;
+            border: 5px solid green;
+            box-shadow: 4px 4px 10px green;
+            border-radius: 50%;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            -webkit-user-select: none;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="box">toTop</div>
+<script src="../js/utils.js"></script>
+<script>
+    /*
+     * 回到顶部1需求：
+     * 1）在刚打开页面时，不显示toTop的按钮，在滚轮滚去一屏的高度时进行显示
+     * 2）点击回到顶部后，按钮消失，滚轮滑到最上面
+     *
+     * 思路：
+     * 1）首先计算出当前位置距顶部的距离  target
+     * 2）设置一个回到顶部的时间         duration
+     * 3）设置滚轮每次向上走的频率       interval
+     * 4）计算滚轮每次向上走的距离       step=target/duration*interval
+     * 5）设置定时器，定时器中执行的方法如下：
+     *   a）计算出当前位置距顶部的距离
+     *   b）让改距离-step
+     *   c）将减后的距离重新赋值给浏览器的高度
+     *   d）如果当前已经回到顶部，那么停止定时器
+     * 6）实现当滚轮滚动到第一屏以后按钮才显示，那么需要触发一个滚轮事件，且让oBtn一开始处于隐藏的状态
+     * 7）实现点击按钮，让按钮消失，即display为none，但由于滚轮一旦滚动，又会触发滚动时间，那么oBtn又会显示，因此，在点击按钮后，不但需要让display为none，还需要关闭滚轮事件，在回到顶部后，再开启滚轮事件
+     *
+     * */
+
+    window.onscroll = computedDisplay;
+    function computedDisplay() {
+        var clientHeight = utils.win("clientHeight");
+        var scrollTop = utils.win("scrollTop");
+        if (scrollTop >= clientHeight) {
+            oBtn.style.display = "block";
+        } else {
+            oBtn.style.display = "none";
+        }
+    }
+
+    var oBtn = document.getElementById("box");
+    oBtn.onclick = function () {
+        oBtn.style.display = "none";
+        window.onscroll = null;
+        var target = utils.win("scrollTop");
+        var duration = 2000;
+        var interval = 50;
+        var step = target / duration * interval;
+        clearInterval(timer);
+        var timer = setInterval(function () {
+            var curTop = utils.win("scrollTop");
+            if (curTop === 0) {
+                clearInterval(timer);
+                window.onscroll = computedDisplay;
+                return;
+            }
+            curTop -= step;
+            utils.win("scrollTop", curTop);
+        }, interval)
+    };
+
+</script>
+</body>
+</html>

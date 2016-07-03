@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            background-color: red;
+            border: 10px solid green;
+            height: 200px;
+            width: 200px;
+            opacity: 0.8;
+            filter:alpha(opacity=80);
+        }
+    </style>
+</head>
+<body>
+<div id="box">珠峰培训</div>
+<script>
+    var oDiv=document.getElementById("box");
+    console.log(css(oDiv,"height"));
+    console.log(css(oDiv,"opacity"));
+
+    /*
+    * getcss：获取一个元素某个css样式的值
+    *
+    * 参数：
+    * 参1：获取的元素  curEle
+    * 参2：获取该元素的css样式   attr
+    *
+    * 返回值：获取的css样式的具体属性值
+    *
+    * 思路：
+    * 1、判断浏览器
+    *   高级浏览器，使用 getComputedStyle
+    *   低级浏览器，使用 currentStyle
+    * 2、对于获取到带单位的属性值需要将单位去除
+    * 3、如果是获取opacity的属性值，需要进行单独处理
+    *
+    * */
+
+    function getCss(curEle,attr){
+        var value,reg;
+        if("getComputedStyle" in window){
+            value = getComputedStyle(curEle,false)[attr];
+        }else{
+            if(attr === "opacity"){
+                value = curEle.currentStyle.filter;
+                reg = /^alpha\(opacity[=:](\d+)\)$/;
+                return reg.test(value)?RegExp.$1/100:1;
+            }else{
+                value = curEle.currentStyle[attr];
+            }
+        }
+        reg=/^([+-])?\d+(\.\d+)?(px|pt|rem|em)$/;
+        return reg.test(value)?parseFloat(value):value;
+    }
+
+
+
+
+    /*
+    * setCss：给某个元素的某个css样式设置对应的值
+    *
+    * 参数：
+    * 参1：需要设置样式的元素  curEle
+    * 参2：给当前元素设置那个样式？   attr
+    * 参3：给这个样式设置的属性值   value
+    *
+    * 返回值：
+    * 无
+    *
+    * 思路：
+    * 1、设置的样式目前是设置的行内样式
+    *   curEle.style[attr]=value
+    * 2、在设置数值类的样式是，如果用户没有传递单位，那么需要将单位添加
+    * 3、对于opacity和float需要做单独处理
+    *
+    * */
+
+    function setCss(curEle,attr,value){
+        if(attr==="float"){
+            curEle.style.styleFloat=value;
+            curEle.style.cssFloat=value;
+        }
+        if(attr==="opacity"){
+            curEle.style.opacity = value;
+            curEle.style.filter = "alpha(opacity="+value*100+")";
+        }
+        var reg=/width|height|top|right|bottom|left|((margin|padding)(top|right|bottom|left)?)/;
+        value = reg.test(attr)?parseFloat(value)+"px":value;
+        curEle.style[attr]=value;
+    }
+
+    /*setCss(oDiv,"height","200");
+    setCss(oDiv,"width","200px");
+    setCss(oDiv,"opacity","0.5");
+    setCss(oDiv,"float","right");*/
+
+
+
+
+    /*
+    * setGroupCss：给某一个元素设置一组样式
+    *
+    * 参数：
+    * 参1：需要设置的元素  curEle
+    * 参2：设置的一组样式  options
+    *
+    * 返回值：
+    * 无
+    *
+    * 思路：
+    * 1、使用setCss分别对每一个样式进行设置
+    *
+    * */
+
+    function setGroupCss(curEle,options){
+        for(var attr in options){
+            setCss(curEle,attr,options[attr]);
+        }
+    }
+
+    /*setGroupCss(oDiv,{
+        "height":"200",
+        "width":"200px",
+        "opacity":"0.5",
+        "float":"right"
+    })*/
+
+
+
+
+    /*
+    * css：以上三种方法的综合，即getCss、setCss、setGroupCss
+    *
+    * 参数：
+    * 参1：设置的当前元素curEle
+    *
+    * 返回值：
+    * 如果是获取有返回值，设置没有返回值
+    *
+    * 思路：
+    * 1、判断第二个参数，如果第二个参数是object的数据类型，那么调用setGroupCss
+    * 2、如果第二个参数是string类型，再判断第三个参数是否存在，如果存在，那么调用setCss
+    * 3、如果第三个参数不存在，那么调用getCss
+    *
+    * */
+
+    function css(curEle){
+        var arg2=arguments[1];
+        if(arg2 instanceof  Object){
+            setGroupCss(curEle,arg2);
+        }else{
+            var arg3=arguments[2];
+            if(typeof  arg3 === "undefined"){
+                return getCss(curEle,arg2);
+            }else{
+                setCss(curEle,arg2,arg3);
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
