@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 750px;
+            margin: 0 auto;
+        }
+
+        ul {
+            list-style: none;
+            width: 230px;
+            margin-right: 20px;
+            border-top: 3px solid red;
+            float: left;
+        }
+
+        ul li {
+            overflow: hidden;
+        }
+
+        ul li img {
+            width: 100%;
+            height: 100%;
+            background: url("../img2/default.gif") no-repeat center center #e1e1e1;
+        }
+
+        #btn {
+            width: 80px;
+            height: 80px;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 80px;
+            text-align: center;
+            border: 5px solid green;
+            box-shadow: 4px 4px 10px green;
+            border-radius: 50%;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            -webkit-user-select: none;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+<div id="btn">toTop</div>
+<script src="../js/utils.js"></script>
+<script>
+    var aUl = document.getElementsByTagName("ul");
+    var aImgs = document.getElementsByTagName("img");
+    var oBtn = document.getElementById("btn");
+    function createLi() {
+        var oLi = document.createElement("li");
+        var oImg = document.createElement("img");
+        utils.css(oLi, "height", utils.rnd(200, 250));
+        utils.css(oLi, "width", 230);
+        oImg.setAttribute("realImg", "../img2/" + utils.rnd(1, 10) + ".jpg");
+        oLi.appendChild(oImg);
+        return oLi;
+    }
+    function li30() {
+        for (var i = 0; i < 30; i++) {
+            var ary = utils.listToArray(aUl);
+            ary.sort(function (a, b) {
+                return utils.css(a, "height") - utils.css(b, "height");
+            });
+            ary[0].appendChild(createLi());
+        }
+    }
+    li30();
+    showImg();
+    window.onscroll = computedDisplay;
+    function computedDisplay() {
+        showImg();
+        var clientHeight = utils.win("clientHeight");
+        var scrollTop = utils.win("scrollTop");
+        if (scrollTop >= clientHeight) {
+            oBtn.style.display = "block";
+        } else {
+            oBtn.style.display = "none";
+        }
+        var scrollBottom = utils.win("clientHeight") + utils.win("scrollTop");
+        var scrollHeight = utils.win("scrollHeight");
+        if (scrollBottom >= scrollHeight - 100) {
+            li30();
+        }
+    }
+
+    function showImg() {
+        var scrollBottom = utils.win("scrollTop") + utils.win("clientHeight");
+        for (var i = 0; i < aImgs.length; i++) {
+            var imgPosition = utils.offset(aImgs[i]).top + utils.css(aImgs[i], "height") * 1 / 3;
+            if (scrollBottom >= imgPosition) {
+                lazyLoad(aImgs[i]);
+            }
+        }
+    }
+
+    function lazyLoad(img) {
+        if (img.loaded) {
+            return;
+        }
+        var tmpImg = new Image;
+        tmpImg.src = img.getAttribute("realImg");
+        tmpImg.onload = function () {
+            img.src = this.src;
+            img.loaded = true;
+            tmpImg = null;
+        };
+        tmpImg.onerror = function () {
+            tmpImg = null;
+        };
+    }
+
+    oBtn.onclick = function () {
+        oBtn.style.display = "none";
+        window.onscroll = null;
+        var target = utils.win("scrollTop");
+        var duration = 1000;
+        var interval = 50;
+        var step = target / duration * interval;
+        clearInterval(timer);
+        var timer = setInterval(function () {
+            var curTop = utils.win("scrollTop");
+            if (curTop === 0) {
+                clearInterval(timer);
+                window.onscroll = computedDisplay;
+                return;
+            }
+            curTop -= step;
+            utils.win("scrollTop", curTop);
+        }, interval)
+    };
+
+</script>
+</body>
+</html>

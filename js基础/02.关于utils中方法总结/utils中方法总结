@@ -1,0 +1,67 @@
+获取元素的方式：
+    1.id
+    2.tagName
+    3.className
+    4.name
+    5.document.documentElement   document.body
+    6.querySelector
+    7.querySelectorAll
+
+    节点           nodetype      nodeName            nodeValue
+   元素节点            1         大写标签名              null
+   文本节点            3           #text               文本内容
+   注释节点            8           #comment            注释内容
+  document节点         9          #document             null
+
+节点关系：
+parentNode        获取父节点
+childNodes        获取所有的子节点（包括元素节点，文本节点，注释节点，document节点）
+children          获取所有的子元素节点
+previousSibling   获取上一个哥哥节点
+nextSibling       获取下一个弟弟节点
+firstChild        获取第一个孩子节点
+lastChild         获取最后一个孩子节点
+
+DOM的动态创建：
+1.动态创建：
+    document.createElement(标签名)
+    obj.cloneNode(true/false)
+2.动态插入：
+    parent.appendChild(newEle)
+    paretn.insertBefore(newEle,oldEle)
+2.动态删除和替换
+    parent.removeChild(curEle)
+    parent.replaceChild(newEle,oldEle)
+
+属性操作：
+.  []
+attribute
+
+--------------------------------------------------------------------------------------
+元素获取：
+1.getByClass      限定范围的通过class名获取元素
+2.hasClass        判断对象上是否有某个class名
+3.addClass        给某个元素的className上添加class名，可以添加多个class
+4.removeClass     如果元素的className有某个class名，那么就进行删除，可以删除多个class
+5.getCss          获取元素的某一个样式，可获取非行间样式
+6.setCss          给某一个元素设置一个样式
+7.setGroupCss     给某一个元素设置一组样式
+8.css             将获取某个元素的某个样式，给某个元素设置某个样式，给某个元素设置一组样式 三合一
+9.win             浏览器盒子模型的兼容处理
+10.offset         获取某一个元素距离body的左距离和右距离
+
+关于节点：
+11.getChildren    获取当前元素下的所有元素节点
+12.prev           获取当前元素的上一个哥哥元素节点
+13.prevAll        获取当前元素的所有哥哥元素节点
+14.next           获取当前元素的下一个弟弟元素节点
+15.nextAll        获取当前元素的所有弟弟元素节点
+16.sibling        获取当前元素的相邻元素节点
+17.siblings       获取当前元素的所有兄弟元素节点
+18.firstChild     获取当前元素的第一个子元素节点
+19.lastChild      获取当前元素的最后一个子元素节点
+20.index          获取当前元素的索引
+21.appendChild    插入到容器的末尾
+22.prependChild   插入到容器的开头
+23.insertBefore   将新元素插入到指定元素的前面
+24.insertAfter    将新元素插入到指定元素的后面
