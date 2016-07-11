@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top: 0;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script src="js/utils.js"></script>
+<script>
+    /*
+    * 固定步长的运动：
+    *
+    * 1）步长固定，即step固定
+    * 2）有已知距离，设置定时器，定时走step的距离
+    * 3）如果最后剩下的距离<step，那么直接另该块跳到最后
+    *
+    * 具体实现过程：
+    * 1）将需要移动的元素进行获取 oDiv
+    * 2）设置步长step=10
+    * 3）设置终点target为浏览器最右边
+    * 4）开启一个定时器
+    *   a）获取当前的left值
+    *   b）基于当前left值+step
+    *   c）将增加的left值赋值给元素的left
+    *   注：如果最后剩下的距离小于一个step，那么令该块直接移动到终点
+    *
+    * */
+
+    var oDiv=document.getElementById("box");
+    var step=10;
+    var target=utils.win("clientWidth")-utils.css(oDiv,"width");
+    window.clearInterval(timer);
+    var timer=setInterval(function(){
+        var curLeft=utils.css(oDiv,"left");
+        curLeft+=step;
+        if(curLeft>=target){
+            utils.css(oDiv,"left",target);
+            window.clearInterval(timer);
+            return;
+        }
+        utils.css(oDiv,"left",curLeft);
+    },500);
+</script>
+</body>
+</html>

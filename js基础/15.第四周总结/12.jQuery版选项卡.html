@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            font-size: 50px;
+            color: white;
+        }
+
+        input{
+            float: left;
+            width: 150px;
+            height: 40px;
+        }
+        .box{
+            width: 450px;
+            height: 200px;
+        }
+        .box div{
+            width: 100%;
+            height: 100%;
+            background: lightblue;
+            display: none;
+        }
+        .box div.show{
+            display: block;
+        }
+        input.bg{
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box1">
+    <input type="button" value="按钮1" class="bg"/>
+    <input type="button" value="按钮2"/>
+    <input type="button" value="按钮3"/>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+</div>
+<div class="box" id="box2">
+    <input type="button" value="按钮1" class="bg"/>
+    <input type="button" value="按钮2"/>
+    <input type="button" value="按钮3"/>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/12.tab.js"></script>
+<script>
+   /*
+   * 实现选项卡
+   *
+   * 思路：
+   * 1）由于涉及到选项卡，所以使用click事件，该事件是触发每一个匹配元素的click事件
+   * 2）函数中的$(this)是当前元素
+   *
+   * */
+
+    /*$(".box input").click(function(){
+        $(this).addClass("bg").siblings().removeClass("bg");
+        $(".box div").eq($(this).index()).addClass("show").siblings().removeClass("show");
+    })*/
+   tab("#box1");
+   tab("#box2");
+</script>
+</body>
+</html>

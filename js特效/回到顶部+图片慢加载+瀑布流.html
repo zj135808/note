@@ -20,16 +20,15 @@
             margin-right: 20px;
             border-top: 3px solid red;
             float: left;
-        }
-
-        ul li {
             overflow: hidden;
         }
+
+
 
         ul li img {
             width: 100%;
             height: 100%;
-            background: url("../img2/default.gif") no-repeat center center #e1e1e1;
+            background: url("img2/default.gif") no-repeat center center #e1e1e1;
         }
 
         #btn {
@@ -59,7 +58,7 @@
     <ul></ul>
 </div>
 <div id="btn">toTop</div>
-<script src="../js/utils.js"></script>
+<script src="js/utils.js"></script>
 <script>
     var aUl = document.getElementsByTagName("ul");
     var aImgs = document.getElementsByTagName("img");
@@ -69,7 +68,7 @@
         var oImg = document.createElement("img");
         utils.css(oLi, "height", utils.rnd(200, 250));
         utils.css(oLi, "width", 230);
-        oImg.setAttribute("realImg", "../img2/" + utils.rnd(1, 10) + ".jpg");
+        oImg.setAttribute("realImg", "img2/" + utils.rnd(1, 10) + ".jpg");
         oLi.appendChild(oImg);
         return oLi;
     }
@@ -146,6 +145,29 @@
             utils.win("scrollTop", curTop);
         }, interval)
     };
+
+   /* function change(){
+        for(var i=0;i<aImgs.length;i++){
+            aImgs[i].index=i;
+            aImgs[i].onmouseover= function () {
+                imageAdd(aImgs[this.index]);
+            };
+            aImgs[i].onmouseout= function () {
+                imageDelete(aImgs[this.index]);
+            }
+        }
+    }
+    change();
+    function imageAdd(img){
+        img.oldHeight=utils.css(img.parentNode,"height");
+        img.oldWidth=utils.css(img.parentNode,"width");
+        utils.css(img,"height",utils.css(img,"height")*4/3);
+        utils.css(img,"width",utils.css(img,"height")*4/3);
+    }
+    function imageDelete(img){
+        utils.css(img,"height",img.oldHeight);
+        utils.css(img,"width",img.oldWidth);
+    }*/
 
 </script>
 </body>

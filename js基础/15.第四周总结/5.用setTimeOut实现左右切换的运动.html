@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            width: 100px;
+            height: 45px;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: absolute;
+            top: 100px;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="left"/>
+<input type="button" value="right"/>
+
+<div id="box"></div>
+<script src="js/utils.js"></script>
+<script>
+    /*
+     * 用setTimeOut实现左右切换的运动
+     *
+     * 这里采用的是固定步长的运动
+     *
+     * 思路：
+     * 1）向左走向右走，取决于当前位置与目标值的大小判断
+     * 2）如果当前位置<目标值  当前位置+=step；反之  当前位置-=step
+     * 3）停止条件都是 当前位置（+-）step>=(<=)target；直接设置物体到目标值
+     * 4）通过setTimeOut让move方法不断的调用
+     * 5）但以上调用需要进行传参，存在性能问题
+     *
+     * 注：为了避免私有定时器的冲突，可以定义一个全局变量timer，但是全局变量不好，我们可以把定时器保存在自定义属性上；
+     * 注：在使用setTimeOut时，由于需要传递参数target，所以写一个函数，函数中执行move，但此时会造成函数执行后所形成的私有作用域无法释放，因此可以将函数体写在函数_move中，此时在setTimeOut调用的时候，不用传递参数，函数执行后会自动进行内存释放
+     *
+     * */
+    var oDiv = document.getElementById("box");
+    var aBtn = document.getElementsByTagName("input");
+    aBtn[0].onclick = function () {
+        move(10);
+    };
+    aBtn[1].onclick = function () {
+        move(1200);
+    };
+
+    function move(target) {
+        _move();
+        function _move(){
+            var curLeft = utils.css(oDiv, "left");
+            if (curLeft < target) {
+                curLeft += 10;
+                if (curLeft >= target) {
+                    utils.css(oDiv, "left", target);
+                }
+            }else if(curLeft>target){
+                curLeft-=10;
+                if(curLeft<=target){
+                    utils.css(oDiv, "left", target);
+                }
+            }else{
+                return;
+            }
+            utils.css(oDiv,"left",curLeft);
+            window.clearTimeout(oDiv.timer);
+            oDiv.timer=window.setTimeout(_move,10);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script src="js/utils.js"></script>
+<script>
+    /*
+    * 计算步长的运动
+    *
+    * 思路：
+    * 1）确定目标位置 target
+    * 2）获取初始位置  curLeft
+    * 3）计算运动距离  distance
+    * 4）确定运动时间  duration
+    * 5）确定运动频率  interval
+    * 6）计算每次运动距离   distance/duration*interval-oDiv.width
+    * 7）开启定时器
+    *   a）获取当前位置   curLeft
+    *   b）在当前位置的基础上+step    curLeft+step
+    *   c）将最新的位置赋值给元素的left
+    *       注：如果最后剩下的距离小于一个step，那么令该块直接移动到终点
+    *
+    * */
+
+    var oDiv=document.getElementById("box");
+    var target=utils.win("clientWidth")-utils.css(oDiv,"width");
+    var curLeft=utils.css(oDiv,"left");
+    var distance=target-curLeft;
+    var duration=1000;
+    var interval=10;
+    var step=distance/duration*interval;
+    window.clearInterval(timer);
+    var timer=window.setInterval(function(){
+        curLeft=utils.css(oDiv,"left");
+        curLeft+=step;
+        if(curLeft>=target){
+            utils.css(oDiv,"left",target);
+            window.clearInterval(timer);
+            return;
+        }
+        utils.css(oDiv,"left",curLeft);
+    },interval);
+</script>
+</body>
+</html>

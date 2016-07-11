@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: green;
+            position: absolute;
+            top: 50px;
+            left: 100px;
+            background: url("img/default.gif");
+        }
+        #target{
+            width: 200px;
+            height: 200px;
+            border-top: 1px solid red;
+            border-left: 1px solid red;
+            position: absolute;
+            top: 400px;
+            left: 1000px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<div id="target"></div>
+<script src="js/utils.js"></script>
+<script>
+    /*
+    * 需求：用tween实现物体的多运动，即在水平方向和竖直方向同时运动
+    *
+    * 思路：
+    * 1）与用tween公式实现匀速运动的思想一致，只是多了一个竖直方向的运动
+    * */
+
+    function linear(t,b,c,d){
+        return t/d*c+b;
+    }
+
+    var oDiv=document.getElementById("box");
+    var oTar=document.getElementById("target");
+    var beginLeft=utils.css(oDiv,"left");
+    var beginTop=utils.css(oDiv,"top");
+    var changeLeft=utils.css(oTar,"left")-beginLeft;
+    var changeTop=utils.css(oTar,"top")-beginTop;
+    var duration=1000;
+    var time=null;
+    window.clearInterval(timer);
+    var timer=window.setInterval(function(){
+        time+=10;
+        if(time>=duration){
+            utils.css(oDiv,{
+                left:utils.css(oTar,"left"),
+                top:utils.css(oTar,"top")
+            });
+            window.clearInterval(timer);
+            return;
+        }
+        var curLeft=linear(time,beginLeft,changeLeft,duration);
+        var curTop=linear(time,beginTop,changeTop,duration);
+        utils.css(oDiv,{
+            left:curLeft,
+            top:curTop
+        });
+    },10);
+</script>
+</body>
+</html>

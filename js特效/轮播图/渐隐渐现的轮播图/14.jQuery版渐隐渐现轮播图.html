@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 1000px;
+            height: 300px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .box .banner{
+            width: 1000px;
+            height: 300px;
+        }
+        .box .banner div{
+            width: 1000px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 0;
+            opacity:0;
+            filter:alpha(opacity=0);
+            background: url("img/default.gif") no-repeat center center #e1e1e1;
+        }
+        .box ul{
+            list-style: none;
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+            z-index: 2;
+        }
+        .box ul li{
+            float: left;
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            background: darkgrey;
+            opacity: 0.5;
+            filter:alpha(opacity=50);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .box ul li.bg{
+            background: lightblue;
+        }
+        .box a{
+            width: 30px;
+            height: 45px;
+            background-image: url(img/pre.png);
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 127.5px;
+            z-index: 2;
+            opacity: 0.5;
+            filter:alpha(opacity=50);
+            display: none;
+        }
+        .box a.left{
+            background-position: 0 0;
+            left: 0;
+        }
+        .box a.right{
+            background-position: -47px 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="banner">
+        <!--<div><img src="img/banner1.jpg" alt=""/></div>
+        <div><img src="img/banner2.jpg" alt=""/></div>
+        <div><img src="img/banner3.jpg" alt=""/></div>
+        <div><img src="img/banner4.jpg" alt=""/></div>-->
+    </div>
+    <ul>
+       <!-- <li class="bg"></li>
+        <li></li>
+        <li></li>
+        <li></li>-->
+    </ul>
+    <a href="javascript:;" class="left"></a>
+    <a href="javascript:;" class="right"></a>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/14.banner.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: green;
+            position: absolute;
+            top: 50px;
+            left: 100px;
+        }
+        #target{
+            width: 1px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            top: 0;
+            left: 1200px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<div id="target"></div>
+<script src="js/utils.js"></script>
+<script>
+    /*
+    * tween实现匀速运动
+    *
+    * tween公式介绍：
+    * function tween(t,b,c,d)
+    * t：time       物体已经运动的时间
+    * b：begin      物体的起始位置
+    * c：change     物体的运动距离
+    * d：duration   物体移动总距离需要的时间
+    * return  t/d*c+b   返回值是在t时间是物体现在所在的位置，即物体当前的left值
+    *
+    *
+    * 思路：
+    * 1）观察上面公式，可发现，b，c，d的值都是固定的，那么可以通过改变time的值来确定当前的位置，并将当前的位置赋值给元素的left
+    * 2）获取元素           oDiv
+    * 3）获取起始位置       begin
+    * 4）获取目标位置       target
+    * 5）计算运动语句       change=target-begin
+    * 6）确定运动总时长     duration
+    * 7）开启一个定时器
+    *   a）令time+=10
+    *   b）根据linear函数计算当前位置  curLeft
+    *   c）将当前的位置赋值给元素的left
+    *       注：如果最后剩下的距离，移动的时间在10ms以内，可以直接运动到目标位置
+    *
+    * */
+    function linear(t,b,c,d){
+        return t/d*c+b;
+    }
+    var oDiv=document.getElementById("box");
+    var oTar=document.getElementById("target");
+    var begin=utils.css(oDiv,"left");
+    var target=utils.css(oTar,"left");
+    var change=target-begin;
+    var duration=1000;
+    var time=null;
+    window.clearInterval(timer);
+    var timer=window.setInterval(function(){
+        time+=10;
+        if(time>=duration){
+            utils.css(oDiv,"left",target);
+            window.clearInterval(timer);
+            return;
+        }
+        var curLeft=linear(time,begin,change,duration);
+        utils.css(oDiv,"left",curLeft);
+    },10);
+</script>
+</body>
+</html>
