@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 300px;
+            margin: 10px;
+            padding: 10px;
+            background: lightgoldenrodyellow;
+            background: -webkit-linear-gradient(top left,lemonchiffon,lightgreen,lightblue,lightgoldenrodyellow,lightgray);
+        }
+        .box li{
+            line-height: 40px;
+            position: relative;
+        }
+        .box li em{
+            position: absolute;
+            top: 12px;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            background: url("icon.png") no-repeat -59px -28px;
+        }
+        .box li em.open{
+            background-position: -42px -28px;
+        }
+        .box li span{
+            padding-left: 20px;
+        }
+        .two{
+            margin-left: 20px;
+        }
+        .three{
+            margin-left: 40px;
+        }
+        .four{
+            margin-left: 60px;
+        }
+        .two,.three,.four{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <ul>
+        <li>
+            <p><em></em><span>第一级第一个</span></p>
+            <ul class="two">
+                <li>
+                    <p><em></em><span>第二级第一个</span></p>
+                    <ul class="three">
+                        <li><span>第三级第一个</span></li>
+                        <li>
+                            <p><em></em><span>第三级第二个</span></p>
+                            <ul class="four">
+                                <li><span>第四级第一个</span></li>
+                                <li><span>第四级第二个</span></li>
+                                <li><span>第四级第三个</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p><em></em><span>第三级第三个</span></p>
+                            <ul class="four">
+                                <li><span>第四级第一个</span></li>
+                                <li><span>第四级第二个</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><span>第二级第二个</span></li>
+                <li>
+                    <p><em></em><span>第二级第三个</span></p>
+                    <ul class="three">
+                        <li><span>第三级第一个</span></li>
+                        <li><span>第三级第二个</span></li>
+                        <li><span>第三级第三个</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var $p=$("#box p");
+    $.each($p,function(){
+        $(this).css("cursor","pointer");
+        $(this).click(function(){
+            var bOk=$(this).next().css("display")==="block"?true:false;
+            if(bOk){
+                $(this).parent().find("ul").hide();
+                $(this).parent().find("em").removeClass("open");
+            }else{
+                $(this).children("em").addClass("open");
+                $(this).next().show();
+            }
+        })
+    })
+</script>
+</body>
+</html>

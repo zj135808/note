@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .small{
+            width: 350px;
+            height: 350px;
+            box-shadow: 2px 2px 5px darkgrey;
+            margin: 30px 30px;
+            position: relative;
+            cursor: move;
+        }
+        .small img{
+            width: 100%;
+            height: 100%;
+        }
+        .small .mark{
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: gray;
+            opacity: 0.3;
+            filter:alpha(opacity=50);
+            display: none;
+        }
+        .big{
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            left: 410px;
+            top: 30px;
+            overflow: hidden;
+        }
+        .big img{
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="small" id="small">
+    <img src="img/iphone.jpg" alt=""/>
+    <div class="mark" id="mark"></div>
+</div>
+<div class="big" id="big">
+    <img src="img/iphone_big.jpg" alt=""/>
+</div>
+<script charset="utf-8" type="text/javascript" src="js/utils.js"></script>
+<script>
+
+    /*
+    * 思路：
+    * 1）当鼠标移入小图片时
+    *   标记显示
+    *   大图片显示
+    *  2）当鼠标在小图片中进行移动时
+    *    改变标记的left和top值
+    *    改变大图片在其区域的left和top值
+    *  3）当鼠标移出小图片时
+    *   标记消失
+    *   大图片消失
+    *
+    * */
+
+    var oSmall=document.getElementById("small");
+    var oMark=oSmall.getElementsByTagName("div")[0];
+    var oBig=document.getElementById("big");
+    var oImg=oBig.getElementsByTagName("img")[0];
+
+    oSmall.onmouseover=function(){
+        utils.css(oMark,"display","block");
+        utils.css(oImg,"display","block");
+    };
+    oSmall.onmousemove=function(e){
+        e=e||window.event;
+        var left= e.clientX-utils.offset(oSmall).left-utils.css(oMark,"width")/2;
+        var top= e.clientY-utils.offset(oSmall).top-utils.css(oMark,"height")/2;
+        if(left>=utils.css(oSmall,"width")-utils.css(oMark,"width")){
+            left=utils.css(oSmall,"width")-utils.css(oMark,"width");
+        }else if(left<=0){
+            left=0;
+        }
+        if(top>=utils.css(oSmall,"height")-utils.css(oMark,"height")){
+            top=utils.css(oSmall,"height")-utils.css(oMark,"height");
+        }else if(top<=0){
+            top=0;
+        }
+        utils.css(oMark,{
+            left:left,
+            top:top
+        });
+        utils.css(oImg,{
+            left:-left*2,
+            top:-top*2
+        });
+    };
+    oSmall.onmouseout=function(){
+        utils.css(oMark,"display","none");
+        utils.css(oImg,"display","none");
+    }
+</script>
+</body>
+</html>

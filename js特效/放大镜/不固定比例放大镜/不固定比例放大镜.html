@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .small{
+            width: 350px;
+            height: 350px;
+            box-shadow: 2px 2px 5px grey;
+            margin: 30px;
+            position: relative;
+            cursor: move;
+        }
+        .small img{
+            width: 100%;
+            height: 100%;
+        }
+        .small .mark{
+            width: 40%;
+            height: 40%;
+            background: black;
+            opacity: 0.3;
+            filter:alpha(opacity=30);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .big{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 410px;
+            top: 30px;
+            overflow: hidden;
+            display: none;
+        }
+        .big img{
+            width: 1000px;
+            height: 1000px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="small" id="small">
+    <img src="img/iphone.jpg" alt=""/>
+    <div class="mark"></div>
+</div>
+<div class="big" id="big">
+    <img src="img/iphone_big.jpg" alt=""/>
+</div>
+<script charset="utf-8" type="text/javascript" src="js/utils.js"></script>
+<script>
+
+    /*
+    * 思路：
+    * 1）和固定比例放大图的思路是一致的
+    * 2）不同之处在于放大的比例不固定，有如下等式
+    *   lS/(oSmall.width-oMark.width)=lB/(oImg.width-oBig.width)
+    * */
+
+    var oSmall=document.getElementById("small");
+    var oMark=oSmall.getElementsByTagName("div")[0];
+    var oBig=document.getElementById("big");
+    var oImg=oBig.getElementsByTagName("img")[0];
+
+    oSmall.onmouseover=function(){
+        utils.css(oMark,"display","block");
+        utils.css(oBig,"display","block");
+    };
+    oSmall.onmousemove=function(e){
+        e=e||window.event;
+        var left= e.clientX-utils.offset(oSmall).left-utils.css(oMark,"width")/2;
+        var top= e.clientY-utils.offset(oSmall).top-utils.css(oMark,"height")/2;
+        if(left>=utils.css(oSmall,"width")-utils.css(oMark,"width")){
+            left=utils.css(oSmall,"width")-utils.css(oMark,"width");
+        }else if(left<=0){
+            left=0
+        }
+        if(top>=utils.css(oSmall,"height")-utils.css(oMark,"height")){
+            top=utils.css(oSmall,"height")-utils.css(oMark,"height");
+        }else if(top<=0){
+            top=0;
+        }
+        utils.css(oMark,{
+            left:left,
+            top:top
+        });
+        utils.css(oImg,{
+            left:(utils.css(oBig,"width")-utils.css(oImg,"width"))*left/(utils.css(oSmall,"width")-utils.css(oMark,"width")),
+            top:(utils.css(oBig,"height")-utils.css(oImg,"height"))*top/(utils.css(oSmall,"height")-utils.css(oMark,"height"))
+        });
+    };
+    oSmall.onmouseout=function(){
+        utils.css(oMark,"display","none");
+        utils.css(oBig,"display","none");
+    };
+</script>
+</body>
+</html>

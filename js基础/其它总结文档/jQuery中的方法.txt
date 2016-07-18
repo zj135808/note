@@ -1,0 +1,103 @@
+核心：
+1、jQuery
+jQuery([selector,[context]])
+	var jQuery = function( selector, context ) {
+		 return new jQuery.fn.init( selector, context );
+	}
+作用：这个函数接收一个包含 CSS 选择器的字符串，然后用这个字符串去匹配一组元素
+参数：
+	selector:用来查找的字符串
+		当字符串作为一个参数传递，是通过规则获取不同的元素，例如：$(".cc")
+		当HTML字符串作为参数传递，属于动态创建HTML元素标签
+		当函数作为参数进行传递，$(function(){})等同于$(document).ready(function(){}) 
+			当页面中的HTML结构加载完成才会触发事件的执行
+	context:作为待查找的 DOM 元素集、文档或 jQuery 对象。
+		context传递一个JS对象,是真正的把context改变
+		context传递的是一个jQ对象,并没有把context改变,而是把传递进来的selector改变了
+返回值：
+	通过$()/jQuery()返回的结果其实都是在创建jQuery这个类的一个实例(jQuery对象)，选择器就是在获取类的实例
+			
+2、jQuery方法扩展
+	$().extend  $.fn.extend：把方法扩展到jQ的原型上（写插件）
+	$.extend :把方法扩展到私有属性上（完善类库）
+	
+3、each	
+	$.fn.each ->用来遍历选择器得到的jQ类数组集合中的每一项的，是写于jQuery原型上的方法
+	$.each ->用来遍历数组、对象、类数组中的每一项的，是写于jQuery这个类上的方法
+	
+4、多库并存(我们先引入jQuery,此时$代表jQuery;后期我们产品需求可能还需要引入Zepto,此时$代表Zepto;那么现在$就冲突了;)
+	var j=jQuery.noConflict();	jQuery提供的这个方法是为了转让对于$的使用权,只要执行这个方法,以后的$就不在等于jQuery了；我们定义的变量j就是jQuery最新的缩写,用j代替之前$；
+__________________________________________________________________________________________________________________
+
+属性：
+1、attr / removeAttr：一般用来操作自定义的属性
+2、prop / removeProp：一般用来操作内置的属性
+3、addClass  removeClass  toggleClass
+4、html  val  text
+
+———————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+文档处理
+1、append    appendTo    prepend     prependTo
+2、after  before
+3、insertAfter     insertBefore
+4、clone 
+5、remove
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+CSS
+1、css
+2、offset
+3、position：获取匹配元素相对父元素的偏移
+4、scrollTop    scrollLeft
+5、height   width
+6、innerHeight  innerWidth：相当于 clientHeight 和 clientWidth
+7、outerHeight  outerWidth：相当于 offsetHeight 和 scrollWidth
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+事件
+1、ready：当DOM载入就绪可以查询及操纵时绑定一个要执行的函数
+2、on   off  （最常用的事件绑定方式）
+3、one ：为每一个匹配元素的特定事件（像click）绑定一个一次性的事件处理函数
+4、为每个匹配元素的特定事件绑定事件处理函数
+5、focus：当元素获得焦点时，触发 focus 事件
+   blur：当元素失去焦点时触发 blur 事件
+6、keypress   keyup    keydown
+7、mouseover   mouseout  mouseenter   mouseleave   mousemove
+8、click	
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+效果：
+1、show   hide   toggle
+2、slide系列：
+	slideDown：通过高度变化（向下增大）来动态地显示所有匹配的元素
+	slideUp：通过高度变化（向上减小）来动态地隐藏所有匹配的元素
+	slideToggle
+3、fade系列：
+	fadeIn：通过不透明度的变化来实现所有匹配元素的淡入效果
+	fadeOut：通过不透明度的变化来实现所有匹配元素的淡出效果
+	fadeToggle
+4、stop：结束当前正在运行的动画,从当前元素的位置开始执行下一个动画
+   finish：结束当前正在运行的动画,但是会让元素立马运动到第一个动画的目标位置,然后从目标位置执行下一个动画
+   
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	

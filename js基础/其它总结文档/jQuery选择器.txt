@@ -1,0 +1,60 @@
+1、基本
+     #id
+     element
+     .class
+     *
+     selector1,selector2,selectorN  $("div,.cc,#a")
+2、层次选择器：
+     ancestor descendant  $("#div1 a")  $("#div1").find("a")
+     parent > child  $("#div1>a")  $("#div1").children("a")
+     prev + next  $("#div1+a") 下一个弟弟A
+     prev ~ nexts $("#div1~a") 所有弟弟中的A
+3、基本过滤器选择器
+     :first  二次筛选,在一个集合中在进行筛选 $("a:last")->先获取所有的A,然后在所有A中把最后一个获取到
+     :last
+     :not  $("a:not(.public)")->先获取所有的A,然后在所有A中把没有public这个样式类名的A得到
+     :even
+     :odd
+     :eq  $("a:eq(1)")
+     :gt  大于某个索引
+     :lt  小于某个索引 
+     :header
+     :animated
+4、内容过滤器选择器
+     :contains $("a:contains('珠峰')") 在所有的a中筛选出内容包含珠峰的a
+     :empty
+     :has
+     :parent
+5、可见性过滤器选择器
+     :hidden
+     :visible
+6、属性过滤器选择器
+     [attribute]   $("a[id]") 所有有ID属相的A
+     [attribute=value]
+     [attribute!=value]
+     [attribute^=value]
+     [attribute$=value]
+     [attribute*=value]
+     [attrSel1][attrSel2][attrSelN]
+7、子元素过滤器选择器
+     :nth-child    $("a:eq(0)")  $("a:nth-child(1)")
+     :first-child
+     :last-child
+     :only-child
+8、表单选择器
+     :input   $("input:text")
+     :text
+     :password
+     :radio
+     :checkbox
+     :submit
+     :image
+     :reset
+     :button
+     :file
+     :hidden
+9、表单过滤器选择器
+     :enabled
+     :disabled
+     :checked
+     :selected	 

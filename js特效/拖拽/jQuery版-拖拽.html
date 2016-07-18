@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: lightpink;
+            position: absolute;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box"></div>
+<script charset="UTF-8" type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script charset="UTF-8" type="text/javascript">
+    var $box=$("#box");
+    $box.on("mousedown",function(e){
+        var disX= e.clientX-$(this).offset().left;
+        var disY= e.clientY-$(this).offset().top;
+        $(document).on("mousemove.move",function(e){
+            var l= e.clientX-disX;
+            var t= e.clientY-disY;
+            var maxL=$(document).width()-$box.width();
+            var maxT=$(document).height()-$box.height();
+            if(l>=maxL){
+                l=maxL;
+            }else if(l<=0){
+                l=0;
+            }
+            if(t>=maxT){
+                t=maxT;
+            }else if(t<=0){
+                t=0;
+            }
+            $box.css({
+                left:l,
+                top:t
+            });
+        });
+        $(document).on("mouseup.move",function(){
+            $(document).off(".move");
+            $box[0].releaseCapture&& $box[0].releaseCapture();
+        });
+        $box[0].setCapture&&$box[0].setCapture();
+        return false;
+    })
+</script>
+</body>
+</html>

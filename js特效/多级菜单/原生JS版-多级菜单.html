@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box {
+            width: 300px;
+            background: -webkit-linear-gradient(top left, lightblue, lightgreen, lightsteelblue, lightcyan, lightgray);
+        }
+
+        .box li {
+            line-height: 35px;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .box span {
+            margin-left: 20px;
+        }
+
+        .box em {
+            position: absolute;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: url("img/icon.png") -59px -28px;
+        }
+        .box em.open{
+            background-position: -42px -28px;
+        }
+        .two {
+            margin-left: 20px;
+        }
+
+        .three {
+            margin-left: 40px;
+        }
+
+        .four {
+            margin-left: 60px;
+        }
+
+        .two, .three, .four {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <ul>
+        <li>
+            <p><em></em><span>第一级第一个</span></p>
+            <ul class="two">
+                <li>
+                    <p><em></em><span>第二级第一个</span></p>
+                    <ul class="three">
+                        <li><span>第三级第一个</span></li>
+                        <li><span>第三级第二个</span></li>
+                        <li>
+                            <p><em></em><span>第三级第三个</span></p>
+                            <ul class="four">
+                                <li><span>第四级第一个</span></li>
+                                <li><span>第四级第二个</span></li>
+                                <li><span>第四级第三个</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><span>第二级第二个</span></li>
+                <li>
+                    <p><em></em><span>第二级第三个</span></p>
+                    <ul class="two">
+                        <li><span>第三级第一个</span></li>
+                        <li>
+                            <p><em></em><span>第三级第二个</span></p>
+                            <ul class="four">
+                                <li><span>第四级第一个</span></li>
+                                <li><span>第四级第二个</span></li>
+                                <li><span>第四级第三个</span></li>
+                            </ul>
+                        </li>
+                        <li><span>第三级第三个</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script charset="UTF-8" type="text/javascript" src="js/utils.js"></script>
+<script charset="utf-8" type="text/javascript">
+    /*-
+     多级菜单：
+     1）获取到所有的p标签，p标签是可以进行菜单操作的标签
+     2）点击菜单时，判断当前的菜单下的内容为显示还是隐藏
+        菜单下的内容显示：点击后，令当前菜单下的所有ul都隐藏，并令菜单下所有的em删除open的class名
+        菜单下的内容隐藏：点击后，令当前菜单下的第一个ul进行显示，并更改当前点击的em的class名为open
+     -*/
+    var oBox = document.getElementById("box"),
+            aP = oBox.getElementsByTagName("p");
+    for (var i = 0; i < aP.length; i++) {
+        var curP = aP[i];
+        utils.css(curP, "cursor", "pointer");
+        (function (index) {
+            var curP = aP[index];
+            curP.onclick = function () {
+                var firUl = utils.next(curP),
+                        firEm = utils.firstChild(curP);
+                console.log(firEm);
+                var flag = utils.css(firUl, "display") === "block" ? true : false;
+                if (flag) {
+                    var par = curP.parentNode,
+                            allUl = par.getElementsByTagName("ul"),
+                            allEm = par.getElementsByTagName("em");
+                    for (var i = 0; i < allUl.length; i++) {
+                        utils.css(allUl[i], "display", "none");
+                        utils.removeClass(allEm[i], "open");
+                    }
+                } else {
+                    utils.addClass(firEm, "open");
+                    utils.css(firUl, "display", "block");
+                }
+            }
+        })(i);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+            font-family: "微软雅黑";
+            font-size: 20px;
+            outline: none;/*去掉input的蓝光*/
+        }
+        a{
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
+        .box{
+            width: 540px;
+            position: absolute;
+            left: 50%;
+            margin-left: -270px;
+            top:10%;
+        }
+        .box input{
+            display: block;
+            height: 40px;
+            width: 100%;
+            padding:10px;
+            border: 1px solid blue;
+        }
+        .box ul{
+            display: none;
+            margin-top: -1px;
+            width:560px ;
+            border: 1px solid blue;
+        }
+        .box ul li{
+            height: 35px;
+            line-height: 35px;
+        }
+        .box ul li a{
+            height: 40px;
+            line-height: 40px;
+            padding-left: 10px;
+        }
+        .box ul li a:hover{
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <input type="text" id="search"/>
+    <ul id="list">
+        <li><a href="javascript:;">珠峰培训-javascript培训</a></li>
+        <li><a href="javascript:;">珠峰培训node</a></li>
+        <li><a href="javascript:;">珠峰培训HTML5培训</a></li>
+        <li><a href="javascript:;">珠峰培训</a></li>
+        <li><a href="javascript:;">珠峰培训reactJs</a></li>
+    </ul>
+</div>
+<script charset="UTF-8" type="text/javascript">
+    /*
+    * 需求分析：
+    * 1）当点击input框且input框中有内容时，ul进行显示
+    *    当有键盘事件且input框中有内容时，ul显示
+    * 2）当点击除input框的其它地方时，ul隐藏
+    *    当点击ul中的li时，ul隐藏，且li中的内容到input框中
+    *
+    * */
+    var oBtn=document.getElementById("search"),
+            oUl=document.getElementById("list");
+
+    oBtn.onkeyup=oBtn.onclick=function(e){
+        var value=this.value.replace(/(^ +)|( +$)/g,"");
+        if(value.length>0){
+            oUl.style.display="block";
+        }else if(value.length<=0){
+            oUl.style.display="none";
+        }
+        e.stopPropagation? e.stopPropagation(): e.cancelBubble=true;
+    };
+    document.body.onclick=function(e){
+        e=e||window.event;
+        if(e.target.tagName.toLowerCase()==="a"){
+            oBtn.value=e.target.innerHTML;
+        }
+        oUl.style.display="none";
+    };
+
+</script>
+</body>
+</html>

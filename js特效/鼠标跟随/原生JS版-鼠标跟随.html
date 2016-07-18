@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box {
+            width: 900px;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .box img {
+            float: left;
+            width: 200px;
+            margin: 10px;
+        }
+        .box .bigPic {
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        .box .bigPic img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <img src="img/apple_1.jpg" realImg="img/apple_1_bigger.jpg" alt=""/>
+    <img src="img/apple_2.jpg" realImg="img/apple_2_bigger.jpg" alt=""/>
+    <img src="img/apple_3.jpg" realImg="img/apple_3_bigger.jpg" alt=""/>
+    <img src="img/apple_4.jpg" realImg="img/apple_4_bigger.jpg" alt=""/>
+    <div class="bigPic">
+        <img src="img/apple_1_bigger.jpg" alt=""/>
+    </div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    /*
+     * 鼠标跟随
+     *
+     * 功能：将鼠标放于小图片时，图片会被放大，且在小图片内移动鼠标时，放大的图片会随着鼠标进行移动
+     *
+     * 思路：
+     * 1）当鼠标移入小图片时，令bigPic下面的图片进行显示
+     * 2）并且令img中的图片为当前图片的放大图片，即令bigPic下img的src为当前图片的realImg
+     *
+     * 3）由于图片要随鼠标进行移动，因此需要有mousemove的事件，在鼠标进行移动时，令大图片的left和top值也随之改变
+     *
+     * 4）当鼠标移出小图片时，令bigPic的display为none
+     *
+     * */
+
+    var $box = $("#box");
+    var $img = $box.children("img");
+    var $bigPic = $(".bigPic");
+    $img.mouseover(function (e) {
+        $bigPic.stop().show(500).find("img").eq(0).attr("src", $(this).attr("realImg"));
+    });
+    $img.mousemove(function (e) {
+        var l = e.clientX - $box.offset().left + 15;
+        var t = e.clientY - $box.offset().top + 15;
+        $bigPic.css({left: l, top: t});
+    });
+    $img.mouseout(function () {
+        $bigPic.stop().hide();
+    });
+
+</script>
+</body>
+</html>

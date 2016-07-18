@@ -151,15 +151,21 @@ var utils = (function () {
             this.setGroupCss(curEle, arg2);
         }
     }
-    function getChildren(curEle) {
-        if (flag) {
+    function getChildren(curEle,tag) {
+        /*if (flag) {
             return this.listToArray(curEle.children);
-        }
+        }*/
         var ary = [];
         var nodeList = curEle.childNodes;
         for (var i = 0; i < nodeList.length; i++) {
             if (nodeList[i].nodeType === 1) {
-                ary[ary.length] = nodeList[i];
+                if(typeof  tag !== "undefined"){
+                    if(nodeList[i].tagName.toLowerCase()===tag){
+                        ary[ary.length]=nodeList[i];
+                    }
+                }else{
+                    ary[ary.length]=nodeList[i];
+                }
             }
         }
         return ary;

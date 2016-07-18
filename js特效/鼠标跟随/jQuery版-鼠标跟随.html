@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            margin: 30px auto;
+            width: 640px;
+            position: relative;
+        }
+        .box img{
+            float: left;
+            width: 150px;
+            margin-right: 10px;
+        }
+        .big{
+            width: 450px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        .big img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="img/apple_1.jpg" realImg="img/apple_1_bigger.jpg" alt=""/>
+    <img src="img/apple_2.jpg" realImg="img/apple_2_bigger.jpg" alt=""/>
+    <img src="img/apple_3.jpg" realImg="img/apple_3_bigger.jpg" alt=""/>
+    <img src="img/apple_4.jpg" realImg="img/apple_4_bigger.jpg" alt=""/>
+    <div class="big">
+        <img src="img/apple_1_bigger.jpg" alt=""/>
+    </div>
+</div>
+<script charset="utf-8" type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script>
+    var $aImg=$(".box img"),
+            $big=$(".big");
+    $aImg.mouseover(function(){
+        $big.stop().show(500);
+    });
+    $aImg.mousemove(function(e){
+        var left= e.clientX-$(this).parent().offset().left+10;
+        var top= e.clientY-$(this).parent().offset().top+10;
+        $big.css({left:left,top:top}).find("img").attr("src",$(e.target).attr("realImg"))
+    });
+    $aImg.mouseout(function(){
+        $big.stop().hide();
+    })
+</script>
+</body>
+</html>

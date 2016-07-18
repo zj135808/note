@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: lightpink;
+            position: absolute;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box"></div>
+<script>
+    /*
+    * 思路：
+    * 1）首先计算出，在鼠标点下去的时候，鼠标距离元素的左距离和上距离
+    * 2）当鼠标移动时，计算出元素的left值和top值并对其进行设置
+    * 3）当鼠标移开时，将移动事件关闭
+    *
+    * */
+    var oBox=document.getElementById("box");
+    oBox.onmousedown=function(e){
+        e=e||window.event;
+        var disX= e.clientX-this.offsetLeft;
+        var disY= e.clientY-this.offsetTop;
+        console.log(disX,disY);
+        document.onmousemove=function(e){
+            e=e||window.event;
+            var l= e.clientX-disX;
+            var t= e.clientY-disY;
+            var maxL=(document.documentElement.clientWidth||document.body.clientWidth)-oBox.offsetWidth;
+            var maxT=(document.documentElement.clientHeight||document.body.clientHeight)-oBox.offsetHeight;
+            if(l>=maxL){
+                l=maxL;
+            }else if(l<=0){
+                l=0;
+            }
+            if(t>=maxT){
+                t=maxT;
+            }else if(t<=0){
+                t=0;
+            }
+            oBox.style.left=l+"px";
+            oBox.style.top=t+"px";
+        };
+        document.onmouseup=function(){
+            document.onmousemove=null;
+            document.onmouseup=null;
+            oBox.releaseCapture && oBox.releaseCapture();
+        };
+        oBox.setCapture && oBox.setCapture();
+        return false;
+    }
+</script>
+</body>
+</html>
